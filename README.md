@@ -1,4 +1,5 @@
-sscf
+Seastar Children CRM
 ====
 
-sea star children crm..
+based on Yii1.1&Bootstrap2..
+
