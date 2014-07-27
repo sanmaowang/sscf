@@ -194,7 +194,6 @@ class ChildcaseController extends Controller
 			'new_count'=>$new_count,
 			'pending_count'=>$pending_count,
 			'confirm_count'=>$confirm_count,
-			'pass_count'=>$pass_count,
 		));
 	}
 
