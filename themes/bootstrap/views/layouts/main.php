@@ -20,7 +20,7 @@
           <?php if(Yii::app()->user->isAdmin()):?>
           <li<?php if ($this->code == 'user') echo ' class="active"'; ?>><a href="<?php echo $this->createUrl('user/index'); ?>">志愿者</a></li>
           <!--<li<?php if ($this->code == 'donor') echo ' class="active"'; ?>><a href="<?php echo $this->createUrl('user/index'); ?>">捐赠者</a></li>-->
-          <li<?php if ($this->code == 'OtherOrg') echo ' class="active"'; ?>><a href="<?php echo $this->createUrl('otherorg/index'); ?>">机构设置</a></li>
+          <li<?php if ($this->code == 'Org') echo ' class="active"'; ?>><a href="<?php echo $this->createUrl('org/index'); ?>">机构设置</a></li>
           <?php endif;?>
         </ul>
         <div class="btn-group pull-right">

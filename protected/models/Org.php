@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "tb_other_org".
+ * This is the model class for table "tb_org".
  *
- * The followings are the available columns in table 'tb_other_org':
+ * The followings are the available columns in table 'tb_org':
  * @property string $id
  * @property integer $parent_id
  * @property string $name
@@ -12,12 +12,12 @@
  * @property string $create_time
  * @property string $update_time
  */
-class OtherOrg extends CActiveRecord
+class Org extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return OtherOrg the static model class
+	 * @return Org the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -29,7 +29,7 @@ class OtherOrg extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'tb_other_org';
+		return 'tb_org';
 	}
 
 	/**
@@ -58,7 +58,7 @@ class OtherOrg extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'parent'=>array(self::BELONGS_TO, 'OtherOrg', 'parent_id'),
+			'parent'=>array(self::BELONGS_TO, 'Org', 'parent_id'),
 		);
 	}
 

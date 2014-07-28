@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Other Orgs'=>array('index'),
+	'Orgs'=>array('index'),
 	'Create',
 );
 

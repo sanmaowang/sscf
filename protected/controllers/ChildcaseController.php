@@ -76,7 +76,7 @@ class ChildcaseController extends Controller
 		$this->render('create_case',array(
 			'model'=>$model,
 			'users'=>User::model()->findAll(),
-			'orgs'=>OtherOrg::model()->findAll( 'type < 3')
+			'orgs'=>Org::model()->findAll( 'type < 3')
 		));
 	}
 
@@ -133,7 +133,7 @@ class ChildcaseController extends Controller
 		$this->render('update_case',array(
 			'model'=>$model,
 			'users'=>User::model()->findAll(),
-			'orgs'=>OtherOrg::model()->findAll( 'type < 3')
+			'orgs'=>Org::model()->findAll( 'type < 3')
 		));
 	}
 
@@ -199,17 +199,20 @@ class ChildcaseController extends Controller
 
 	public function actionSubmit($id)
 	{
-		$model=$this->loadModel($id);
-		$model->status = 1;
-		if($model->save()){
-			if(Yii::app()->request->isAjaxRequest)
-			{
-			  echo CJSON::encode(array("id"=>$id));
+		if(isset($_POST['status'])){
+			$model=$this->loadModel($id);
+			$model->status = $_POST['status'];
+			if($model->save()){
+				// if(Yii::app()->request->isAjaxRequest)
+				// {
+				//   echo CJSON::encode(array("id"=>$id));
+				// }
+				$this->redirect('/childcase/view',array(
+					'id'=>$id,
+				));
 			}
-		// $this->redirect('view',array(
-		// 	'id'=>$id,
-		// ));
 		}
+
 	}
 
 

@@ -234,15 +234,44 @@ $topics = array("fbg","pic","mbg","casesummary","appfiles");
 </table>
 <div class="row-fluid">
 	<div class="span6 offset6 text-right">
-		<?php echo CHtml::ajaxLink('<i class="fa fa-1x fa-check-circle"></i> 确认提交至审核',array('submit','id'=>$model->id),
-                  array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;alert("恭喜您，已提交成功！请等待审核。")}'),
-                  array('confirm'=>'都填好了，确定提交?',
-                        'id'=>'submit-'.$model->id,
-                        'class'=>'btn btn-success btn-large')); ?>
+		<?php if($model->status == 0 || $model->status == 3):?>
+		<form action="<?php echo $this->createUrl('submit',array('id'=>$model->id))?>" method="post" class="form-inline">
+		<input type="hidden" name="status" value="1"/>
+    <?php echo CHtml::button('提交至审核',
+    array(
+    		'type'=>'submit',
+        'class'=>'btn btn-success btn-large',
+        'confirm' => '都填好了，确定提交?'
+    )
+		);?>
+	</form>
+	<?php elseif($model->status == 1):?>
+	<div class="row-fluid">
+		<form action="<?php echo $this->createUrl('submit',array('id'=>$model->id))?>" method="post" class="form-inline pull-right">
+		<input type="hidden" name="status" value="3"/>
+  	<?php echo CHtml::button('不资助',
+    array(
+    		'type'=>'submit',
+        'class'=>'btn btn-large btn-danger',
+        'confirm' => '确认不资助?'
+    )
+		);?>
+    </form>
+    <form action="<?php echo $this->createUrl('submit',array('id'=>$model->id))?>" method="post" class="form-inline pull-right" style="margin-right:20px;">
+		<input type="hidden" name="status" value="2"/>
+    <?php echo CHtml::button('确认资助',
+    array(
+    		'type'=>'submit',
+        'class'=>'btn btn-large btn-info',
+        'confirm' => '确认资助?'
+    )
+		);?>
+	</form>
+   </div>
+<?php endif;?>
 	</div>
 </div>
 <hr>
-
 	  	</div>
 	  </div>
 </div>

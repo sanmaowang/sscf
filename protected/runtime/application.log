@@ -7774,3 +7774,279 @@ Stack trace:
 REQUEST_URI=/uploads/file/4_1406454005.jpg
 HTTP_REFERER=http://seastar.local/childcase/4
 ---
+2014/07/28 09:58:34 [error] [php] include(OtherOrg.php): failed to open stream: No such file or directory (/Users/sanmao/sscf/framework/YiiBase.php:421)
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(386): spl_autoload_call()
+#1 /Users/sanmao/sscf/framework/db/ar/CActiveFinder.php(215): model()
+#2 /Users/sanmao/sscf/framework/db/ar/CActiveFinder.php(48): CActiveFinder->buildJoinTree()
+#3 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(271): CActiveFinder->__construct()
+#4 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(141): Childcase->getRelated()
+#5 /Users/sanmao/sscf/protected/views/childcase/_view.php(12): Childcase->__get()
+#6 /Users/sanmao/sscf/framework/web/CBaseController.php(126): require()
+#7 /Users/sanmao/sscf/framework/web/CBaseController.php(95): ChildcaseController->renderInternal()
+#8 /Users/sanmao/sscf/framework/web/CController.php(869): ChildcaseController->renderFile()
+#9 /Users/sanmao/sscf/protected/extensions/bootstrap/widgets/TbListView.php(48): ChildcaseController->renderPartial()
+#10 /Users/sanmao/sscf/framework/zii/widgets/CBaseListView.php(160): TbListView->renderItems()
+#11 unknown(0): TbListView->renderSection()
+#12 /Users/sanmao/sscf/framework/zii/widgets/CBaseListView.php(143): preg_replace_callback()
+#13 /Users/sanmao/sscf/framework/zii/widgets/CBaseListView.php(128): TbListView->renderContent()
+#14 /Users/sanmao/sscf/framework/web/CBaseController.php(173): TbListView->run()
+#15 /Users/sanmao/sscf/protected/views/childcase/index.php(48): ChildcaseController->widget()
+#16 /Users/sanmao/sscf/framework/web/CBaseController.php(126): require()
+#17 /Users/sanmao/sscf/framework/web/CBaseController.php(95): ChildcaseController->renderInternal()
+#18 /Users/sanmao/sscf/framework/web/CController.php(869): ChildcaseController->renderFile()
+#19 /Users/sanmao/sscf/framework/web/CController.php(782): ChildcaseController->renderPartial()
+#20 /Users/sanmao/sscf/protected/controllers/ChildcaseController.php(197): ChildcaseController->render()
+#21 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): ChildcaseController->actionIndex()
+#22 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams()
+#23 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): ChildcaseController->runAction()
+#24 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#25 /Users/sanmao/sscf/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#26 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): ChildcaseController->filterAccessControl()
+#27 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#28 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#29 /Users/sanmao/sscf/framework/web/CController.php(265): ChildcaseController->runActionWithFilters()
+#30 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): ChildcaseController->run()
+#31 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#32 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#33 /Users/sanmao/sscf/index.php(13): CWebApplication->run()
+REQUEST_URI=/childcase/index
+in /Users/sanmao/sscf/protected/views/childcase/_view.php (12)
+in /Users/sanmao/sscf/protected/extensions/bootstrap/widgets/TbListView.php (48)
+in /Users/sanmao/sscf/protected/views/childcase/index.php (48)
+2014/07/28 09:58:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/07/28 10:03:01 [error] [php] include(OtherOrg.php): failed to open stream: No such file or directory (/Users/sanmao/sscf/framework/YiiBase.php:421)
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(386): spl_autoload_call()
+#1 /Users/sanmao/sscf/framework/web/CActiveDataProvider.php(74): model()
+#2 /Users/sanmao/sscf/protected/controllers/OtherorgController.php(141): CActiveDataProvider->__construct()
+#3 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): OtherOrgController->actionIndex()
+#4 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): OtherOrgController->runAction()
+#6 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): OtherOrgController->filterAccessControl()
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(265): OtherOrgController->runActionWithFilters()
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): OtherOrgController->run()
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /Users/sanmao/sscf/index.php(13): CWebApplication->run()
+REQUEST_URI=/otherorg/index
+in /Users/sanmao/sscf/protected/controllers/OtherorgController.php (141)
+in /Users/sanmao/sscf/index.php (13)
+2014/07/28 10:03:36 [error] [php] include(OtherOrg.php): failed to open stream: No such file or directory (/Users/sanmao/sscf/framework/YiiBase.php:421)
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(386): spl_autoload_call()
+#1 /Users/sanmao/sscf/framework/web/CActiveDataProvider.php(74): model()
+#2 /Users/sanmao/sscf/protected/controllers/OtherorgController.php(141): CActiveDataProvider->__construct()
+#3 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): OtherOrgController->actionIndex()
+#4 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): OtherOrgController->runAction()
+#6 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): OtherOrgController->filterAccessControl()
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(265): OtherOrgController->runActionWithFilters()
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): OtherOrgController->run()
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /Users/sanmao/sscf/index.php(13): CWebApplication->run()
+REQUEST_URI=/otherorg/index
+in /Users/sanmao/sscf/protected/controllers/OtherorgController.php (141)
+in /Users/sanmao/sscf/index.php (13)
+2014/07/28 10:03:38 [error] [php] include(OtherOrg.php): failed to open stream: No such file or directory (/Users/sanmao/sscf/framework/YiiBase.php:421)
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(386): spl_autoload_call()
+#1 /Users/sanmao/sscf/framework/web/CActiveDataProvider.php(74): model()
+#2 /Users/sanmao/sscf/protected/controllers/OtherorgController.php(141): CActiveDataProvider->__construct()
+#3 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): OtherOrgController->actionIndex()
+#4 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): OtherOrgController->runAction()
+#6 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): OtherOrgController->filterAccessControl()
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(265): OtherOrgController->runActionWithFilters()
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): OtherOrgController->run()
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /Users/sanmao/sscf/index.php(13): CWebApplication->run()
+REQUEST_URI=/otherorg/index
+in /Users/sanmao/sscf/protected/controllers/OtherorgController.php (141)
+in /Users/sanmao/sscf/index.php (13)
+2014/07/28 10:07:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "org/index"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('org/index')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/org/index
+HTTP_REFERER=http://seastar.local/childcase/4
+---
+2014/07/28 10:07:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "org/index"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('org/index')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/org/index
+HTTP_REFERER=http://seastar.local/childcase/4
+---
+2014/07/28 10:07:16 [error] [php] include(OtherOrg.php): failed to open stream: No such file or directory (/Users/sanmao/sscf/framework/YiiBase.php:421)
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(386): spl_autoload_call()
+#1 /Users/sanmao/sscf/framework/web/CActiveDataProvider.php(74): model()
+#2 /Users/sanmao/sscf/protected/controllers/OrgController.php(141): CActiveDataProvider->__construct()
+#3 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): OrgController->actionIndex()
+#4 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): OrgController->runAction()
+#6 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): OrgController->filterAccessControl()
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(265): OrgController->runActionWithFilters()
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): OrgController->run()
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /Users/sanmao/sscf/index.php(13): CWebApplication->run()
+REQUEST_URI=/org/index
+in /Users/sanmao/sscf/protected/controllers/OrgController.php (141)
+in /Users/sanmao/sscf/index.php (13)
+2014/07/28 10:22:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "childecase/submit"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childecase/subm...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/childecase/submit?0%5Bid%5D=&0%5Bstatus%5D=2
+HTTP_REFERER=http://seastar.local/childcase/4
+---
+2014/07/28 10:22:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "childecase/submit"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childecase/subm...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/childecase/submit?
+HTTP_REFERER=http://seastar.local/childcase/4
+---
+2014/07/28 10:23:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "childecase/submit"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childecase/subm...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/childecase/submit?0%5Bid%5D=&0%5Bstatus%5D=3
+HTTP_REFERER=http://seastar.local/childcase/4
+---
+2014/07/28 10:30:48 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in /Users/sanmao/sscf/framework/web/CController.php:336
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('submit')
+#9 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childcase/submi...')
+#10 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/childcase/submit
+HTTP_REFERER=http://seastar.local/childcase/4
+---
+2014/07/28 10:31:21 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in /Users/sanmao/sscf/framework/web/CController.php:336
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('submit')
+#9 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childcase/submi...')
+#10 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/childcase/submit
+HTTP_REFERER=http://seastar.local/childcase/4
+---
+2014/07/28 10:31:24 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in /Users/sanmao/sscf/framework/web/CController.php:336
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('submit')
+#9 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childcase/submi...')
+#10 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/childcase/submit/view
+HTTP_REFERER=http://seastar.local/childcase/4
+---
+2014/07/28 10:31:31 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in /Users/sanmao/sscf/framework/web/CController.php:336
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('submit')
+#9 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childcase/submi...')
+#10 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/childcase/submit/view
+HTTP_REFERER=http://seastar.local/childcase/4
+---
+2014/07/28 10:38:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "childecase/view"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childecase/view')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/childecase/view
+HTTP_REFERER=http://seastar.local/childcase/4
+---
+2014/07/28 10:39:11 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in /Users/sanmao/sscf/framework/web/CController.php:336
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('view')
+#9 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childcase/view')
+#10 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/childcase/view
+HTTP_REFERER=http://seastar.local/childcase/4
+---

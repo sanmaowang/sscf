@@ -1,13 +1,13 @@
 <?php
 
-class CasesController extends Controller
+class OrgController extends Controller
 {
-	public $code = "Cases";
+	public $code = "Org";
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/column1';
 
 	/**
 	 * @return array action filters
@@ -32,12 +32,8 @@ class CasesController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','admin','delete'),
 				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -62,20 +58,27 @@ class CasesController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Cases;
+		$model=new Org;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+		$allorg = Org::model()->findAll();
+		$all = [];
+		$all[0] = "无所属机构";
+		foreach ($allorg as $a) {
+			$all[$a->id] = $a->name;
+		}
 
-		if(isset($_POST['Cases']))
+		if(isset($_POST['Org']))
 		{
-			$model->attributes=$_POST['Cases'];
+			$model->attributes=$_POST['Org'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
+			'all'=>$all
 		));
 	}
 
@@ -90,16 +93,23 @@ class CasesController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+		$allorg = Org::model()->findAll();
+		$all = [];
+		$all[0] = "无所属机构";
+		foreach ($allorg as $a) {
+			$all[$a->id] = $a->name;
+		}
 
-		if(isset($_POST['Cases']))
+		if(isset($_POST['Org']))
 		{
-			$model->attributes=$_POST['Cases'];
+			$model->attributes=$_POST['Org'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
+			'all' => $all
 		));
 	}
 
@@ -128,7 +138,7 @@ class CasesController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Cases');
+		$dataProvider=new CActiveDataProvider('Org');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -139,10 +149,10 @@ class CasesController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Cases('search');
+		$model=new Org('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Cases']))
-			$model->attributes=$_GET['Cases'];
+		if(isset($_GET['Org']))
+			$model->attributes=$_GET['Org'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -156,7 +166,7 @@ class CasesController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Cases::model()->findByPk($id);
+		$model=Org::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -168,7 +178,7 @@ class CasesController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='cases-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='org-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

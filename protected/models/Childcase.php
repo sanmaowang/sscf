@@ -94,7 +94,7 @@ class Childcase extends CActiveRecord
 			'family'=>array(self::HAS_MANY,'CaseFamily','case_id'),
 			'files'=>array(self::HAS_MANY,'CaseFile','case_id'),
 			'charge'=>array(self::BELONGS_TO,'User','staff'),
-			'sourcefrom'=>array(self::BELONGS_TO,'OtherOrg','source'),
+			'sourcefrom'=>array(self::BELONGS_TO,'Org','source'),
 		);
 	}
 
