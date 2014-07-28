@@ -63,7 +63,7 @@ class OrgController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		$allorg = Org::model()->findAll();
-		$all = [];
+		$all = array();
 		$all[0] = "无所属机构";
 		foreach ($allorg as $a) {
 			$all[$a->id] = $a->name;
@@ -94,7 +94,7 @@ class OrgController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		$allorg = Org::model()->findAll();
-		$all = [];
+		$all = array();
 		$all[0] = "无所属机构";
 		foreach ($allorg as $a) {
 			$all[$a->id] = $a->name;
