@@ -1,29 +1,103 @@
 <?php
+
 $this->breadcrumbs=array(
-	'Orgs'=>array('index'),
-	$model->name,
+	'合作机构'=>array('index'),
 );
-
-$this->menu=array(
-	array('label'=>'List OtherOrg','url'=>array('index')),
-	array('label'=>'Create OtherOrg','url'=>array('create')),
-	array('label'=>'Update OtherOrg','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete OtherOrg','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage OtherOrg','url'=>array('admin')),
-);
+if($menu){
+	$this->breadcrumbs +=array_reverse($menu);
+}
+array_push($this->breadcrumbs,$model->name);
 ?>
-
-<h1>View OtherOrg #<?php echo $model->id; ?></h1>
-
-<?php $this->widget('bootstrap.widgets.TbDetailView',array(
+<div class="row-fluid">
+	<div class="span4">
+		<h2>#<?php echo $model->name; ?></h2>
+	</div>
+	<div class="span8 text-right" style="padding-top:15px;">
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span3">
+		<div class="row-fluid">
+			<div class="span6">
+				<h3>客户信息</h3>
+			</div>
+			<div class="span6 text-right" style="padding-top:18px;">
+				<a href="<?php echo $this->createUrl('update',array('id'=>$model->id))?>" class="btn btn-primary btn-small"><i class="icon-edit icon-white"></i>  编辑客户</a>
+			</div>
+		</div>
+	<?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'parent_id',
 		'name',
 		'contact',
-		'type',
 		'create_time',
 		'update_time',
 	),
 )); ?>
+	</div>
+	<div class="span9">
+
+		<div class="row-fluid">
+			<div class="span6">
+				<h3>下属机构</h3>
+			</div>
+			<div class="span6 text-right" style="padding-top:15px;">
+				<a href="<?php echo $this->createUrl('create',array('pid'=>$model->id))?>" class="btn btn-primary btn-small"><i class="icon-plus icon-white"></i>  新建下属机构</a>
+			</div>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<td>#</td>
+					<td>机构名称</td>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody>
+			<?php foreach($model->sub as $index=>$c):?>
+				<tr>
+					<td><?php echo $index+1;?></td>
+					<td><a href="<?php echo $this->createUrl('view',array('id'=>$c->id))?>"><?php echo $c->name;?></a></td>
+					<td>
+						<a href="<?php echo $this->createUrl('update',array('id'=>$c->id));?>" class="btn btn-primary btn-mini">编辑</a>
+					</td>
+				</tr>
+			<?php endforeach;?>
+			</tbody>
+		</table>
+
+	<div class="row-fluid">
+			<div class="span6">
+				<h3>联系人</h3>
+			</div>
+			<div class="span6 text-right" style="padding-top:15px;">
+				<a href="<?php echo $this->createUrl('orgcontact/create',array('oid'=>$model->id))?>" class="btn btn-primary btn-small"><i class="icon-plus icon-white"></i>  新建联系人</a>
+			</div>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<td>#</td>
+					<td>姓名</td>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody>
+
+			<?php if($contacts):?>
+			<?php foreach($contacts as $index=>$c):?>
+				<tr>
+					<td><?php echo $index+1;?></td>
+					<td><a href="<?php echo $this->createUrl('orgcontact/view',array('id'=>$c->id))?>"><?php echo $c->name;?></a></td>
+					<td>
+						<a href="<?php echo $this->createUrl('orgcontact/update',array('id'=>$c->id));?>" class="btn btn-primary btn-mini">编辑</a>
+					</td>
+				</tr>
+			<?php endforeach;?>
+			<?php endif;?>
+			</tbody>
+		</table>
+	</div>
+
+</div>

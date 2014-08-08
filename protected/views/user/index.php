@@ -13,9 +13,9 @@ $this->menu=array(
 
 <h1>Users</h1>
 <p>List all the users include admin users..</p>
-<div class="row-fluid" style="margin-bottom:40px;">
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
+	'id'=>'users_list',
+	'htmlOptions'=>array('class'=>'row-fluid')
 )); ?>
-</div>

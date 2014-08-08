@@ -98,6 +98,31 @@ class Childcase extends CActiveRecord
 		);
 	}
 
+	public function getStatus()
+	{
+		$key = $this->status;
+		$status = array(
+			0 => "新建",
+			1 => "等待资助",
+			2 => "确认资助",
+			3 => "已资助",
+			4 => "不资助",
+		);
+		return $status[$key];
+	}
+
+	public function getStatusLabel()
+	{
+		$key = $this->status;
+		$status = array(
+			0 => "<span class='label'>新建</label>",
+			1 => "<span class='label label-info'>等待资助</label>",
+			2 => "<span class='label label-inverse'>确认资助</label>",
+			3 => "<span class='label label-success'>已资助</label>",
+			4 => "<span class='label label-important'>不资助</label>",
+		);
+		return $status[$key];
+	}
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */

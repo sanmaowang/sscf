@@ -1,21 +1,22 @@
 <?php
 $this->breadcrumbs=array(
-  '合作机构',
+	'机构设置',
 );
 
 $this->menu=array(
-  array('label'=>'Create','url'=>array('create')),
-  array('label'=>'Manage','url'=>array('admin')),
+	array('label'=>'Create','url'=>array('create')),
+	array('label'=>'Manage','url'=>array('admin')),
 );
 ?>
 <div class="page-header row-fluid">
-  <div class="span6"><h1>合作机构</h1></div>
+  <div class="span6"><h1>机构设置</h1></div>
   <div class="span6 text-right" style="padding-top:20px;"><a href="<?php echo $this->createUrl('create')?>" class="btn btn-primary"><i class="icon-plus icon-white"></i> 新建机构</a></div>
 </div>
 <?php $pre_html = '
 <table class="table table-striped table-bordered">
     <thead>
     <tr>
+      <th width="15">#</th>
       <th><i class="icon-user"></i> 名称</th>
       <th><i class="icon-bookmark"></i> 所属机构</th>
       <th><i class="icon-tasks"></i> 联系方式</th>

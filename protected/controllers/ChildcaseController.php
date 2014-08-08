@@ -96,6 +96,16 @@ class ChildcaseController extends Controller
 		if(isset($_POST['Childcase']))
 		{
 			$model->attributes=$_POST['Childcase'];
+
+			$file=CUploadedFile::getInstance($model,'avatar');
+
+      if(!empty($file))
+      {
+        $fileName = 'avatar_'.time().'.'.$file->extensionName;
+        $model->avatar = $fileName;
+        $file->saveAs(Yii::app()->basePath.'/../uploads/avatar/'.$model->avatar);
+      }
+
 			if($flag == 'family'){
 				$model->economical_source_desc = $_POST['Childcase']['economical_source_desc'];
 				$model->special_desc = $_POST['Childcase']['special_desc'];
@@ -172,6 +182,12 @@ class ChildcaseController extends Controller
 		$confirm_count = Childcase::model()->countByAttributes(array(
             'status'=> 2
         ));
+		$funded_count = Childcase::model()->countByAttributes(array(
+            'status'=> 3
+        ));
+		$passed_count = Childcase::model()->countByAttributes(array(
+            'status'=> 4
+        ));
 
     $criteria = (isset($_GET['status']))?array('condition'=>'status='.$_GET['status']):array();
  		
@@ -194,6 +210,8 @@ class ChildcaseController extends Controller
 			'new_count'=>$new_count,
 			'pending_count'=>$pending_count,
 			'confirm_count'=>$confirm_count,
+			'funded_count'=>$funded_count,
+			'passed_count'=>$confirm_count,
 		));
 	}
 

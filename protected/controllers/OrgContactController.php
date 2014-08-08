@@ -1,8 +1,8 @@
 <?php
 
-class OrgController extends Controller
+class OrgContactController extends Controller
 {
-	public $code = "Org";
+	public $code = "OrgContact";
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -32,8 +32,12 @@ class OrgController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
+			),
+			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('admin','delete'),
+				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -41,58 +45,61 @@ class OrgController extends Controller
 		);
 	}
 
+	/**
+	 * Displays a particular model.
+	 * @param integer $id the ID of the model to be displayed
+	 */
+	public function actionView($id)
+	{
+		$model = $this->loadModel($id);
+		$org = $model->org;
+		$breadcrumbs = array();
+		$breadcrumbs[$org->name] = array('org/view','id'=>$org->id);
+		$menu = $this->showBread($org, $breadcrumbs);
+
+		$this->render('view',array(
+			'model'=>$model,
+			'menu' =>$menu
+		));
+	}
+
 	private function showBread($obj,$breadcrumbs = array())
 	{
 		if((int)$obj->parent_id > 0){
-			$breadcrumbs[$obj->parent->name] = array('view','id'=>$obj->parent_id);
-			return $this->showBread($this->loadModel($obj->parent_id), $breadcrumbs);
+			$breadcrumbs[$obj->parent->name] = array('org/view','id'=>$obj->parent_id);
+			return $this->showBread(Org::model()->findByPk($obj->parent_id), $breadcrumbs);
 		}else{
 			return $breadcrumbs;
 		}
-	}
-
-	public function actionView($id)
-	{	
-		$model = $this->loadModel($id);
-		$menu = $this->showBread($model, array());
-
-		$contacts = OrgContact::model()->findAllByAttributes(array('org_id'=>$id));
-		$this->render('view',array(
-			'menu'=>$menu,
-			'model'=>$model,
-			'contacts'=>$contacts
-		));
 	}
 
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($oid)
 	{
-		$model=new Org;
+		$model=new OrgContact;
+
+		$org = Org::model()->findByPk($oid);
+		$breadcrumbs = array();
+		$breadcrumbs[$org->name] = array('org/view','id'=>$org->id);
+		$menu = $this->showBread($org, $breadcrumbs);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-		if(isset($_GET['pid'])){
-			$parent_id = $_GET['pid'];
-			$parent = $this->loadModel($parent_id);
-		}else{
-			$parent_id = 0;
-			$parent = null;
-		}
 
-		if(isset($_POST['Org']))
+		if(isset($_POST['OrgContact']))
 		{
-			$model->attributes=$_POST['Org'];
+			$model->attributes=$_POST['OrgContact'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
-
 		$this->render('create',array(
 			'model'=>$model,
-			'parent'=>$parent,
-			'parent_id'=>$parent_id
+			'oid'=>$oid,
+			'menu'=>$menu,
+			'org'=>$org
 		));
 	}
 
@@ -105,25 +112,24 @@ class OrgController extends Controller
 	{
 		$model=$this->loadModel($id);
 
+		$org = $model->org;
+		$breadcrumbs = array();
+		$breadcrumbs[$org->name] = array('org/view','id'=>$org->id);
+		$menu = $this->showBread($org, $breadcrumbs);
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-		$allorg = Org::model()->findAll();
-		$all = array();
-		$all[0] = "无所属机构";
-		foreach ($allorg as $a) {
-			$all[$a->id] = $a->name;
-		}
 
-		if(isset($_POST['Org']))
+		if(isset($_POST['OrgContact']))
 		{
-			$model->attributes=$_POST['Org'];
+			$model->attributes=$_POST['OrgContact'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
-			'all' => $all
+			'menu'=>$menu
 		));
 	}
 
@@ -152,24 +158,7 @@ class OrgController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$criteria = (isset($_GET['parent_id']))?array('condition'=>'parent_id ='.$_GET['parent_id']):array(
-		    'condition' => "parent_id = 0", 
-		);
- 		
- 		if(isset($_POST['name'])){
-			$criteria =  array(
-		    'condition' => "name LIKE :match OR nickname LIKE :match", 
-		    'params'    => array(':match' => $_POST['name']));
-		}
-
-    $options = array(
-        'criteria'=> $criteria,
-        'pagination'=>array(
-            'pageSize'=>20,
-        ),
-    );
-
-		$dataProvider=new CActiveDataProvider('Org',$options);
+		$dataProvider=new CActiveDataProvider('OrgContact');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -180,10 +169,10 @@ class OrgController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Org('search');
+		$model=new OrgContact('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Org']))
-			$model->attributes=$_GET['Org'];
+		if(isset($_GET['OrgContact']))
+			$model->attributes=$_GET['OrgContact'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -197,7 +186,7 @@ class OrgController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Org::model()->findByPk($id);
+		$model=OrgContact::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -209,7 +198,7 @@ class OrgController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='org-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='org-contact-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

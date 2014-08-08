@@ -11,6 +11,7 @@
  * @property integer $gender
  * @property string $birthday
  * @property integer $marital_status
+ * @property string $residence
  * @property string $job_number
  * @property string $department
  * @property string $email
@@ -59,7 +60,7 @@ class User extends CActiveRecord
       array('new_password', 'compare', 'compareAttribute'=>'repeat_new_password','message'=>"new password and confirm password do not match"),
 			array('old_password','validatePassword','on'=>'password'),
 			array('gender, marital_status, role, is_deleted', 'numerical', 'integerOnly'=>true),
-			array('username, id_card, job_number, department, email, nickname', 'length', 'max'=>64),
+			array('username, id_card, job_number, department, email, nickname, residence', 'length', 'max'=>64),
 			array('name', 'length', 'max'=>20),
 			array('username', 'unique'),
 			array('email', 'unique'),
@@ -70,7 +71,7 @@ class User extends CActiveRecord
 			array('birthday, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, username, name, id_card, gender, birthday, marital_status, job_number, department, email, password, mobile, nickname, avatar, create_time, update_time, login_count, role, is_deleted', 'safe', 'on'=>'search'),
+			array('id, username, name, id_card, gender, birthday, marital_status, job_number, residence, department, email, password, mobile, nickname, avatar, create_time, update_time, login_count, role, is_deleted', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -115,6 +116,7 @@ class User extends CActiveRecord
 			'gender' => 'Gender',
 			'birthday' => 'Birthday',
 			'marital_status' => 'Marital Status',
+			'residence' => 'Residence',
 			'job_number' => 'Job Number',
 			'department' => 'Department',
 			'email' => 'Email',
@@ -152,6 +154,7 @@ class User extends CActiveRecord
 		$criteria->compare('birthday',$this->birthday,true);
 		$criteria->compare('marital_status',$this->marital_status);
 		$criteria->compare('job_number',$this->job_number,true);
+		$criteria->compare('residence',$this->residence,true);
 		$criteria->compare('department',$this->department,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('password',$this->password,true);

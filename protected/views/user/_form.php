@@ -40,13 +40,15 @@
 
 	<?php echo $form->textFieldRow($model,'mobile',array('class'=>'span5','maxlength'=>15)); ?>
 
-	<?php echo $form->textFieldRow($model,'birthday',array('class'=>'span5')); ?>
+	<?php echo $form->textFieldRow($model,'birthday',array('class'=>'span5 datetime')); ?>
 
 	<?php echo $form->dropDownListRow($model, 'gender', array('0'=>'Male','1'=>'Female')); ?>
 	
 	<?php echo $form->dropDownListRow($model, 'marital_status', array('0'=>'Single','1'=>'Married')); ?>
 
 	<?php echo $form->textFieldRow($model,'id_card',array('class'=>'span5','maxlength'=>64)); ?>
+
+	<?php echo $form->textFieldRow($model,'residence',array('class'=>'span5','maxlength'=>64)); ?>
 
 	<?php echo $form->textFieldRow($model,'job_number',array('class'=>'span5','maxlength'=>64)); ?>
 
@@ -62,3 +64,15 @@
 	</div>
 
 <?php $this->endWidget(); ?>
+
+<?php
+    $baseUrl = Yii::app()->baseUrl;
+    $cs = Yii::app()->getClientScript();
+    $cs->registerCssFile($baseUrl."/js/vendor/datepicker/datepicker.css");
+    $cs->registerScriptFile($baseUrl."/js/vendor/datepicker/bootstrap-datepicker.js");
+		$cs->registerScript('datetime', "
+    	$('.datetime').datepicker({
+    		format:'yyyy/mm/dd'
+    	});
+		", CClientScript::POS_END);
+?>

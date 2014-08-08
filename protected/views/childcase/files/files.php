@@ -48,7 +48,7 @@
   	<?php if(count($model->files) >0):?>
 		<?php foreach($model->files as $key=>$f):?>
 		<?php if($f->getCate() == $flag):?>
-    <li class="span4">
+    <li class="span3">
       <div class="thumbnail">
       	<a class="files" href="<?php echo Yii::app()->request->baseUrl.'/uploads/file/'.$f->path;?>">
       <?php 
@@ -115,6 +115,7 @@
 			if(val){
 				$("#input_title").val(val);
 			}
-		})
+		});
+		$(".thumbnails li")
 	})
 </script>

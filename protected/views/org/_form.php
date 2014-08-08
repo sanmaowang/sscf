@@ -8,13 +8,13 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->dropDownListRow($model,'parent_id',$all); ?>
+	<input type="hidden" value="<?php echo $parent_id;?>" name="Org[parent_id]"/>
 
 	<?php echo $form->textFieldRow($model,'name',array('class'=>'span5','maxlength'=>64)); ?>
 
 	<?php echo $form->textFieldRow($model,'contact',array('class'=>'span5','maxlength'=>64)); ?>
 
-	<?php echo $form->dropDownListRow($model,'type',array(1=>"基金会机构", 2=>'医院', 3=>'个人')); ?>
+	<?php echo $form->dropDownListRow($model,'type',array(1=>"基金会机构", 2=>'医院')); ?>
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(

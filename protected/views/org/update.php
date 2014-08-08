@@ -15,4 +15,4 @@ $this->menu=array(
 <div class="page-header">
 <h1>更新机构 <?php echo $model->name; ?></h1>
 </div>
-<?php echo $this->renderPartial('_form',array('model'=>$model,'all'=>$all)); ?>
+<?php echo $this->renderPartial('_form',array('model'=>$model)); ?>

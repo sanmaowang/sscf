@@ -78,6 +78,19 @@ class CaseFileController extends Controller
         $fileName = $model->case_id.'_'.time().'.'.$file->extensionName;
         $model->path = $fileName;
         $file->saveAs(Yii::app()->basePath.'/../uploads/file/'.$model->path);
+        
+        $path = Yii::getPathOfAlias('webroot').'/uploads/avatar/';
+        $image_file = Yii::app()->image->load($path.'/'.$model->avatar );
+        if($image_file->width > 120 || $image_file->height > 120){
+        	if($image_file->width/$image_file->height > 1){
+        		$image_file->resize(NULL,120)->quality(95);
+        		$image_file->crop(120,120);
+        	}else{
+        		$image_file->resize(120, NULL)->quality(95);
+        		$image_file->crop(120,120);
+        	}
+          $image_file->save();
+        }
       }
 
 			if($model->save()){

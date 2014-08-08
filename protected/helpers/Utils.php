@@ -36,6 +36,15 @@ class Utils {
     }
   }
 
+  public static function array_build_tree($items){
+    $childs = array();
+    foreach($items as $item)
+        $childs[$item->parent_id][] = $item;
+    foreach($items as $item) if (isset($childs[$item->id]))
+        $item->childs = $childs[$item->id];
+    return $childs[0];
+  }
+
   
   public static function recur_mkdirs($path, $chmod = 0777) {
     

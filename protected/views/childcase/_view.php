@@ -10,11 +10,7 @@
     <span style="color:#999;font-size:12px;">Updated: <strong><?php echo CHtml::encode($data->update_time); ?></strong></span>
 	</td>
 	<td><?php echo $data->sourcefrom->name;?></td>
-	<td><?php if($data->status == 0){echo "<span class='label'>新建</span>";}
-	elseif($data->status == 1){ echo "<span class='label label-warning'>等待资助</span>";}
-	elseif($data->status == 2){ echo "<span class='label label-success'>确认资助</span>";}
-	elseif($data->status == 3){ echo "<span class='label label-warning'>不资助</span>";}
-	?></td>
+	<td><?php echo $data->getStatusLabel();?></td>
 	<td><?php echo $data->createby->name;?></td>
  <td width="38%">
  	<a href="<?php echo $this->createUrl('view',array('id'=>$data->id));?>" class="btn"><i class="fa fa-user"></i> View</a>

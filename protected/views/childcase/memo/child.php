@@ -2,6 +2,9 @@
 	'id'=>'childcase-form',
 	'type'=>'horizontal',
 	'enableAjaxValidation'=>false,
+	'htmlOptions' => array(
+        'enctype' => 'multipart/form-data',
+    ),
 )); ?>
 <legend>患儿基本信息</legend>
 	<p class="help-block">带<span class="required">*</span> 是必填项目.</p>
@@ -14,7 +17,7 @@
 
 	<?php echo $form->fileFieldRow($model, 'avatar'); ?>
 
-	<?php echo $form->textFieldRow($model,'birthday',array('class'=>'span5')); ?>
+	<?php echo $form->textFieldRow($model,'birthday',array('class'=>'span5 datetime')); ?>
 
 	<?php echo $form->radioButtonListRow($model, 'gender', array('0'=>"男", '1'=>"女")); ?>
 
@@ -45,3 +48,15 @@
 	</div>
 
 <?php $this->endWidget(); ?>
+
+<?php
+    $baseUrl = Yii::app()->baseUrl;
+    $cs = Yii::app()->getClientScript();
+    $cs->registerCssFile($baseUrl."/js/vendor/datepicker/datepicker.css");
+    $cs->registerScriptFile($baseUrl."/js/vendor/datepicker/bootstrap-datepicker.js");
+		$cs->registerScript('datetime', "
+    	$('.datetime').datepicker({
+    		format:'yyyy/mm/dd'
+    	});
+		", CClientScript::POS_END);
+?>

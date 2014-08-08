@@ -42,6 +42,7 @@ $this->menu=array(
 		'birthday',
 		'marital_status',
 		'job_number',
+		'residence',
 		'department',
 		'mobile',
 		'nickname',

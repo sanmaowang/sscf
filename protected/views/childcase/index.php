@@ -13,8 +13,10 @@ $this->breadcrumbs=array(
 <div class="row-fluid">
   <div class="span6 status_filter">
   <a href="#" class="label" data-status="0"><b>新建：</b><?php echo $new_count;?> 人</a> &nbsp; 
-  <a href="#" class="label label-warning" data-status="1" style="background:#f89406;"><b>等待资助：</b><?php echo $pending_count;?> 人</a> &nbsp; 
-  <a href="#" class="label label-success" data-status="2"><b>确认资助：</b><?php echo $confirm_count;?> 人</a> &nbsp; 
+  <a href="#" class="label label-info" data-status="1" style="background:#f89406;"><b>等待资助：</b><?php echo $pending_count;?> 人</a> &nbsp; 
+  <a href="#" class="label label-inverse" data-status="2"><b>确认资助：</b><?php echo $confirm_count;?> 人</a> &nbsp; 
+  <a href="#" class="label label-success" data-status="3"><b>已资助：</b><?php echo $funded_count;?> 人</a> &nbsp; 
+  <a href="#" class="label label-important" data-status="4"><b>不资助：</b><?php echo $passed_count;?> 人</a> &nbsp; 
   </div>
   <div class="span6 text-right">
   <form id="filter-form" class="form-inline" action="<?php echo $this->createUrl('index');?>" method="post">

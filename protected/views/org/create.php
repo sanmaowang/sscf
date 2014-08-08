@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Orgs'=>array('index'),
+	'合作机构'=>array('index'),
 	'Create',
 );
 
@@ -8,8 +8,15 @@ $this->menu=array(
 	array('label'=>'List OtherOrg','url'=>array('index')),
 	array('label'=>'Manage OtherOrg','url'=>array('admin')),
 );
+
 ?>
 <div class="page-header">
-<h1>新建机构</h1>
+<h1><?php if($parent):?>
+		<?php echo $parent->name;?> - 
+		<?php endif;?> 新建机构</h1>
 </div>
-<?php echo $this->renderPartial('_form', array('model'=>$model,'all'=>$all)); ?>
+<div class="row-fluid">
+	<div class="span12">
+		<?php echo $this->renderPartial('_form', array('model'=>$model,'parent_id'=>$parent_id)); ?>
+	</div>
+</div>
