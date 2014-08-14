@@ -39,7 +39,8 @@
 			"appfiles"=>array(
 				"appfile_Indemnity_Agreement"=>"免责协议",
 				"appfile_other"=>"其他文件",
-				"attach_file"=>'附件'
+				"attach_file"=>'附件',
+				"dc_memo"=>'DC_demo'
 			)
 		);
 ?>
