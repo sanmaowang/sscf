@@ -8,7 +8,9 @@ $this->breadcrumbs=array(
 ?>
 <div class="page-header row-fluid">
   <div class="span6"><h1><a href="<?php echo $this->createUrl('index');?>">案例</a></h1></div>
-  <div class="span6 text-right" style="padding-top:20px;"><a href="<?php echo $this->createUrl('create')?>" class="btn btn-primary"><i class="icon-plus icon-white"></i> 新建案例</a></div>
+  <div class="span6 text-right" style="padding-top:20px;">
+    <a href="<?php echo $this->createUrl('create')?>" class="btn btn-primary"><i class="icon-plus icon-white"></i> 新建案例</a>
+  </div>
 </div>
 <div class="row-fluid">
   <div class="span6 status_filter">

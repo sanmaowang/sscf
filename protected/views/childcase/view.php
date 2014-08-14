@@ -250,12 +250,14 @@ $topics = array("fbg","pic","mbg","casesummary","appfiles");
 		<?php if($f->getCate() == $t):?>
     <li class="span3">
       <div class="thumbnail">
+      	<div class="img-thumb">
       	<?php 
       $img_exts = array("jpg","png","bmp","jpeg","gif");
       $excel_exts = array("xls","xlsx");
       $word_exts = array("doc","docx");
+      $folder_type = array("under review","under review","under review","funded","passed");
       if(in_array($f->getExt(),$img_exts)){
-			  echo CHtml::image(Yii::app()->request->baseUrl.'/uploads/file/'.$f->path,"file",array("width"=>300,"height"=>200)); 
+			  echo CHtml::image(Yii::app()->request->baseUrl.'/uploads/case/'.$folder_type[$model->status].'/'.$f->path,"file",array("width"=>300,"height"=>195)); 
 			}else if(in_array($f->getExt(),$excel_exts)){
 			  echo CHtml::image(Yii::app()->request->baseUrl.'/img/excel.png',"file",array("class"=>'file-thumb')); 
 			}else if(in_array($f->getExt(),$word_exts)){
@@ -264,6 +266,7 @@ $topics = array("fbg","pic","mbg","casesummary","appfiles");
 			  echo CHtml::image(Yii::app()->request->baseUrl.'/img/file.png',"file",array("class"=>'file-thumb')); 
 			}
 			?>
+			</div>
         <div class="caption">
           <h4><?php echo $f->title?$f->title:"untitled";?></h4>
           <span class="label label-info"><?php echo $f->getLabel($f->key);?></span>

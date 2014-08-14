@@ -37,7 +37,6 @@ array_push($this->breadcrumbs,$model->name);
 )); ?>
 	</div>
 	<div class="span9">
-
 		<div class="row-fluid">
 			<div class="span6">
 				<h3>下属机构</h3>

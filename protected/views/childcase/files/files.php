@@ -4,7 +4,7 @@
 		"mbg"=>"Medical Background",
 		"fbg"=>"Family Background",
 		"pic"=>"Medical Background",
-		"casesummary"=>"Case Summary and Post-Surgery"
+		"casesummary"=>"Case Summary and Post-Surgery",
 	);
 	$radio_label = array(
 		"fbg"=>array(
@@ -38,7 +38,8 @@
 			),
 			"appfiles"=>array(
 				"appfile_Indemnity_Agreement"=>"免责协议",
-				"appfile_other"=>"其他文件"
+				"appfile_other"=>"其他文件",
+				"attach_file"=>'附件'
 			)
 		);
 ?>
@@ -50,13 +51,15 @@
 		<?php if($f->getCate() == $flag):?>
     <li class="span3">
       <div class="thumbnail">
+      	<div class="img-thumb">
       	<a class="files" href="<?php echo Yii::app()->request->baseUrl.'/uploads/file/'.$f->path;?>">
       <?php 
       $img_exts = array("jpg","png","bmp","jpeg","gif");
       $excel_exts = array("xls","xlsx");
       $word_exts = array("doc","docx");
+      $folder_type = array("under review","under review","under review","funded","passed");
       if(in_array($f->getExt(),$img_exts)){
-			  echo CHtml::image(Yii::app()->request->baseUrl.'/uploads/file/'.$f->path,"file",array("width"=>300,"height"=>200)); 
+			  echo CHtml::image(Yii::app()->request->baseUrl.'/uploads/case/'.$folder_type[$model->status].'/'.$f->path,"file",array("width"=>300,"height"=>200)); 
 			}else if(in_array($f->getExt(),$excel_exts)){
 			  echo CHtml::image(Yii::app()->request->baseUrl.'/img/excel.png',"file",array("class"=>'file-thumb')); 
 			}else if(in_array($f->getExt(),$word_exts)){
@@ -66,11 +69,16 @@
 			}
 			?>
 			</a>
+			</div>
         <div class="caption">
           <h4><?php echo $f->title?$f->title:"untitled";?></h4>
           <p><?php echo $f->desc;?></p>
           <p><a href="<?php echo $this->createUrl('casefile/update',array('id'=>$f->id));?>" class="btn btn-primary">Edit</a>
-          	<a href="<?php echo $this->createUrl('casefile/delete',array('id'=>$f->id));?>" class="btn btn-danger">Delete</a></p>
+          	<?php echo CHtml::ajaxLink('Delete',array('casefile/delete','id'=>$f->id),
+                  array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;$("#delete-"+_id+"").parent().parent().parent().remove();}'),
+                  array('confirm'=>'该操作不可逆，确定要删除吗?',
+                        'id'=>'delete-'.$f->id,
+                        'class'=>'btn btn-danger')); ?>
         </div>
       </div>
     </li>

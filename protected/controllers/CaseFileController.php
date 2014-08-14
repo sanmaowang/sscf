@@ -1,5 +1,5 @@
 <?php
-
+Yii::import("application.extensions.Pinyin");
 class CaseFileController extends Controller
 {
 	public $code = "CaseFile";
@@ -32,11 +32,11 @@ class CaseFileController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -56,6 +56,20 @@ class CaseFileController extends Controller
 		));
 	}
 
+	private function toEnglish($s)
+	{
+		if(preg_match("/^[\x7f-\xff]+$/",$s)){
+			$obj_py = new Pinyin();
+			$fn = substr($s,0,3);
+			$n = substr($s,3);
+			$name = ucfirst($obj_py->getPinYin($fn))." ".ucfirst($obj_py->getPinYin($n));
+			return $name;
+		}else{
+			return $s;
+		}
+ 
+	}
+
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -71,26 +85,23 @@ class CaseFileController extends Controller
 		{
 
 			$model->attributes=$_POST['CaseFile'];
-
       $file=CUploadedFile::getInstance($model,'path');
+
       if(!empty($file))
       {
-        $fileName = $model->case_id.'_'.time().'.'.$file->extensionName;
-        $model->path = $fileName;
-        $file->saveAs(Yii::app()->basePath.'/../uploads/file/'.$model->path);
+      	$folder_type = array("under review","under review","under review","funded","passed");
+        $path = Yii::getPathOfAlias('webroot').DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'case'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR;
+
+      	$case_name = $this->toEnglish($model->case->name);
+        $file_path = $model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR.$model->title.'.'.$file->extensionName;
+        $model->path = $file_path;
         
-        $path = Yii::getPathOfAlias('webroot').'/uploads/avatar/';
-        $image_file = Yii::app()->image->load($path.'/'.$model->avatar );
-        if($image_file->width > 120 || $image_file->height > 120){
-        	if($image_file->width/$image_file->height > 1){
-        		$image_file->resize(NULL,120)->quality(95);
-        		$image_file->crop(120,120);
-        	}else{
-        		$image_file->resize(120, NULL)->quality(95);
-        		$image_file->crop(120,120);
-        	}
-          $image_file->save();
+        if (!file_exists($path.$model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR)) {
+          FileUtil::createDir($path.$model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR);
         }
+
+        $file->saveAs(Yii::app()->basePath.'/../uploads/case/'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR.$file_path);
+        
       }
 
 			if($model->save()){
@@ -123,8 +134,34 @@ class CaseFileController extends Controller
 		if(isset($_POST['CaseFile']))
 		{
 			$model->attributes=$_POST['CaseFile'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+
+			$file=CUploadedFile::getInstance($model,'path');
+
+      if(!empty($file))
+      {
+      	$folder_type = array("under review","under review","under review","funded","passed");
+        $path = Yii::getPathOfAlias('webroot').DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'case'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR;
+
+      	$case_name = $this->toEnglish($model->case->name);
+        $file_path = $model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR.$model->title.'.'.$file->extensionName;
+        $model->path = $file_path;
+        
+        if (!file_exists($path.$model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR)) {
+          FileUtil::createDir($path.$model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR);
+        }
+
+        $file->saveAs(Yii::app()->basePath.'/../uploads/case/'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR.$file_path);
+        
+      }
+
+			if($model->save()){
+				if(isset($_POST['CaseFamily']['return'])){
+					$this->redirect(array('/childcase/update','id'=>$model->case_id,'flag'=>$_POST['CaseFamily']['return']));
+				}else{
+					$this->redirect(array('view','id'=>$model->id));
+				}
+			}
+			
 		}
 
 		$this->render('update',array(
@@ -139,17 +176,11 @@ class CaseFileController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		if(Yii::app()->request->isPostRequest)
+		$this->loadModel($id)->delete();
+		if(Yii::app()->request->isAjaxRequest)
 		{
-			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
-
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		  echo CJSON::encode(array("id"=>$id));
 		}
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
 
 	/**

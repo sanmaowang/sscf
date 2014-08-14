@@ -25,7 +25,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('create_time')); ?>:</b>
-	<?php echo CHtml::encode($data->create_datetime); ?>
+	<?php echo CHtml::encode($data->create_time); ?>
 	<br />
 
 	<?php /*

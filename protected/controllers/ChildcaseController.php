@@ -8,6 +8,7 @@ class ChildcaseController extends Controller
 	 */
 	public $layout='//layouts/column1';
 	public $code = "Childcase";
+	public $filespath = array();
 
 	/**
 	 * @return array action filters
@@ -168,6 +169,8 @@ class ChildcaseController extends Controller
 		// 	$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
+	
+
 	/**
 	 * Lists all models.
 	 */
@@ -197,10 +200,14 @@ class ChildcaseController extends Controller
 		    'params'    => array(':match' => $_POST['name']));
 		}
 
+
     $options = array(
         'criteria'=> $criteria,
         'pagination'=>array(
-            'pageSize'=>20,
+            'pageSize'=>10,
+        ),
+        'sort'=>array(
+            'defaultOrder'=>'id DESC',
         ),
     );
 
@@ -211,7 +218,7 @@ class ChildcaseController extends Controller
 			'pending_count'=>$pending_count,
 			'confirm_count'=>$confirm_count,
 			'funded_count'=>$funded_count,
-			'passed_count'=>$confirm_count,
+			'passed_count'=>$passed_count,
 		));
 	}
 
@@ -276,4 +283,5 @@ class ChildcaseController extends Controller
 			Yii::app()->end();
 		}
 	}
+
 }

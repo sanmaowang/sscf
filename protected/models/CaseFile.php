@@ -46,9 +46,39 @@ class CaseFile extends CActiveRecord
 			"case_Funding_Source"=>"手术资金来源和费用明细(EXCEL)",
 			"case_other"=>'其他文件',
 			"appfile_Indemnity_Agreement"=>"免责协议",
-			"appfile_other"=>"其他文件"
+			"appfile_other"=>"其他文件",
+			"medical_assessment"=>"医疗评估",
+			"dc_memo"=>"dc_memo",
+			"attach_file"=>"其他附件"
    	);
    return $labels[$key];
+	}
+
+	public function getFolder()
+	{
+		switch ($this->key[0]) {
+			case 'f':
+				return "Family Background";
+				break;
+			case 'p':
+				return "Pictures";
+				break;
+			case 'm':
+				return "Medical Background";
+				break;
+			case 'c':
+				return "Case Summary and Post-Surgery";
+				break;
+			case 'a':
+				return "Application Materials";
+				break;
+			case 'o':
+				return "";
+				break;
+			default:
+				return "unknown";
+				break;
+		}
 	}
 
 	public function getCateLabel()
@@ -130,7 +160,7 @@ class CaseFile extends CActiveRecord
 			array('case_id', 'numerical', 'integerOnly'=>true),
 			array('key', 'length', 'max'=>40),
 			array('path', 'length', 'max'=>255),
-			array('title', 'length', 'max'=>60),
+			array('title', 'length', 'max'=>255),
 			array('desc, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
