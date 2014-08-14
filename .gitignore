@@ -1,0 +1,4 @@
+.DS_Store
+uploads/*
+protected/config/main.php
+assets/*
