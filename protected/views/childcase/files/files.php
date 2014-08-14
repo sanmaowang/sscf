@@ -53,7 +53,7 @@
     <li class="span3">
       <div class="thumbnail">
       	<div class="img-thumb">
-      	<a class="files" href="<?php echo Yii::app()->request->baseUrl.'/uploads/file/'.$f->path;?>">
+      	<a class="files" href="<?php echo Yii::app()->request->baseUrl.'/uploads/case/'.$folder_type[$model->status].'/'.$f->path;?>">
       <?php 
       $img_exts = array("jpg","png","bmp","jpeg","gif");
       $excel_exts = array("xls","xlsx");

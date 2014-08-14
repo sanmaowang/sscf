@@ -251,6 +251,7 @@ $topics = array("fbg","pic","mbg","casesummary","appfiles");
     <li class="span3">
       <div class="thumbnail">
       	<div class="img-thumb">
+      	<a class="files" href="<?php echo Yii::app()->request->baseUrl.'/uploads/case/'.$folder_type[$model->status].'/'.$f->path;?>">
       	<?php 
       $img_exts = array("jpg","png","bmp","jpeg","gif");
       $excel_exts = array("xls","xlsx");
@@ -266,6 +267,7 @@ $topics = array("fbg","pic","mbg","casesummary","appfiles");
 			  echo CHtml::image(Yii::app()->request->baseUrl.'/img/file.png',"file",array("class"=>'file-thumb')); 
 			}
 			?>
+			</a>
 			</div>
         <div class="caption">
           <h4><?php echo $f->title?$f->title:"untitled";?></h4>
