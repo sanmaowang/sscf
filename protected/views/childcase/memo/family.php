@@ -50,13 +50,14 @@
 	<input type="hidden" name="CaseFamily[return]" value="family"/>
 	<?php echo $form->textFieldRow($fmodel,'name',array('class'=>'span5','maxlength'=>20)); ?>
 
-	<?php echo $form->textFieldRow($fmodel,'relationship',array('class'=>'span5')); ?>
+	<?php echo $form->dropDownListRow($fmodel, 'relationship', array('父亲','母亲','兄弟姐妹')); ?>
+
 	<input type="hidden" name="CaseFamily[is_immediate]" value="1"/>
 	
 	<?php echo $form->textFieldRow($fmodel,'age',array('class'=>'span5')); ?>
 
 	<?php echo $form->textFieldRow($fmodel,'id_card',array('class'=>'span5','maxlength'=>80)); ?>
-	<?php echo $form->textFieldRow($fmodel,'education',array('class'=>'span5','maxlength'=>80)); ?>
+	<?php echo $form->dropDownListRow($fmodel, 'education', array('小学','初中','高中','本科','硕士','博士及其以上')); ?>
 
 	<?php echo $form->textFieldRow($fmodel,'nation',array('class'=>'span5','maxlength'=>25)); ?>
 	

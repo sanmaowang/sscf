@@ -51,7 +51,8 @@
 	<input type="hidden" name="CaseFamily[return]" value="other"/>
 	<?php echo $form->textFieldRow($fmodel,'name',array('class'=>'span5','maxlength'=>20)); ?>
 
-	<?php echo $form->textFieldRow($fmodel,'relationship',array('class'=>'span5')); ?>
+	<?php echo $form->dropDownListRow($fmodel, 'relationship', array('父亲','母亲','兄弟姐妹')); ?>
+	
 	<input type="hidden" name="CaseFamily[is_immediate]" value="0"/>
 
 	<?php echo $form->textFieldRow($fmodel,'age',array('class'=>'span5')); ?>

@@ -11,7 +11,20 @@
 			"family_idcard"=>"父母及监护人身份证",
 			"family_registry"=>"患儿及家庭成员户口本",
 			"family_proof"=>"贫困证明（乡级以上盖章有效）",
-			"family_other"=>"其它"
+			"family_other"=>"其它",
+			// "father_id"=>"身份证（父亲）",
+			// "mother_id"=>"身份证（母亲）",
+			// "other_id"=>"身份证（父母外监护人）",
+			// "other_im_id"=>"身份证（其他直系亲属）",
+			// "other_fm_id"=>"身份证（其他家庭成员）",
+			// "parent_registry"=>"户口页（父亲）",
+			// "mother_registry"=>"户口页（母亲）",
+			// "other_registry"=>"户口页（父母外监护人）",
+			// "other_im_registry"=>"户口页（其他直系亲属）",
+			// "other_fm_registry"=>"户口页（其他家庭成员）",
+			// "other_cun_proof"=>"贫困证明（村级盖章）",
+			// "other_xiang_proof"=>"贫困证明（乡级以上盖章）",
+			// "other_file"=>"其他文件",
 		),
 		"pic"=>array(
 			"pic_life"=>"患儿生活照片",
@@ -47,7 +60,7 @@
 <legend><?php echo $page_title[$flag]?></legend>
 <div class="row-fluid">
   <ul class="thumbnails">
-  	<?php if(count($model->files) >0):?>
+  	<?php if(count($model->files) > 0):?>
 		<?php foreach($model->files as $key=>$f):?>
 		<?php if($f->getCate() == $flag):?>
     <li class="span3">
@@ -103,7 +116,7 @@
 	<input type="hidden" name="CaseFamily[return]" value="<?php echo $flag;?>"/>
 	<?php echo $form->hiddenField($amodel,'case_id',array('class'=>'span5','value'=>$model->id)); ?>
 	<?php echo $form->fileFieldRow($amodel,'path'); ?>
-	<?php echo $form->radioButtonListRow($amodel, 'key', $radio_label[$flag]); ?>
+	<?php echo $form->dropDownListRow($amodel, 'key', $radio_label[$flag]); ?>
 	<?php echo $form->textFieldRow($amodel,'title',array('class'=>'span5','maxlength'=>60,'placeholder'=>'选填','id'=>'input_title')); ?>
 	<?php echo $form->textAreaRow($amodel,'desc',array('rows'=>6, 'cols'=>50, 'class'=>'span8','placeholder'=>'选填')); ?>
 
@@ -125,6 +138,5 @@
 				$("#input_title").val(val);
 			}
 		});
-		$(".thumbnails li")
 	})
 </script>

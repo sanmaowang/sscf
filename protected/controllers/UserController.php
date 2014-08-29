@@ -61,23 +61,23 @@ class UserController extends Controller
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
-			$notify = isset($_POST['User'])?$_POST['User']:null;
+			// $notify = isset($_POST['User'])?$_POST['User']:null;
 			if($model->save()){
-				if(!$notify){
+				// if(!$notify){
         	Yii::app()->user->setFlash('success', "用户已创建成功");
 					$this->redirect(array('view','id'=>$model->id));
-				}else{
-					$message = new YiiMailMessage;
-			    $message->subject = "Seastar Children ";
-			    $body = "welcome to seastar children.. your email accound: ".$model->email.", your password is: ".$_POST['User']['password'].".";
-			    $message->setBody($body, 'text/html');
-			    $message->addTo($model->email);
-			    $message->from = Yii::app()->params['serviceEmail'];
-			    if(Yii::app()->mail->send($message)){
-        		Yii::app()->user->setFlash('success', "用户已创建成功，邮件已发送");
-		        $this->redirect(array('view','id'=>$model->id));
-			    }
-				}
+				// }else{
+				// 	$message = new YiiMailMessage;
+			 //    $message->subject = "Seastar Children ";
+			 //    $body = "welcome to seastar children.. your email accound: ".$model->email.", your password is: ".$_POST['User']['password'].".";
+			 //    $message->setBody($body, 'text/html');
+			 //    $message->addTo($model->email);
+			 //    $message->from = Yii::app()->params['serviceEmail'];
+			 //    if(Yii::app()->mail->send($message)){
+    //     		Yii::app()->user->setFlash('success', "用户已创建成功，邮件已发送");
+		  //       $this->redirect(array('view','id'=>$model->id));
+			 //    }
+				// }
 			}
 		}
 

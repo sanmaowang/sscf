@@ -161,7 +161,7 @@ class Childcase extends CActiveRecord
 			'other_foundation_staff' => '其他基金会牵头人',
 			'staff' => '海星尽职调查专员',
 			'applicant' => '申请者',
-			'source' => '来源',
+			'source' => '案例来源',
 			'status' => '状态',
 			'create_by' => '创建者',
 			'create_time' => 'Create Time',

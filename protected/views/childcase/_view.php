@@ -11,9 +11,8 @@
 	</td>
 	<td><?php echo $data->sourcefrom->name;?></td>
 	<td><?php echo $data->getStatusLabel();?></td>
-	<td><?php echo $data->createby->name;?></td>
- <td width="38%">
- 	<a href="<?php echo $this->createUrl('view',array('id'=>$data->id));?>" class="btn"><i class="fa fa-user"></i> View</a>
+	<td><a href="<?php echo $this->createUrl('user/view',array('id'=>$data->createby->id));?>"><?php echo $data->createby->name;?></a></td>
+  <td width="38%">
  	<a href="<?php echo $this->createUrl('updatecase',array('id'=>$data->id));?>" class="btn"><i class="fa fa-file"></i> Edit Basic</a>
  	<a href="<?php echo $this->createUrl('update',array('id'=>$data->id,'flag'=>'child'));?>" class="btn"><i class="fa fa-edit"></i> Edit DC Memo</a>
  	 <?php echo CHtml::ajaxLink('<i class="icon-trash icon-white"></i> Delete',array('delete','id'=>$data->id),

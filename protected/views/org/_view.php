@@ -6,7 +6,6 @@
 <td>
 	<?php echo CHtml::link(CHtml::encode($data->name), array('view', 'id'=>$data->id)); ?>
 	</td>
-	<td><?php echo $data->parent->name;?></td>
 	<td>
 	<?php echo CHtml::encode($data->contact); ?>
 	</td>

@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
 	'Case'=>array('index'),
-	'Create',
+	'Update Case Basic Info',
 );
 
 $this->menu=array(
@@ -10,6 +10,6 @@ $this->menu=array(
 );
 ?>
 <div class="page-header">
-<h1>更新案例</h1>
+<h1>案例基本信息/更新</h1>
 </div>
 <?php echo $this->renderPartial('_simple_form', array('model'=>$model,'users'=>$users,'orgs'=>$orgs)); ?>

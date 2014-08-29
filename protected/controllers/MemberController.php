@@ -96,7 +96,7 @@ class MemberController extends Controller
         $model->avatar = $fileName;
         $avatar->saveAs(Yii::app()->basePath.'/../uploads/avatar/'.$model->avatar);
         $path = Yii::getPathOfAlias('webroot').'/uploads/avatar/';
-        $image_file = Yii::app()->image->load($path.'/'.$model->avatar );
+        $image_file = Yii::app()->image->load($path.$model->avatar );
         if($image_file->width > 120 || $image_file->height > 120){
         	if($image_file->width/$image_file->height > 1){
         		$image_file->resize(NULL,120)->quality(95);

@@ -81,7 +81,7 @@
 
   <div id="footer">
     <hr>
-    Copyright &copy; <?php echo date('Y'); ?> by SeaStar Children‘s Foundation.
+    &copy; <?php echo date('Y'); ?> Copyright by Sea Star Children‘s Foundation.
   </div><!-- footer -->
 
 </div><!-- page -->

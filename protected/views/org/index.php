@@ -17,7 +17,6 @@ $this->menu=array(
     <thead>
     <tr>
       <th><i class="icon-user"></i> 名称</th>
-      <th><i class="icon-bookmark"></i> 所属机构</th>
       <th><i class="icon-tasks"></i> 联系方式</th>
       <th width="500"><i class="icon-edit"></i> 操作</th>
     </tr>
