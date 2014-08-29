@@ -54,27 +54,16 @@
   <div id="note_comment">
     <span class="text-error"><i class="icon-edit"></i> Feedback: </span> <a href="#" id="write_comment">有问题? 点这里留言..</a>
   </div>
-  <div id="disqus_thread" style="display:none;"></div>
+  <div id="disqus_thread"></div>
   <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
   var disqus_shortname = 'seastarchildren'; // required: replace example with your forum shortname
 
   /* * * DON'T EDIT BELOW THIS LINE * * */
   (function() {
-    var flag = 0;
-    $("#write_comment").click(function(e){
-      e.preventDefault();
-      $("#disqus_thread").toggle(200);
-      flag+=1;
-      if(flag == 1){
-        init_comment();
-      }
-    });
-    function init_comment(){
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }
     })();
   
   </script>

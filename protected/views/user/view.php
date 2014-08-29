@@ -35,7 +35,6 @@ $this->menu=array(
 		'id',
 		'username',
 		'email',
-		'password',
 		'name',
 		'id_card',
 		'gender',

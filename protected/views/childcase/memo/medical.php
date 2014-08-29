@@ -24,9 +24,9 @@
 
 	<?php echo $form->textFieldRow($model,'is_one_time_cure',array('class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'admission_time',array('class'=>'span5')); ?>
+	<?php echo $form->textFieldRow($model,'admission_time',array('class'=>'span5 datetime')); ?>
 
-	<?php echo $form->textFieldRow($model,'operation_plan_time',array('class'=>'span5')); ?>
+	<?php echo $form->textFieldRow($model,'operation_plan_time',array('class'=>'span5 datetime')); ?>
 
 	<?php echo $form->textFieldRow($model,'applicant',array('class'=>'span5','maxlength'=>11)); ?>
 
@@ -39,3 +39,17 @@
 	</div>
 
 <?php $this->endWidget(); ?>
+
+
+
+<?php
+    $baseUrl = Yii::app()->baseUrl;
+    $cs = Yii::app()->getClientScript();
+    $cs->registerCssFile($baseUrl."/js/vendor/datepicker/datepicker.css");
+    $cs->registerScriptFile($baseUrl."/js/vendor/datepicker/bootstrap-datepicker.js");
+		$cs->registerScript('datetime', "
+    	$('.datetime').datepicker({
+    		format:'yyyy/mm/dd'
+    	});
+		", CClientScript::POS_END);
+?>

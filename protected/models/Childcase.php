@@ -69,6 +69,7 @@ class Childcase extends CActiveRecord
 			array('name, create_by', 'required'),
 			array('gender, source, create_by, status', 'numerical', 'integerOnly'=>true),
 			array('name, id_card, nation, citivaltype,is_one_time_cure, contact, telephone', 'length', 'max'=>25),
+			array('id_card', 'length', 'max'=>18),
 			array('nickname, avatar', 'length', 'max'=>64),
 			array('home, doctor', 'length', 'max'=>80),
 			array('height, weight', 'length', 'max'=>6),
