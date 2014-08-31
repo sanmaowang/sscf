@@ -10,7 +10,7 @@
 	<input type="hidden" name="Org[org_id]" value="<?php echo $oid;?>"/>
 	<?php echo $form->textFieldRow($model,'name',array('class'=>'span5','maxlength'=>60)); ?>
 
-	<?php echo $form->dropDownListRow($model, 'gender', array('0'=>'Male','1'=>'Female')); ?>
+	<?php echo $form->dropDownListRow($model, 'gender', array('0'=>'男','1'=>'女')); ?>
 
 	<?php echo $form->textFieldRow($model,'mobile',array('class'=>'span5','maxlength'=>20)); ?>
 

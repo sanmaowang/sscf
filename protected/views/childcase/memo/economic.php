@@ -2,7 +2,7 @@
 	'id'=>'childcase-form',
 	'type'=>'horizontal',
 	'enableAjaxValidation'=>false,
-	'action'=>Yii::app()->createUrl('casebudget/create')
+	'action'=>Yii::app()->createUrl('caseBudget/create')
 )); ?>
 <legend>手术预算和经济情况说明</legend>
 	<p class="help-block">带<span class="required">*</span> 是必填项目.</p>

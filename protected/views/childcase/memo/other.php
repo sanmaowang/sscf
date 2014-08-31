@@ -2,7 +2,7 @@
 	'id'=>'childcase-form',
 	'type'=>'horizontal',
 	'enableAjaxValidation'=>false,
-	'action'=>Yii::app()->createUrl('casefamily/create')
+	'action'=>Yii::app()->createUrl('caseFamily/create')
 )); ?>
 <legend>其他家庭成员信息</legend>
 <?php if(count($model->family) >0):?>
@@ -33,8 +33,8 @@
 			<td><?php echo $f->career;?></td>
 			<td><?php echo $f->annual_income;?></td>
 			<td>
-				<a href="<?php echo $this->createUrl('casefamily/update',array('id'=>$f->id));?>" class="btn btn-primary">Edit</a>
-        <a href="<?php echo $this->createUrl('casefamily/delete',array('id'=>$f->id));?>" class="btn btn-danger">Delete</a>
+				<a href="<?php echo $this->createUrl('caseFamily/update',array('id'=>$f->id));?>" class="btn btn-primary">Edit</a>
+        <a href="<?php echo $this->createUrl('caseFamily/delete',array('id'=>$f->id));?>" class="btn btn-danger">Delete</a>
 			</td>
 		</tr>
 	<?php endif;?>

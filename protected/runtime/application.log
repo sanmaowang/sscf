@@ -19,3 +19,43 @@ Stack trace:
 REQUEST_URI=/member/update
 HTTP_REFERER=http://seastar.local/member/update
 ---
+2014/08/31 20:45:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/08/31 20:50:18 [error] [exception.CException] exception 'CException' with message 'TbActiveForm and its behaviors do not have a method or closure named "radio".' in /Users/sanmao/sscf/framework/base/CComponent.php:265
+Stack trace:
+#0 /Users/sanmao/sscf/protected/views/orgContact/_form.php(13): CComponent->__call('radio', Array)
+#1 /Users/sanmao/sscf/protected/views/orgContact/_form.php(13): TbActiveForm->radio(Object(OrgContact), 'gender', Array)
+#2 /Users/sanmao/sscf/framework/web/CBaseController.php(126): require('/Users/sanmao/s...')
+#3 /Users/sanmao/sscf/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Users/sanmao/s...', Array, true)
+#4 /Users/sanmao/sscf/framework/web/CController.php(869): CBaseController->renderFile('/Users/sanmao/s...', Array, true)
+#5 /Users/sanmao/sscf/protected/views/orgContact/create.php(18): CController->renderPartial('_form', Array)
+#6 /Users/sanmao/sscf/framework/web/CBaseController.php(126): require('/Users/sanmao/s...')
+#7 /Users/sanmao/sscf/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Users/sanmao/s...', Array, true)
+#8 /Users/sanmao/sscf/framework/web/CController.php(869): CBaseController->renderFile('/Users/sanmao/s...', Array, true)
+#9 /Users/sanmao/sscf/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#10 /Users/sanmao/sscf/protected/controllers/OrgContactController.php(103): CController->render('create', Array)
+#11 [internal function]: OrgContactController->actionCreate('1')
+#12 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(OrgContactController), Array)
+#13 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(OrgContactController), Object(ReflectionMethod), Array)
+#14 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#21 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('create')
+#23 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('orgContact/crea...')
+#24 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#25 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/orgContact/create?oid=1
+HTTP_REFERER=http://seastar.local/org/1
+---

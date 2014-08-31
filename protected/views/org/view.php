@@ -71,7 +71,7 @@ array_push($this->breadcrumbs,$model->name);
 				<h3>联系人</h3>
 			</div>
 			<div class="span6 text-right" style="padding-top:15px;">
-				<a href="<?php echo $this->createUrl('orgcontact/create',array('oid'=>$model->id))?>" class="btn btn-primary btn-small"><i class="icon-plus icon-white"></i>  新建联系人</a>
+				<a href="<?php echo $this->createUrl('orgContact/create',array('oid'=>$model->id))?>" class="btn btn-primary btn-small"><i class="icon-plus icon-white"></i>  新建联系人</a>
 			</div>
 		</div>
 		<table class="table">
@@ -88,9 +88,9 @@ array_push($this->breadcrumbs,$model->name);
 			<?php foreach($contacts as $index=>$c):?>
 				<tr>
 					<td><?php echo $index+1;?></td>
-					<td><a href="<?php echo $this->createUrl('orgcontact/view',array('id'=>$c->id))?>"><?php echo $c->name;?></a></td>
+					<td><a href="<?php echo $this->createUrl('orgContact/view',array('id'=>$c->id))?>"><?php echo $c->name;?></a></td>
 					<td>
-						<a href="<?php echo $this->createUrl('orgcontact/update',array('id'=>$c->id));?>" class="btn btn-primary btn-mini">编辑</a>
+						<a href="<?php echo $this->createUrl('orgContact/update',array('id'=>$c->id));?>" class="btn btn-primary btn-mini">编辑</a>
 					</td>
 				</tr>
 			<?php endforeach;?>

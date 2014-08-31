@@ -44,10 +44,6 @@ $this->menu=array(
 			<td><?php echo CHtml::encode($data->nickname); ?></td>
 		</tr>
 		<tr>
-			<th><?php echo CHtml::encode($data->getAttributeLabel('gender')); ?></th>
-			<td><?php if($data->gender == 0){echo "Male";}else{ echo "Female";};?></td>
-		</tr>
-		<tr>
 			<th><?php echo CHtml::encode($data->getAttributeLabel('birthday')); ?></th>
 			<td><?php echo CHtml::encode($data->birthday); ?></td>
 		</tr>

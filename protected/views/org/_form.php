@@ -14,7 +14,7 @@
 
 	<?php echo $form->textFieldRow($model,'contact',array('class'=>'span5','maxlength'=>64)); ?>
 
-	<?php echo $form->dropDownListRow($model,'type',array(1=>"基金会机构", 2=>'医院')); ?>
+	<?php echo $form->dropDownListRow($model,'type',$model->types); ?>
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(

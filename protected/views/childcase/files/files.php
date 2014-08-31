@@ -87,8 +87,8 @@
         <div class="caption">
           <h4><?php echo $f->title?$f->title:"untitled";?></h4>
           <p><?php echo $f->desc;?></p>
-          <p><a href="<?php echo $this->createUrl('casefile/update',array('id'=>$f->id));?>" class="btn btn-primary">Edit</a>
-          	<?php echo CHtml::ajaxLink('Delete',array('casefile/delete','id'=>$f->id),
+          <p><a href="<?php echo $this->createUrl('caseFile/update',array('id'=>$f->id));?>" class="btn btn-primary">Edit</a>
+          	<?php echo CHtml::ajaxLink('Delete',array('caseFile/delete','id'=>$f->id),
                   array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;$("#delete-"+_id+"").parent().parent().parent().remove();}'),
                   array('confirm'=>'该操作不可逆，确定要删除吗?',
                         'id'=>'delete-'.$f->id,
@@ -117,7 +117,7 @@
 	<?php echo $form->hiddenField($amodel,'case_id',array('class'=>'span5','value'=>$model->id)); ?>
 	<?php echo $form->fileFieldRow($amodel,'path'); ?>
 	<?php echo $form->dropDownListRow($amodel, 'key', $radio_label[$flag]); ?>
-	<?php echo $form->textFieldRow($amodel,'title',array('class'=>'span5','maxlength'=>60,'placeholder'=>'选填','id'=>'input_title')); ?>
+	<?php echo $form->textFieldRow($amodel,'title',array('class'=>'span5','maxlength'=>60,'id'=>'input_title')); ?>
 	<?php echo $form->textAreaRow($amodel,'desc',array('rows'=>6, 'cols'=>50, 'class'=>'span8','placeholder'=>'选填')); ?>
 
 	<div class="form-actions">
