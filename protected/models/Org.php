@@ -8,7 +8,7 @@
  * @property integer $parent_id
  * @property string $name
  * @property string $english_name
- * @property string $offical_name
+ * @property string $official_name
  * @property string $address
  * @property string $description
  * @property string $website
@@ -60,12 +60,12 @@ class Org extends CActiveRecord
 		return array(
 			array('name, parent_id', 'required'),
 			array('parent_id, type', 'numerical', 'integerOnly'=>true),
-			array('name, english_name, offical_name, contact, website', 'length', 'max'=>64),
+			array('name, english_name, official_name, contact, website', 'length', 'max'=>64),
 			array('address', 'length', 'max'=>255),
 			array('description, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, parent_id, name, contact, english_name, offical_name, address, description,website,  type, create_time, update_time', 'safe', 'on'=>'search'),
+			array('id, parent_id, name, contact, english_name, official_name, address, description,website,  type, create_time, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -93,7 +93,7 @@ class Org extends CActiveRecord
 			'parent_id' => '所属机构',
 			'name' => '名称',
 			'english_name'=>'英文全称',
-			'offical_name' => '官方名称',
+			'official_name' => '官方名称',
 			'address' => '总部地址',
 			'description' => '主要介绍',
 			'website' => '官方网站',
@@ -119,7 +119,7 @@ class Org extends CActiveRecord
 		$criteria->compare('parent_id',$this->parent_id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('english_name',$this->english_name,true);
-		$criteria->compare('offical_name',$this->offical_name,true);
+		$criteria->compare('official_name',$this->official_name,true);
 		$criteria->compare('address',$this->address,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('website',$this->website,true);

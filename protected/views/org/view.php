@@ -30,7 +30,7 @@ array_push($this->breadcrumbs,$model->name);
 	'attributes'=>array(
 		'name',
 		'english_name',
-		'offical_name',
+		'official_name',
 		'address',
 		'website',
 		'contact',
