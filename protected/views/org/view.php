@@ -16,33 +16,34 @@ array_push($this->breadcrumbs,$model->name);
 	</div>
 </div>
 <div class="row-fluid">
-	<div class="span3">
+	<div class="span4">
 		<div class="row-fluid">
 			<div class="span6">
 				<h3>客户信息</h3>
 			</div>
 			<div class="span6 text-right" style="padding-top:18px;">
-				<a href="<?php echo $this->createUrl('update',array('id'=>$model->id))?>" class="btn btn-primary btn-small"><i class="icon-edit icon-white"></i>  编辑客户</a>
+				<a href="<?php echo $this->createUrl('update',array('id'=>$model->id))?>" class="btn btn-info btn-small"><i class="icon-edit icon-white"></i>  编辑客户</a>
 			</div>
 		</div>
 	<?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
 	'attributes'=>array(
-		'id',
 		'name',
+		'english_name',
+		'offical_name',
+		'address',
+		'website',
 		'contact',
-		'create_time',
-		'update_time',
 	),
 )); ?>
 	</div>
-	<div class="span9">
+	<div class="span8">
 		<div class="row-fluid">
 			<div class="span6">
 				<h3>下属机构</h3>
 			</div>
 			<div class="span6 text-right" style="padding-top:15px;">
-				<a href="<?php echo $this->createUrl('create',array('pid'=>$model->id))?>" class="btn btn-primary btn-small"><i class="icon-plus icon-white"></i>  新建下属机构</a>
+				<a href="<?php echo $this->createUrl('create',array('pid'=>$model->id))?>" class="btn btn-primary btn-small"><i class="icon-plus icon-white"></i>  新建部门</a>
 			</div>
 		</div>
 		<table class="table">
@@ -50,6 +51,7 @@ array_push($this->breadcrumbs,$model->name);
 				<tr>
 					<td>#</td>
 					<td>机构名称</td>
+					<td>类型</td>
 					<td>操作</td>
 				</tr>
 			</thead>
@@ -58,8 +60,9 @@ array_push($this->breadcrumbs,$model->name);
 				<tr>
 					<td><?php echo $index+1;?></td>
 					<td><a href="<?php echo $this->createUrl('view',array('id'=>$c->id))?>"><?php echo $c->name;?></a></td>
+					<td><?php echo $c->types[$c->type];?></td>
 					<td>
-						<a href="<?php echo $this->createUrl('update',array('id'=>$c->id));?>" class="btn btn-primary btn-mini">编辑</a>
+						<a href="<?php echo $this->createUrl('update',array('id'=>$c->id));?>" class="btn btn-info btn-mini">编辑</a>
 					</td>
 				</tr>
 			<?php endforeach;?>
@@ -71,7 +74,7 @@ array_push($this->breadcrumbs,$model->name);
 				<h3>联系人</h3>
 			</div>
 			<div class="span6 text-right" style="padding-top:15px;">
-				<a href="<?php echo $this->createUrl('orgContact/create',array('oid'=>$model->id))?>" class="btn btn-primary btn-small"><i class="icon-plus icon-white"></i>  新建联系人</a>
+				<a href="<?php echo $this->createUrl('orgContact/create',array('oid'=>$model->id))?>" class="btn btn-primary btn-small"><i class="icon-plus icon-white"></i>  新建职员</a>
 			</div>
 		</div>
 		<table class="table">
@@ -79,6 +82,8 @@ array_push($this->breadcrumbs,$model->name);
 				<tr>
 					<td>#</td>
 					<td>姓名</td>
+					<td>电话</td>
+					<td>Email</td>
 					<td>操作</td>
 				</tr>
 			</thead>
@@ -89,8 +94,10 @@ array_push($this->breadcrumbs,$model->name);
 				<tr>
 					<td><?php echo $index+1;?></td>
 					<td><a href="<?php echo $this->createUrl('orgContact/view',array('id'=>$c->id))?>"><?php echo $c->name;?></a></td>
+					<td><?php echo $c->mobile;?></td>
+					<td><a href="mailto:<?php echo $c->email;?>"><?php echo $c->email;?></a></td>
 					<td>
-						<a href="<?php echo $this->createUrl('orgContact/update',array('id'=>$c->id));?>" class="btn btn-primary btn-mini">编辑</a>
+						<a href="<?php echo $this->createUrl('orgContact/update',array('id'=>$c->id));?>" class="btn btn-info btn-mini">编辑</a>
 					</td>
 				</tr>
 			<?php endforeach;?>

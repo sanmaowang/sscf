@@ -71,6 +71,7 @@
   <div id="footer">
     <hr>
     &copy; <?php echo date('Y'); ?> Copyright by Sea Star Children‘s Foundation.
+    <br/><em class="muted">请使用Chrome/Safari/Opera或IE8以上的现代浏览器访问</em>
   </div><!-- footer -->
 
 </div><!-- page -->

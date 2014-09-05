@@ -40,19 +40,15 @@
 
 	<?php echo $form->textFieldRow($model,'mobile',array('class'=>'span5','maxlength'=>15)); ?>
 
+	<?php echo $form->textFieldRow($model,'residence',array('class'=>'span5','maxlength'=>64)); ?>
+
+	<?php echo $form->textFieldRow($model,'job',array('class'=>'span5','maxlength'=>64)); ?>
+	
 	<?php echo $form->textFieldRow($model,'birthday',array('class'=>'span5 datetime')); ?>
 
 	<?php echo $form->dropDownListRow($model, 'gender', array('0'=>'Male','1'=>'Female')); ?>
 	
 	<?php echo $form->dropDownListRow($model, 'marital_status', array('0'=>'Single','1'=>'Married')); ?>
-
-	<?php echo $form->textFieldRow($model,'id_card',array('class'=>'span5','maxlength'=>64)); ?>
-
-	<?php echo $form->textFieldRow($model,'residence',array('class'=>'span5','maxlength'=>64)); ?>
-
-	<?php echo $form->textFieldRow($model,'job_number',array('class'=>'span5','maxlength'=>64)); ?>
-
-	<?php echo $form->textFieldRow($model,'department',array('class'=>'span5','maxlength'=>64)); ?>
 
 </fieldset>
 	<div class="form-actions">

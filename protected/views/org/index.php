@@ -16,7 +16,9 @@ $this->menu=array(
 <table class="table table-striped table-bordered">
     <thead>
     <tr>
+      <th width="15">#</th>
       <th><i class="icon-user"></i> 名称</th>
+      <th>类型</th>
       <th><i class="icon-tasks"></i> 联系方式</th>
       <th width="500"><i class="icon-edit"></i> 操作</th>
     </tr>

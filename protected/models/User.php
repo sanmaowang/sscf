@@ -14,6 +14,7 @@
  * @property string $residence
  * @property string $job_number
  * @property string $department
+ * @property string $job
  * @property string $email
  * @property string $password
  * @property string $mobile
@@ -23,6 +24,7 @@
  * @property string $update_time
  * @property string $login_count
  * @property integer $role
+ * @property integer $is_active
  * @property integer $is_deleted
  */
 class User extends CActiveRecord
@@ -59,8 +61,8 @@ class User extends CActiveRecord
 			array('new_password, repeat_new_password', 'length','min'=>6, 'max'=>12),
       array('new_password', 'compare', 'compareAttribute'=>'repeat_new_password','message'=>"new password and confirm password do not match"),
 			array('old_password','validatePassword','on'=>'password'),
-			array('gender, marital_status, role, is_deleted', 'numerical', 'integerOnly'=>true),
-			array('username, id_card, job_number, department, email, nickname, residence', 'length', 'max'=>64),
+			array('gender, marital_status, role, is_deleted, is_active', 'numerical', 'integerOnly'=>true),
+			array('username, id_card, job_number, department,job, email, nickname, residence', 'length', 'max'=>64),
 			array('name', 'length', 'max'=>20),
 			array('username', 'unique'),
 			array('email', 'unique'),
@@ -71,7 +73,7 @@ class User extends CActiveRecord
 			array('birthday, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, username, name, id_card, gender, birthday, marital_status, job_number, residence, department, email, password, mobile, nickname, avatar, create_time, update_time, login_count, role, is_deleted', 'safe', 'on'=>'search'),
+			array('id, username, name, id_card, gender, birthday, marital_status, job_number, residence, department,job, email, password, mobile, nickname, avatar, create_time, update_time, login_count, role, is_active,is_deleted', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -110,28 +112,30 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'username' => 'Username',
-			'name' => 'Name',
-			'id_card' => 'Id Card',
-			'gender' => 'Gender',
-			'birthday' => 'Birthday',
-			'marital_status' => 'Marital Status',
-			'residence' => 'Residence',
+			'username' => '用户名',
+			'name' => '姓名',
+			'id_card' => '身份证',
+			'gender' => '性别',
+			'birthday' => '生日',
+			'marital_status' => '婚姻状况',
+			'residence' => '居住地',
 			'job_number' => 'Job Number',
 			'department' => 'Department',
+			'job' => '职务',
 			'email' => 'Email',
-			'password' => Yii::t('site','Password'),
-			'old_password' => Yii::t('site','Old Password'),
-			'new_password'=> Yii::t('site','New Password'),
-			'repeat_new_password'=>Yii::t('site','Confirm Password'),
-			'mobile' => 'Mobile',
-			'nickname' => 'Nickname',
-			'avatar' => 'Avatar',
+			'password' => '密码',
+			'old_password' => '原密码',
+			'new_password'=> '新密码',
+			'repeat_new_password'=>'确认密码',
+			'mobile' => '手机',
+			'nickname' => '昵称',
+			'avatar' => '头像',
 			'create_time' => 'Create Time',
 			'update_time' => 'Update Time',
 			'login_count' => 'Login Count',
-			'role' => 'Role',
+			'role' => '系统角色',
 			'is_deleted' => 'Is Deleted',
+			'is_active' => '状态',
 		);
 	}
 

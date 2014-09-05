@@ -10,14 +10,8 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
 	<?php echo CHtml::encode($data->email); ?>
 	<br />
-	<b><?php echo CHtml::encode($data->getAttributeLabel('gender')); ?>:</b>
-	<?php if($data->gender == 0){echo "Male";}else{ echo "Female";};?>
-	<br />
-	<b><?php echo CHtml::encode($data->getAttributeLabel('birthday')); ?>:</b>
-	<?php echo CHtml::encode($data->birthday); ?>
-	<br />
-	<b><?php echo CHtml::encode($data->getAttributeLabel('residence')); ?>:</b>
-	<?php echo CHtml::encode($data->residence); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('job')); ?>:</b>
+	<?php echo CHtml::encode($data->job); ?>
 	<br />
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('job_number')); ?>:</b>

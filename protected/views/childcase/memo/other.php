@@ -1,7 +1,11 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
-	'id'=>'childcase-form',
+	'id'=>'case-family-form',
 	'type'=>'horizontal',
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>true,
+	'enableClientValidation' => true,
+  'clientOptions' => array(
+      'validateOnSubmit' => true,
+  ),
 	'action'=>Yii::app()->createUrl('caseFamily/create')
 )); ?>
 <legend>其他家庭成员信息</legend>
@@ -12,11 +16,10 @@
 		<th>姓名</th>
 		<th>关系</th>
 		<th>年龄</th>
-		<th>身份证号码</th>
-		<th>文化程度</th>
-		<th>民族</th>
 		<th>职业</th>
 		<th>年收入</th>
+		<th>健康状况</th>
+		<th>备注</th>
 		<th>操作</th>
 	</tr>
 	</thead>
@@ -25,13 +28,12 @@
 		<?php if($f->is_immediate == 0):?>
 		<tr>
 			<td><?php echo $f->name;?></td>
-			<td><?php echo $f->relationship?></td>
+			<td><?php echo $f->r_label[$f->relationship]?></td>
 			<td><?php echo $f->age;?></td>
-			<td><?php echo $f->id_card;?></td>
-			<td><?php echo $f->education;?></td>
-			<td><?php echo $f->nation;?></td>
 			<td><?php echo $f->career;?></td>
 			<td><?php echo $f->annual_income;?></td>
+			<td><?php echo $f->health_state;?></td>
+			<td><?php echo $f->note;?></td>
 			<td>
 				<a href="<?php echo $this->createUrl('caseFamily/update',array('id'=>$f->id));?>" class="btn btn-primary">Edit</a>
         <a href="<?php echo $this->createUrl('caseFamily/delete',array('id'=>$f->id));?>" class="btn btn-danger">Delete</a>

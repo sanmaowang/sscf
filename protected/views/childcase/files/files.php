@@ -56,22 +56,25 @@
 				"dc_memo"=>'DC_demo'
 			)
 		);
+	$img_exts = array("jpg","png","bmp","jpeg","gif");
+  $excel_exts = array("xls","xlsx");
+  $word_exts = array("doc","docx");
+  $folder_type = array("under review","under review","under review","funded","passed");
 ?>
 <legend><?php echo $page_title[$flag]?></legend>
 <div class="row-fluid">
   <ul class="thumbnails">
   	<?php if(count($model->files) > 0):?>
-		<?php foreach($model->files as $key=>$f):?>
+  	<?php for($i = 0,$j = 0; $i < count($model->files); $i++){
+  		$f = $model->files[$i];
+  	?>
 		<?php if($f->getCate() == $flag):?>
-    <li class="span3">
+		<li class="span3">
       <div class="thumbnail">
       	<div class="img-thumb">
       	<a class="files" href="<?php echo Yii::app()->request->baseUrl.'/uploads/case/'.$folder_type[$model->status].'/'.$f->path;?>">
       <?php 
-      $img_exts = array("jpg","png","bmp","jpeg","gif");
-      $excel_exts = array("xls","xlsx");
-      $word_exts = array("doc","docx");
-      $folder_type = array("under review","under review","under review","funded","passed");
+      
       if(in_array($f->getExt(),$img_exts)){
 			  echo CHtml::image(Yii::app()->request->baseUrl.'/uploads/case/'.$folder_type[$model->status].'/'.$f->path,"file",array("width"=>300,"height"=>200)); 
 			}else if(in_array($f->getExt(),$excel_exts)){
@@ -96,8 +99,11 @@
         </div>
       </div>
     </li>
+		<?php if(($j+1)%4 ==0){?>
+			</ul><ul class="thumbnails">
+  	<?php }$j++;?> 
 		<?php endif;?>
-    <?php endforeach;?>
+  	<?php }?>
 		<?php endif;?>
   </ul>
 </div>
@@ -130,6 +136,16 @@
 
 <?php $this->endWidget(); ?>
 
+<?php
+    $baseUrl = Yii::app()->baseUrl;
+    $cs = Yii::app()->getClientScript();
+    $cs->registerCssFile($baseUrl."/js/vendor/colorbox/colorbox.css");
+    $cs->registerScriptFile($baseUrl.'/js/vendor/colorbox/jquery.colorbox-min.js',CClientScript::POS_END);
+    $cs->registerScript('update-detail', '
+    $(function(){
+      $(".files").colorbox({ innerWidth:500});
+    })', CClientScript::POS_END);
+?>
 <script>
 	$(function(){
 		$("input[type='radio']").on("change",function(){

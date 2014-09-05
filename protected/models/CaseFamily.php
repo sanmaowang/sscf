@@ -26,6 +26,10 @@ class CaseFamily extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return CaseFamily the static model class
 	 */
+
+	public $r_label = array('父亲','母亲','兄弟姐妹');
+	public $r_edu =  array('小学','初中','高中','本科','硕士','博士及其以上');
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -52,6 +56,8 @@ class CaseFamily extends CActiveRecord
 			array('case_id, is_immediate, age', 'numerical', 'integerOnly'=>true),
 			array('id_card, education, health_state, career', 'length', 'max'=>80),
 			array('nation, annual_income', 'length', 'max'=>25),
+			array('id_card', 'match', 'pattern'=>'/^\d{6}((1[89])|(2\d))\d{2}((0\d)|(1[0-2]))((3[01])|([0-2]\d))\d{3}(\d|X)$/i',
+          'message'=>'身份证格式不正确.'),
 			array('note, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

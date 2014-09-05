@@ -15,11 +15,16 @@ $this->menu=array(
 	array('label'=>'Manage Childcase', 'url'=>array('admin')),
 );
 $topics = array("fbg","pic","mbg","casesummary","appfiles");
+$img_exts = array("jpg","png","bmp","jpeg","gif");
+      $excel_exts = array("xls","xlsx");
+      $word_exts = array("doc","docx");
+      $folder_type = array("under review","under review","under review","funded","passed");
+
 ?>
 <div class="page-header row-fluid" style="border:none;margin-bottom:10px;">
 	<div class="span6">
 <h2><?php echo $model->name; ?> </h2>
-<p class="muted"><span>海星尽职调查专员: <?php echo CHtml::encode($model->charge->name); ?></span> <span style="margin-left:30px;">其他基金会牵头人: <?php if($model->other_foundation_staff){ echo CHtml::encode($model->other_foundation_staff);} else{ echo "暂无登记";}; ?></span></p>
+<p class="muted"><span>海星尽职调查专员: <?php if($model->charge) echo CHtml::encode($model->charge->name); ?></span> <span style="margin-left:30px;">其他基金会牵头人: <?php if($model->other_foundation_staff){ echo CHtml::encode($model->other_foundation_staff);} else{ echo "暂无登记";}; ?></span></p>
 </div>
   <div class="span6 text-right" style="padding-top:20px;">
   	<a href="<?php echo $this->createUrl('update',array('id'=>$model->id,'flag'=>'child'))?>" class="btn btn-info"><i class="icon-edit icon-white"></i> 编辑案例</a>
@@ -162,85 +167,81 @@ $topics = array("fbg","pic","mbg","casesummary","appfiles");
 <?php endif;?>
 <h4>其他家庭成员信息</h4>
 <?php if(count($model->family) >0):?>
-<table class="table table-bordered table-striped">
-	<thead>
-	<tr>
-		<th>姓名</th>
-		<th>关系</th>
-		<th>年龄</th>
-		<th>身份证号码</th>
-		<th>文化程度</th>
-		<th>民族</th>
-		<th>职业</th>
-		<th>年收入</th>
-	</tr>
-	</thead>
-	<tbody>
-		<?php foreach($model->family as $f):?>
-		<?php if($f->is_immediate == 0):?>
+		<table class="table table-bordered table-striped">
+			<thead>
+			<tr>
+				<th>姓名</th>
+				<th>关系</th>
+				<th>年龄</th>
+				<th>身份证号码</th>
+				<th>文化程度</th>
+				<th>民族</th>
+				<th>职业</th>
+				<th>年收入</th>
+			</tr>
+			</thead>
+			<tbody>
+				<?php foreach($model->family as $f):?>
+				<?php if($f->is_immediate == 0):?>
+				<tr>
+					<td><?php echo $f->name;?></td>
+					<td><?php echo $f->relationship?></td>
+					<td><?php echo $f->age;?></td>
+					<td><?php echo $f->id_card;?></td>
+					<td><?php echo $f->education;?></td>
+					<td><?php echo $f->nation;?></td>
+					<td><?php echo $f->career;?></td>
+					<td><?php echo $f->annual_income;?></td>
+				</tr>
+			<?php endif;?>
+			<?php endforeach;?>
+			</tbody>
+		</table>
+		<?php endif;?>
+		<h4>病情描述</h4>
+		<table class="table table-bordered table-striped">
+		<tbody>
 		<tr>
-			<td><?php echo $f->name;?></td>
-			<td><?php echo $f->relationship?></td>
-			<td><?php echo $f->age;?></td>
-			<td><?php echo $f->id_card;?></td>
-			<td><?php echo $f->education;?></td>
-			<td><?php echo $f->nation;?></td>
-			<td><?php echo $f->career;?></td>
-			<td><?php echo $f->annual_income;?></td>
+		<td width="300" >患儿病情描述</td>
+		<td colspan="6"><?php echo CHtml::encode($model->state_desc); ?></td>
 		</tr>
-	<?php endif;?>
-	<?php endforeach;?>
-	</tbody>
-</table>
-<?php endif;?>
-<h4>病情描述</h4>
-<table class="table table-bordered table-striped">
-<tbody>
-<tr>
-<td width="300" >患儿病情描述</td>
-<td colspan="6"><?php echo CHtml::encode($model->state_desc); ?></td>
-</tr>
-<tr>
-<td>是否有医疗保险及跨地区治疗报销比例</td>
-<td colspan="6"><?php echo CHtml::encode($model->medical_insurance_rate); ?></td>
-</tr>
-<tr>
-<td>当地民政或其他形式的大病救助补贴</td>
-<td colspan="6"><?php echo CHtml::encode($model->other_subsidy); ?></td>
-</tr>
-<tr>
-<td>是否有家族遗传病、其他重大疾病（如有请详细说明）</td>
-<td colspan="6"><?php echo CHtml::encode($model->have_other_illness); ?></td>
-</tr>
-<tr>
-<td>是否在半年内患有肺炎（如有请详细说明肺炎治疗时间和治疗经过）</td>
-<td colspan="6"><?php echo CHtml::encode($model->have_pneumonia); ?></td>
-</tr>
-<tr>
-<td>手术医院</td>
-<td><?php echo CHtml::encode($model->operation_hospital); ?></td>
-<td>主治大夫</td>
-<td colspan="2"><?php echo CHtml::encode($model->doctor); ?></td>
-<td>是否一次性根治</td>
-<td><?php echo CHtml::encode($model->is_one_time_cure); ?></td>
-</tr>
-<tr>
-<td>入院时间</td>
-<td><?php echo CHtml::encode($model->admission_time); ?></td>
-<td colspan="2">计划手术时间</td>
-<td colspan="3"><?php echo CHtml::encode($model->operation_plan_time); ?></td>
-</tr>
-</tbody>
-</table>
-			<div class="row-fluid">
-				<div class="span6 offset6 text-right">
-					
-				</div>
-			</div>
+		<tr>
+		<td>是否有医疗保险及跨地区治疗报销比例</td>
+		<td colspan="6"><?php echo CHtml::encode($model->medical_insurance_rate); ?></td>
+		</tr>
+		<tr>
+		<td>当地民政或其他形式的大病救助补贴</td>
+		<td colspan="6"><?php echo CHtml::encode($model->other_subsidy); ?></td>
+		</tr>
+		<tr>
+		<td>是否有家族遗传病、其他重大疾病（如有请详细说明）</td>
+		<td colspan="6"><?php echo CHtml::encode($model->have_other_illness); ?></td>
+		</tr>
+		<tr>
+		<td>是否在半年内患有肺炎（如有请详细说明肺炎治疗时间和治疗经过）</td>
+		<td colspan="6"><?php echo CHtml::encode($model->have_pneumonia); ?></td>
+		</tr>
+		<tr>
+		<td>手术医院</td>
+		<td><?php echo CHtml::encode($model->operation_hospital); ?></td>
+		<td>主治大夫</td>
+		<td colspan="2"><?php echo CHtml::encode($model->doctor); ?></td>
+		<td>是否一次性根治</td>
+		<td><?php echo CHtml::encode($model->is_one_time_cure); ?></td>
+		</tr>
+		<tr>
+		<td>入院时间</td>
+		<td><?php echo CHtml::encode($model->admission_time); ?></td>
+		<td colspan="2">计划手术时间</td>
+		<td colspan="3"><?php echo CHtml::encode($model->operation_plan_time); ?></td>
+		</tr>
+		</tbody>
+		</table>
 	</div>
 </div>
 </div>
 <div class="tab-pane" id="medical_assessment">
+
 </div>
   <?php foreach($topics as $t){?>
   <div class="tab-pane" id="<?php echo $t;?>">
@@ -253,10 +254,6 @@ $topics = array("fbg","pic","mbg","casesummary","appfiles");
       	<div class="img-thumb">
       	<a class="files" href="<?php echo Yii::app()->request->baseUrl.'/uploads/case/'.$folder_type[$model->status].'/'.$f->path;?>">
       	<?php 
-      $img_exts = array("jpg","png","bmp","jpeg","gif");
-      $excel_exts = array("xls","xlsx");
-      $word_exts = array("doc","docx");
-      $folder_type = array("under review","under review","under review","funded","passed");
       if(in_array($f->getExt(),$img_exts)){
 			  echo CHtml::image(Yii::app()->request->baseUrl.'/uploads/case/'.$folder_type[$model->status].'/'.$f->path,"file",array("width"=>300,"height"=>195)); 
 			}else if(in_array($f->getExt(),$excel_exts)){
@@ -270,7 +267,7 @@ $topics = array("fbg","pic","mbg","casesummary","appfiles");
 			</a>
 			</div>
         <div class="caption">
-          <h4><?php echo $f->title?$f->title:"untitled";?></h4>
+          <h4><?php echo $f->title?$f->title:"noname";?></h4>
           <span class="label label-info"><?php echo $f->getLabel($f->key);?></span>
           <p><?php echo $f->desc;?></p>
         </div>
@@ -283,6 +280,18 @@ $topics = array("fbg","pic","mbg","casesummary","appfiles");
   </div>
 	<?php }?>
 </div>
+
+
+<?php
+    $baseUrl = Yii::app()->baseUrl;
+    $cs = Yii::app()->getClientScript();
+    $cs->registerCssFile($baseUrl."/js/vendor/colorbox/colorbox.css");
+    $cs->registerScriptFile($baseUrl.'/js/vendor/colorbox/jquery.colorbox-min.js',CClientScript::POS_END);
+    $cs->registerScript('update-detail', '
+    $(function(){
+      $(".files").colorbox({ innerWidth:500});
+    })', CClientScript::POS_END);
+?>
 
 
 <script>

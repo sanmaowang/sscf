@@ -1,7 +1,11 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
-	'id'=>'childcase-form',
+	'id'=>'case-family-form',
 	'type'=>'horizontal',
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>true,
+	'enableClientValidation' => true,
+  'clientOptions' => array(
+      'validateOnSubmit' => true,
+  ),
 	'action'=>Yii::app()->createUrl('caseFamily/create')
 )); ?>
 <legend>家庭直系亲属基本信息</legend>
@@ -25,10 +29,10 @@
 		<?php foreach($model->family as $f):?>
 		<tr>
 			<td><?php echo $f->name;?></td>
-			<td><?php echo $f->relationship?></td>
+			<td><?php echo $f->r_label[$f->relationship]?></td>
 			<td><?php echo $f->age;?></td>
 			<td><?php echo $f->id_card;?></td>
-			<td><?php echo $f->education;?></td>
+			<td><?php echo $f->r_edu[$f->education];?></td>
 			<td><?php echo $f->nation;?></td>
 			<td><?php echo $f->career;?></td>
 			<td><?php echo $f->annual_income;?></td>

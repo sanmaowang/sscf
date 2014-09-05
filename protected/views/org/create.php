@@ -12,8 +12,10 @@ $this->menu=array(
 ?>
 <div class="page-header">
 <h1><?php if($parent):?>
-		<?php echo $parent->name;?> - 
-		<?php endif;?> 新建机构</h1>
+		<?php echo $parent->name;?> - 新建部门
+		<?php else:?>
+		新建机构
+		<?php endif;?> </h1>
 </div>
 <div class="row-fluid">
 	<div class="span12">

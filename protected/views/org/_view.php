@@ -3,8 +3,12 @@
 /* @var $data Child */
 ?>
 <tr>
+	<td><?php echo $data->id;?></td>
 <td>
 	<?php echo CHtml::link(CHtml::encode($data->name), array('view', 'id'=>$data->id)); ?>
+	</td>
+	<td>
+		<?php echo $data->types[$data->type];?>
 	</td>
 	<td>
 	<?php echo CHtml::encode($data->contact); ?>

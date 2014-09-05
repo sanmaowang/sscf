@@ -12,44 +12,51 @@ $this->menu=array(
 );
 ?>
 
-<h1>View User #<?php echo $model->username; ?></h1>
-<div class="btn-toolbar">
-<?php $this->widget('bootstrap.widgets.TbButton', array(
-  'label'=>'Update',
-  'type'=>'primary', // null, 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
-  'size'=>'mini', // null, 'large', 'small' or 'mini'
-  'url'=>array('update','id'=>$model->id),
-)); ?>
-<?php $this->widget('bootstrap.widgets.TbButton', array(
-		'buttonType'=>'submit', 
-    'label'=>'Delete',
-    'type'=>'danger', // null, 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
-    'size'=>'mini', // null, 'large', 'small' or 'mini'
-		'htmlOptions'=>array('submit'=>array('delete','id'=>$model->id),
-		'confirm'=>'Are you sure you want to delete this item?')
-	)); ?>
-</div>
-<?php $this->widget('bootstrap.widgets.TbDetailView',array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'username',
-		'email',
-		'name',
-		'id_card',
-		'gender',
-		'birthday',
-		'marital_status',
-		'job_number',
-		'residence',
-		'department',
-		'mobile',
-		'nickname',
-		'avatar',
-		'create_time',
-		'update_time',
-		'login_count',
-		'role',
-		'is_deleted',
-	),
-)); ?>
+<h1><?php echo $model->username; ?></h1>
+<h3>Account</h3>
+  <div class="row-fluid">
+  	<div class="span2">
+  		<?php $model->avatar = empty($model->avatar)?"noavatar.jpg":$model->avatar?>
+	    <?php echo CHtml::image(Yii::app()->request->baseUrl.'/uploads/avatar/'.$model->avatar,"avatar",array("width"=>120)); ?>
+  	</div>
+  	<div class="span9">
+  		<table class="table">
+				<tr>
+					<th width="30%"><?php echo CHtml::encode($model->getAttributeLabel('username')); ?></th>
+					<td><?php echo CHtml::encode($model->username); ?></td>
+				</tr>
+				<tr>
+					<th><?php echo CHtml::encode($model->getAttributeLabel('email')); ?></th>
+					<td><?php echo CHtml::encode($model->email); ?></td>
+				</tr>
+				<tr>
+					<th><?php echo CHtml::encode($model->getAttributeLabel('job')); ?></th>
+					<td><?php echo CHtml::encode($model->job); ?></td>
+				</tr>
+				<tr>
+					<th><?php echo CHtml::encode($model->getAttributeLabel('is_active')); ?></th>
+					<td><?php echo CHtml::encode($model->is_active); ?></td>
+				</tr>
+			</table>
+  	</div>
+  </div>
+	<h3>Personal</h3>
+	<table class="table table-striped">
+		<tr>
+			<th width="30%"><?php echo CHtml::encode($model->getAttributeLabel('name')); ?></th>
+			<td><?php echo CHtml::encode($model->name); ?></td>
+		</tr>
+
+		<tr>
+			<th><?php echo CHtml::encode($model->getAttributeLabel('birthday')); ?></th>
+			<td><?php echo CHtml::encode($model->birthday); ?></td>
+		</tr>
+		<tr>
+			<th><?php echo CHtml::encode($model->getAttributeLabel('mobile')); ?></th>
+			<td><?php echo CHtml::encode($model->mobile); ?></td>
+		</tr>
+		<tr>
+			<th><?php echo CHtml::encode($model->getAttributeLabel('residence')); ?></th>
+			<td><?php echo CHtml::encode($model->residence); ?></td>
+		</tr>
+	</table>

@@ -9,7 +9,7 @@
 	<strong><?php echo CHtml::link(CHtml::encode($data->name), array('view', 'id'=>$data->id)); ?></strong><br>
     <span style="color:#999;font-size:12px;">Updated: <strong><?php echo CHtml::encode($data->update_time); ?></strong></span>
 	</td>
-	<td><?php echo $data->sourcefrom->name;?></td>
+	<td><?php if($data->sourcefrom) echo $data->sourcefrom->name;?></td>
 	<td><?php echo $data->getStatusLabel();?></td>
 	<td><a href="<?php echo $this->createUrl('user/view',array('id'=>$data->createby->id));?>"><?php echo $data->createby->name;?></a></td>
   <td width="38%">
