@@ -34,7 +34,7 @@ class ChildcaseController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','updatecase','admin','delete','submit'),
+				'actions'=>array('create','update','updatecase','delete','submit','check'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -51,6 +51,16 @@ class ChildcaseController extends Controller
 	{
 		$model = $this->loadModel($id);
 		$this->render('view',array(
+			'model'=>$model,
+		));
+	}
+
+	public function actionCheck($id)
+	{
+		$model = $this->loadModel($id);
+		// calcuate the rate
+		
+		$this->render('check',array(
 			'model'=>$model,
 		));
 	}

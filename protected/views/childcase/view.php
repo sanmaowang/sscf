@@ -28,7 +28,7 @@ $img_exts = array("jpg","png","bmp","jpeg","gif");
 </div>
   <div class="span6 text-right" style="padding-top:20px;">
   	<a href="<?php echo $this->createUrl('update',array('id'=>$model->id,'flag'=>'child'))?>" class="btn btn-info"><i class="icon-edit icon-white"></i> 编辑案例</a>
-  	<!--<a href="<?php echo $this->createUrl('submit',array('id'=>$model->id))?>" class="btn btn-inverse"><i class="icon-inbox icon-white"></i> Dropbox Sync</a>-->
+  	<a href="<?php echo $this->createUrl('check',array('id'=>$model->id))?>" class="btn btn-primary"><i class="icon-ok-sign icon-white"></i> 提交审核</a>
   </div>
 </div>
 <ul class="nav nav-tabs" id="child_info">
@@ -152,10 +152,10 @@ $img_exts = array("jpg","png","bmp","jpeg","gif");
 		<?php if($f->is_immediate == 1):?>
 		<tr>
 			<td><?php echo $f->name;?></td>
-			<td><?php echo $f->relationship?></td>
+			<td><?php echo $f->r_label[$f->relationship]?></td>
 			<td><?php echo $f->age;?></td>
 			<td><?php echo $f->id_card;?></td>
-			<td><?php echo $f->education;?></td>
+			<td><?php echo $f->r_edu[$f->education];?></td>
 			<td><?php echo $f->nation;?></td>
 			<td><?php echo $f->career;?></td>
 			<td><?php echo $f->annual_income;?></td>
@@ -185,10 +185,10 @@ $img_exts = array("jpg","png","bmp","jpeg","gif");
 				<?php if($f->is_immediate == 0):?>
 				<tr>
 					<td><?php echo $f->name;?></td>
-					<td><?php echo $f->relationship?></td>
+					<td><?php echo $f->r_label[$f->relationship]?></td>
 					<td><?php echo $f->age;?></td>
 					<td><?php echo $f->id_card;?></td>
-					<td><?php echo $f->education;?></td>
+					<td><?php echo $f->r_edu[$f->education];?></td>
 					<td><?php echo $f->nation;?></td>
 					<td><?php echo $f->career;?></td>
 					<td><?php echo $f->annual_income;?></td>
