@@ -3,7 +3,7 @@
 /* @var $model Childcase */
 
 $this->breadcrumbs=array(
-	'患儿案例'=>array('index'),
+	'案例'=>array('index'),
 	'创建',
 );
 

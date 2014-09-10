@@ -787,3 +787,954 @@ REQUEST_URI=/childcase/43
 in /Users/sanmao/sscf/protected/views/childcase/view.php (247)
 in /Users/sanmao/sscf/protected/controllers/ChildcaseController.php (55)
 in /Users/sanmao/sscf/index.php (13)
+2014/09/09 11:20:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/09/09 15:07:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "gii/view"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('gii/view')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gii/1
+---
+2014/09/09 16:04:59 [error] [php] Undefined variable: model (/Users/sanmao/sscf/protected/views/receipt/index.php:29)
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(869): ReceiptController->renderFile()
+#1 /Users/sanmao/sscf/framework/web/CController.php(782): ReceiptController->renderPartial()
+#2 /Users/sanmao/sscf/protected/controllers/ReceiptController.php(134): ReceiptController->render()
+#3 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): ReceiptController->actionIndex()
+#4 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): ReceiptController->runAction()
+#6 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): ReceiptController->filterAccessControl()
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(265): ReceiptController->runActionWithFilters()
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): ReceiptController->run()
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /Users/sanmao/sscf/index.php(13): CWebApplication->run()
+REQUEST_URI=/receipt/index
+in /Users/sanmao/sscf/protected/views/receipt/index.php (29)
+in /Users/sanmao/sscf/protected/controllers/ReceiptController.php (134)
+in /Users/sanmao/sscf/index.php (13)
+2014/09/09 16:39:12 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_sscf.tb_file' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tb_file`.
+in /Users/sanmao/sscf/protected/models/File.php (25)
+in /Users/sanmao/sscf/protected/controllers/ReceiptController.php (135)
+in /Users/sanmao/sscf/index.php (13)
+2014/09/09 16:39:12 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "File" 对应的 table "tb_file".' in /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php:2310
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(File))
+#1 /Users/sanmao/sscf/protected/models/File.php(25): CActiveRecord::model('File')
+#2 /Users/sanmao/sscf/protected/controllers/ReceiptController.php(135): File::model()
+#3 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): ReceiptController->actionIndex()
+#4 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('index')
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/index')
+#14 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/receipt/index
+---
+2014/09/09 16:39:34 [error] [exception.CException] exception 'CException' with message 'ReceiptController 无法找到请求的视图 "list".' in /Users/sanmao/sscf/framework/web/CController.php:878
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(782): CController->renderPartial('list', Array, true)
+#1 /Users/sanmao/sscf/protected/controllers/ReceiptController.php(147): CController->render('list', Array)
+#2 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): ReceiptController->actionIndex()
+#3 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('index')
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/index')
+#13 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/receipt/index
+---
+2014/09/09 16:40:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('index')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('index')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/index')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/receipt/index
+---
+2014/09/09 16:40:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('index')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('index')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/index')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/receipt/index
+---
+2014/09/09 16:40:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('index')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('index')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/index')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/receipt/index
+---
+2014/09/09 16:40:37 [error] [exception.CException] exception 'CException' with message 'ReceiptController 无法找到请求的视图 "list".' in /Users/sanmao/sscf/framework/web/CController.php:878
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(782): CController->renderPartial('list', Array, true)
+#1 /Users/sanmao/sscf/protected/controllers/ReceiptController.php(147): CController->render('list', Array)
+#2 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): ReceiptController->actionList()
+#3 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('list')
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/list')
+#13 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/receipt/list
+---
+2014/09/09 16:40:39 [error] [exception.CException] exception 'CException' with message 'ReceiptController 无法找到请求的视图 "list".' in /Users/sanmao/sscf/framework/web/CController.php:878
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(782): CController->renderPartial('list', Array, true)
+#1 /Users/sanmao/sscf/protected/controllers/ReceiptController.php(147): CController->render('list', Array)
+#2 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): ReceiptController->actionList()
+#3 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('list')
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/list')
+#13 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/receipt/list
+---
+2014/09/09 16:40:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "assets/swfupload/default.css"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/swfuploa...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/swfupload/default.css
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/09 16:40:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "assets/swfupload/handlers.js"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/swfuploa...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/swfupload/handlers.js
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/09 16:53:46 [error] [php] call_user_func_array() expects parameter 1 to be a valid callback, array must have exactly two members (/Users/sanmao/sscf/framework/base/CComponent.php:611)
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/auth/CAccessControlFilter.php(280): CAccessRule->isExpressionMatched()
+#1 /Users/sanmao/sscf/framework/web/auth/CAccessControlFilter.php(135): CAccessRule->isUserAllowed()
+#2 /Users/sanmao/sscf/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter()
+#3 /Users/sanmao/sscf/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#4 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): ReceiptController->filterAccessControl()
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#6 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(265): ReceiptController->runActionWithFilters()
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): ReceiptController->run()
+#9 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /Users/sanmao/sscf/index.php(13): CWebApplication->run()
+REQUEST_URI=/receipt/list
+in /Users/sanmao/sscf/index.php (13)
+2014/09/09 16:54:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "assets/swfupload/default.css"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/swfuploa...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/swfupload/default.css
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/09 16:54:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "assets/swfupload/handlers.js"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/swfuploa...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/swfupload/handlers.js
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/09 16:58:27 [error] [php] move_uploaded_file(/Users/sanmao/sscf/uploads/files/receipt_1410253107.png): failed to open stream: No such file or directory (/Users/sanmao/sscf/protected/controllers/FileController.php:100)
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): FileController->runAction()
+#2 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /Users/sanmao/sscf/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#4 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): FileController->filterAccessControl()
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#6 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(265): FileController->runActionWithFilters()
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): FileController->run()
+#9 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /Users/sanmao/sscf/index.php(13): CWebApplication->run()
+REQUEST_URI=/file/createfile?PHPSESSID=a357e01ecfea9e1de1576bf386d2f8fc
+in /Users/sanmao/sscf/protected/controllers/FileController.php (100)
+in /Users/sanmao/sscf/index.php (13)
+2014/09/09 16:58:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "js/vendor/images/cancelbutton.gif"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('js/vendor/image...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/vendor/images/cancelbutton.gif
+HTTP_REFERER=http://seastar.local/js/vendor/swfupload/default.css
+---
+2014/09/09 17:16:14 [error] [php] move_uploaded_file(/Users/sanmao/sscf/uploads/files/receipt_1410254174.png): failed to open stream: No such file or directory (/Users/sanmao/sscf/protected/controllers/FileController.php:100)
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): FileController->runAction()
+#2 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /Users/sanmao/sscf/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#4 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): FileController->filterAccessControl()
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#6 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(265): FileController->runActionWithFilters()
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): FileController->run()
+#9 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /Users/sanmao/sscf/index.php(13): CWebApplication->run()
+REQUEST_URI=/file/createfile?PHPSESSID=a357e01ecfea9e1de1576bf386d2f8fc
+in /Users/sanmao/sscf/protected/controllers/FileController.php (100)
+in /Users/sanmao/sscf/index.php (13)
+2014/09/09 17:16:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "js/vendor/images/cancelbutton.gif"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('js/vendor/image...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/vendor/images/cancelbutton.gif
+HTTP_REFERER=http://seastar.local/js/vendor/swfupload/default.css
+---
+2014/09/09 17:26:02 [error] [php] move_uploaded_file(/Users/sanmao/sscf/uploads/files/receipt_1410254762.png): failed to open stream: No such file or directory (/Users/sanmao/sscf/protected/controllers/FileController.php:100)
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): FileController->runAction()
+#2 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /Users/sanmao/sscf/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#4 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): FileController->filterAccessControl()
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#6 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(265): FileController->runActionWithFilters()
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): FileController->run()
+#9 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /Users/sanmao/sscf/index.php(13): CWebApplication->run()
+REQUEST_URI=/file/createfile?PHPSESSID=a357e01ecfea9e1de1576bf386d2f8fc
+in /Users/sanmao/sscf/protected/controllers/FileController.php (100)
+in /Users/sanmao/sscf/index.php (13)
+2014/09/09 17:26:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "js/vendor/images/cancelbutton.gif"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('js/vendor/image...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/vendor/images/cancelbutton.gif
+HTTP_REFERER=http://seastar.local/js/vendor/swfupload/default.css
+---
+2014/09/09 17:29:32 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /Users/sanmao/sscf/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /Users/sanmao/sscf/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('createfile')
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/createf...')
+#9 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/receipt/createfile?PHPSESSID=a357e01ecfea9e1de1576bf386d2f8fc
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/09 17:29:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "js/vendor/images/cancelbutton.gif"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('js/vendor/image...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/vendor/images/cancelbutton.gif
+HTTP_REFERER=http://seastar.local/js/vendor/swfupload/default.css
+---
+2014/09/09 17:32:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "createfile" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('createfile')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('createfile')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/createf...')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/receipt/createfile?PHPSESSID=a357e01ecfea9e1de1576bf386d2f8fc
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/09 17:32:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "js/vendor/images/cancelbutton.gif"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('js/vendor/image...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/vendor/images/cancelbutton.gif
+HTTP_REFERER=http://seastar.local/js/vendor/swfupload/default.css
+---
+2014/09/09 17:33:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "js/vendor/images/cancelbutton.gif"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('js/vendor/image...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/vendor/images/cancelbutton.gif
+---
+2014/09/09 17:33:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_sscf.tb_file' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tb_file`.
+in /Users/sanmao/sscf/protected/controllers/ReceiptController.php (101)
+in /Users/sanmao/sscf/index.php (13)
+2014/09/09 17:33:45 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "File" 对应的 table "tb_file".' in /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php:2310
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(File))
+#1 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(402): CActiveRecord::model('File')
+#2 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(77): CActiveRecord->getMetaData()
+#3 /Users/sanmao/sscf/protected/controllers/ReceiptController.php(101): CActiveRecord->__construct()
+#4 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): ReceiptController->actionCreateReceipt()
+#5 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#12 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('createReceipt')
+#14 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/createR...')
+#15 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/receipt/createReceipt?PHPSESSID=a357e01ecfea9e1de1576bf386d2f8fc
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/09 17:33:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "js/vendor/images/cancelbutton.gif"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('js/vendor/image...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/vendor/images/cancelbutton.gif
+HTTP_REFERER=http://seastar.local/js/vendor/swfupload/default.css
+---
+2014/09/09 17:33:53 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_sscf.tb_file' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tb_file`.
+in /Users/sanmao/sscf/protected/controllers/ReceiptController.php (101)
+in /Users/sanmao/sscf/index.php (13)
+2014/09/09 17:33:53 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "File" 对应的 table "tb_file".' in /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php:2310
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(File))
+#1 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(402): CActiveRecord::model('File')
+#2 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(77): CActiveRecord->getMetaData()
+#3 /Users/sanmao/sscf/protected/controllers/ReceiptController.php(101): CActiveRecord->__construct()
+#4 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): ReceiptController->actionCreateReceipt()
+#5 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#12 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('createReceipt')
+#14 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/createR...')
+#15 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/receipt/createReceipt?PHPSESSID=a357e01ecfea9e1de1576bf386d2f8fc
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/09 17:33:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "js/vendor/images/cancelbutton.gif"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('js/vendor/image...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/vendor/images/cancelbutton.gif
+HTTP_REFERER=http://seastar.local/js/vendor/swfupload/default.css
+---
+2014/09/09 17:34:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "js/vendor/images/cancelbutton.gif"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('js/vendor/image...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/vendor/images/cancelbutton.gif
+HTTP_REFERER=http://seastar.local/js/vendor/swfupload/default.css
+---
+2014/09/09 17:34:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "js/vendor/images/cancelbutton.gif"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('js/vendor/image...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/vendor/images/cancelbutton.gif
+HTTP_REFERER=http://seastar.local/js/vendor/swfupload/default.css
+---
+2014/09/09 18:06:21 [error] [exception.CDbException] exception 'CDbException' with message '关联 "user" 未被定义在 active record class "Receipt" 中.' in /Users/sanmao/sscf/framework/db/ar/CActiveFinder.php:211
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveFinder.php(281): CActiveFinder->buildJoinTree(Object(CJoinElement), 'user')
+#1 /Users/sanmao/sscf/framework/db/ar/CActiveFinder.php(48): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
+#2 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(1301): CActiveFinder->__construct(Object(Receipt), Array)
+#3 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(1432): CActiveRecord->query(Object(CDbCriteria))
+#4 /Users/sanmao/sscf/protected/controllers/ReceiptController.php(345): CActiveRecord->findByPk('1')
+#5 /Users/sanmao/sscf/protected/controllers/ReceiptController.php(51): ReceiptController->loadModel('1')
+#6 [internal function]: ReceiptController->actionView('1')
+#7 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ReceiptController), Array)
+#8 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ReceiptController), Object(ReflectionMethod), Array)
+#9 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#16 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('view')
+#18 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/view')
+#19 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/receipt/1
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/09 18:06:46 [error] [exception.CException] exception 'CException' with message '属性 "Receipt.user" 未被定义.' in /Users/sanmao/sscf/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(143): CComponent->__get('user')
+#1 /Users/sanmao/sscf/protected/controllers/ReceiptController.php(60): CActiveRecord->__get('user')
+#2 [internal function]: ReceiptController->actionDownload('1')
+#3 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ReceiptController), Array)
+#4 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ReceiptController), Object(ReflectionMethod), Array)
+#5 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#12 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('download')
+#14 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/downloa...')
+#15 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/receipt/download/1
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/10 00:25:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/09/10 10:21:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/09/10 10:47:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "list" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('list')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('list')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('donor/list')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/donor/list
+---
+2014/09/10 10:47:52 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /Users/sanmao/sscf/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /Users/sanmao/sscf/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('donor/admin')
+#9 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/donor/admin
+HTTP_REFERER=http://seastar.local/donor/index
+---
+2014/09/10 10:52:22 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /Users/sanmao/sscf/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /Users/sanmao/sscf/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('donor/admin')
+#9 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/donor/admin
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/10 10:52:26 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /Users/sanmao/sscf/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /Users/sanmao/sscf/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('donor/admin')
+#9 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/donor/admin
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/10 10:52:33 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /Users/sanmao/sscf/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /Users/sanmao/sscf/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('donor/admin')
+#9 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/donor/admin
+---
+2014/09/10 11:19:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "js/vendor/images/cancelbutton.gif"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('js/vendor/image...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/vendor/images/cancelbutton.gif
+HTTP_REFERER=http://seastar.local/js/vendor/swfupload/default.css
+---
+2014/09/10 11:24:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "js/vendor/images/cancelbutton.gif"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('js/vendor/image...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/vendor/images/cancelbutton.gif
+HTTP_REFERER=http://seastar.local/js/vendor/swfupload/default.css
+---
+2014/09/10 13:49:46 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'birthday' at row 1. The SQL statement executed was: INSERT INTO `tb_donor` (`role`, `is_deleted`, `username`, `email`, `password`, `name`, `id_card`, `gender`, `birthday`, `company`, `job`, `department`, `mobile`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12).
+in /Users/sanmao/sscf/protected/controllers/DonorController.php (75)
+in /Users/sanmao/sscf/index.php (13)
+2014/09/10 13:49:46 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'birthday' at row 1. The SQL statement executed was: INSERT INTO `tb_donor` (`role`, `is_deleted`, `username`, `email`, `password`, `name`, `id_card`, `gender`, `birthday`, `company`, `job`, `department`, `mobile`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12)' in /Users/sanmao/sscf/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(1023): CDbCommand->execute()
+#1 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 /Users/sanmao/sscf/protected/controllers/DonorController.php(75): CActiveRecord->save()
+#3 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): DonorController->actionCreate()
+#4 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('donor/create')
+#14 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/donor/create
+HTTP_REFERER=http://seastar.local/donor/create
+---
+2014/09/10 13:51:34 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'birthday' at row 1. The SQL statement executed was: INSERT INTO `tb_donor` (`role`, `is_deleted`, `username`, `email`, `password`, `name`, `id_card`, `gender`, `birthday`, `company`, `job`, `department`, `mobile`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12).
+in /Users/sanmao/sscf/protected/controllers/DonorController.php (75)
+in /Users/sanmao/sscf/index.php (13)
+2014/09/10 13:51:34 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'birthday' at row 1. The SQL statement executed was: INSERT INTO `tb_donor` (`role`, `is_deleted`, `username`, `email`, `password`, `name`, `id_card`, `gender`, `birthday`, `company`, `job`, `department`, `mobile`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12)' in /Users/sanmao/sscf/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(1023): CDbCommand->execute()
+#1 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 /Users/sanmao/sscf/protected/controllers/DonorController.php(75): CActiveRecord->save()
+#3 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): DonorController->actionCreate()
+#4 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('donor/create')
+#14 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/donor/create
+HTTP_REFERER=http://seastar.local/donor/create
+---
+2014/09/10 13:51:36 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'birthday' at row 1. The SQL statement executed was: INSERT INTO `tb_donor` (`role`, `is_deleted`, `username`, `email`, `password`, `name`, `id_card`, `gender`, `birthday`, `company`, `job`, `department`, `mobile`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12).
+in /Users/sanmao/sscf/protected/controllers/DonorController.php (75)
+in /Users/sanmao/sscf/index.php (13)
+2014/09/10 13:51:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'birthday' at row 1. The SQL statement executed was: INSERT INTO `tb_donor` (`role`, `is_deleted`, `username`, `email`, `password`, `name`, `id_card`, `gender`, `birthday`, `company`, `job`, `department`, `mobile`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12)' in /Users/sanmao/sscf/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(1023): CDbCommand->execute()
+#1 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 /Users/sanmao/sscf/protected/controllers/DonorController.php(75): CActiveRecord->save()
+#3 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): DonorController->actionCreate()
+#4 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('donor/create')
+#14 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/donor/create
+HTTP_REFERER=http://seastar.local/donor/create
+---
+2014/09/10 13:51:48 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'birthday' at row 1. The SQL statement executed was: INSERT INTO `tb_donor` (`role`, `is_deleted`, `username`, `email`, `password`, `name`, `id_card`, `gender`, `birthday`, `company`, `job`, `department`, `mobile`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12).
+in /Users/sanmao/sscf/protected/controllers/DonorController.php (75)
+in /Users/sanmao/sscf/index.php (13)
+2014/09/10 13:51:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'birthday' at row 1. The SQL statement executed was: INSERT INTO `tb_donor` (`role`, `is_deleted`, `username`, `email`, `password`, `name`, `id_card`, `gender`, `birthday`, `company`, `job`, `department`, `mobile`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12)' in /Users/sanmao/sscf/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(1023): CDbCommand->execute()
+#1 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 /Users/sanmao/sscf/protected/controllers/DonorController.php(75): CActiveRecord->save()
+#3 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): DonorController->actionCreate()
+#4 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('donor/create')
+#14 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/donor/create
+HTTP_REFERER=http://seastar.local/donor/create
+---
+2014/09/10 13:52:18 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'birthday' at row 1. The SQL statement executed was: INSERT INTO `tb_donor` (`role`, `is_deleted`, `username`, `email`, `password`, `name`, `id_card`, `gender`, `birthday`, `company`, `job`, `department`, `mobile`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12).
+in /Users/sanmao/sscf/protected/controllers/DonorController.php (75)
+in /Users/sanmao/sscf/index.php (13)
+2014/09/10 13:52:18 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'birthday' at row 1. The SQL statement executed was: INSERT INTO `tb_donor` (`role`, `is_deleted`, `username`, `email`, `password`, `name`, `id_card`, `gender`, `birthday`, `company`, `job`, `department`, `mobile`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12)' in /Users/sanmao/sscf/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(1023): CDbCommand->execute()
+#1 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 /Users/sanmao/sscf/protected/controllers/DonorController.php(75): CActiveRecord->save()
+#3 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): DonorController->actionCreate()
+#4 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('donor/create')
+#14 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/donor/create
+HTTP_REFERER=http://seastar.local/donor/create
+---
+2014/09/10 13:59:46 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'birthday' at row 1. The SQL statement executed was: INSERT INTO `tb_user` (`marital_status`, `role`, `is_deleted`, `email`, `username`, `password`, `name`, `nickname`, `mobile`, `residence`, `job`, `birthday`, `gender`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12).
+in /Users/sanmao/sscf/protected/controllers/UserController.php (65)
+in /Users/sanmao/sscf/index.php (13)
+2014/09/10 13:59:46 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'birthday' at row 1. The SQL statement executed was: INSERT INTO `tb_user` (`marital_status`, `role`, `is_deleted`, `email`, `username`, `password`, `name`, `nickname`, `mobile`, `residence`, `job`, `birthday`, `gender`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12)' in /Users/sanmao/sscf/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(1023): CDbCommand->execute()
+#1 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 /Users/sanmao/sscf/protected/controllers/UserController.php(65): CActiveRecord->save()
+#3 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): UserController->actionCreate()
+#4 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('user/create')
+#14 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/user/create
+HTTP_REFERER=http://seastar.local/user/create
+---
+2014/09/10 14:01:49 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /Users/sanmao/sscf/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /Users/sanmao/sscf/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('donor/admin')
+#9 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/donor/admin
+---
+2014/09/10 14:05:08 [error] [php] Undefined variable: model (/Users/sanmao/sscf/protected/views/donor/index.php:28)
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(869): DonorController->renderFile()
+#1 /Users/sanmao/sscf/framework/web/CController.php(782): DonorController->renderPartial()
+#2 /Users/sanmao/sscf/protected/controllers/DonorController.php(136): DonorController->render()
+#3 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): DonorController->actionIndex()
+#4 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): DonorController->runAction()
+#6 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): DonorController->filterAccessControl()
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(265): DonorController->runActionWithFilters()
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): DonorController->run()
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /Users/sanmao/sscf/index.php(13): CWebApplication->run()
+REQUEST_URI=/donor/index
+in /Users/sanmao/sscf/protected/views/donor/index.php (28)
+in /Users/sanmao/sscf/protected/controllers/DonorController.php (136)
+in /Users/sanmao/sscf/index.php (13)
+2014/09/10 14:19:44 [error] [exception.CException] exception 'CException' with message '属性 "Receipt.user" 未被定义.' in /Users/sanmao/sscf/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(143): CComponent->__get('user')
+#1 /Users/sanmao/sscf/protected/views/receipt/view.php(29): CActiveRecord->__get('user')
+#2 /Users/sanmao/sscf/framework/web/CBaseController.php(126): require('/Users/sanmao/s...')
+#3 /Users/sanmao/sscf/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Users/sanmao/s...', Array, true)
+#4 /Users/sanmao/sscf/framework/web/CController.php(869): CBaseController->renderFile('/Users/sanmao/s...', Array, true)
+#5 /Users/sanmao/sscf/framework/web/CController.php(782): CController->renderPartial('view', Array, true)
+#6 /Users/sanmao/sscf/protected/controllers/ReceiptController.php(52): CController->render('view', Array)
+#7 [internal function]: ReceiptController->actionView('1')
+#8 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ReceiptController), Array)
+#9 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ReceiptController), Object(ReflectionMethod), Array)
+#10 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#17 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('view')
+#19 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/view')
+#20 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#21 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/receipt/1
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/10 14:21:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "list" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('list')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('list')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('donor/list')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/donor/list
+HTTP_REFERER=http://seastar.local/receipt/1
+---
+2014/09/10 14:24:30 [error] [exception.CException] exception 'CException' with message '属性 "Receipt.user" 未被定义.' in /Users/sanmao/sscf/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(143): CComponent->__get('user')
+#1 /Users/sanmao/sscf/protected/controllers/ReceiptController.php(115): CActiveRecord->__get('user')
+#2 [internal function]: ReceiptController->actionHand('1')
+#3 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ReceiptController), Array)
+#4 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ReceiptController), Object(ReflectionMethod), Array)
+#5 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#12 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('hand')
+#14 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/hand')
+#15 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/receipt/hand/1
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/10 14:24:34 [error] [exception.CException] exception 'CException' with message '属性 "Receipt.user" 未被定义.' in /Users/sanmao/sscf/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(143): CComponent->__get('user')
+#1 /Users/sanmao/sscf/protected/controllers/ReceiptController.php(115): CActiveRecord->__get('user')
+#2 [internal function]: ReceiptController->actionHand('1')
+#3 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ReceiptController), Array)
+#4 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ReceiptController), Object(ReflectionMethod), Array)
+#5 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#12 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('hand')
+#14 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/hand')
+#15 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/receipt/hand/1
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/10 14:25:41 [error] [exception.CException] exception 'CException' with message 'ReceiptController 无法找到请求的视图 "hand".' in /Users/sanmao/sscf/framework/web/CController.php:878
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(782): CController->renderPartial('hand', Array, true)
+#1 /Users/sanmao/sscf/protected/controllers/ReceiptController.php(159): CController->render('hand', Array)
+#2 [internal function]: ReceiptController->actionHand('1')
+#3 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ReceiptController), Array)
+#4 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ReceiptController), Object(ReflectionMethod), Array)
+#5 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#12 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('hand')
+#14 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/hand')
+#15 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/receipt/hand/1
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/10 14:27:54 [error] [php] Undefined index: DonorReceipt (/Users/sanmao/sscf/protected/controllers/ReceiptController.php:133)
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): ReceiptController->runAction()
+#3 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /Users/sanmao/sscf/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): ReceiptController->filterAccessControl()
+#6 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#8 /Users/sanmao/sscf/framework/web/CController.php(265): ReceiptController->runActionWithFilters()
+#9 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): ReceiptController->run()
+#10 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#12 /Users/sanmao/sscf/index.php(13): CWebApplication->run()
+REQUEST_URI=/receipt/hand/1
+in /Users/sanmao/sscf/protected/controllers/ReceiptController.php (133)
+in /Users/sanmao/sscf/index.php (13)
+2014/09/10 15:55:15 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_sscf.tb_file' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tb_file`.
+in /Users/sanmao/sscf/protected/models/File.php (25)
+in /Users/sanmao/sscf/protected/controllers/FileController.php (345)
+in /Users/sanmao/sscf/protected/controllers/FileController.php (214)
+2014/09/10 15:55:15 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "File" 对应的 table "tb_file".' in /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php:2310
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(File))
+#1 /Users/sanmao/sscf/protected/models/File.php(25): CActiveRecord::model('File')
+#2 /Users/sanmao/sscf/protected/controllers/FileController.php(345): File::model()
+#3 /Users/sanmao/sscf/protected/controllers/FileController.php(214): FileController->loadModel('1')
+#4 [internal function]: FileController->actionUpdate('1')
+#5 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(FileController), Array)
+#6 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(FileController), Object(ReflectionMethod), Array)
+#7 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#14 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('update')
+#16 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('file/update')
+#17 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#18 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/file/update/1
+HTTP_REFERER=http://seastar.local/receipt/1
+---
+2014/09/10 15:56:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "edit" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('edit')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('edit')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/edit')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/receipt/edit/1
+HTTP_REFERER=http://seastar.local/receipt/list
+---
+2014/09/10 15:56:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "edit" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('edit')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('edit')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('receipt/edit')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/receipt/edit/1
+HTTP_REFERER=http://seastar.local/receipt/list
+---

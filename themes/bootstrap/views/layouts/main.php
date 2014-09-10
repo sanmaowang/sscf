@@ -18,8 +18,8 @@
         <ul class="nav">
           <li<?php if ($this->code == 'Childcase') echo ' class="active"'; ?>><a href="<?php echo $this->createUrl('childcase/index'); ?>">案例</a></li>
           <?php if(Yii::app()->user->isAdmin()):?>
-          <li<?php if ($this->code == 'user') echo ' class="active"'; ?>><a href="<?php echo $this->createUrl('user/index'); ?>">海星团队</a></li>
-          <!--<li<?php if ($this->code == 'donor') echo ' class="active"'; ?>><a href="<?php echo $this->createUrl('user/index'); ?>">捐赠者</a></li>-->
+          <li<?php if ($this->code == 'User') echo ' class="active"'; ?>><a href="<?php echo $this->createUrl('user/index'); ?>">海星团队</a></li>
+          <li<?php if ($this->code == 'Donor') echo ' class="active"'; ?>><a href="<?php echo $this->createUrl('donor/index'); ?>">捐赠者</a></li>
           <li<?php if ($this->code == 'Org') echo ' class="active"'; ?>><a href="<?php echo $this->createUrl('org/index'); ?>">合作机构</a></li>
           <?php endif;?>
         </ul>
@@ -51,8 +51,9 @@
   <?php echo $content; ?>
 
   <div class="clear"></div>
-  <div id="note_comment">
-    <span class="text-error"><i class="icon-edit"></i> Feedback: </span> <a href="#" id="write_comment">有问题? 点这里留言..</a>
+  
+  <div id="note_comment" style="margin-top:30px;">
+    <i class="icon-exclamation-sign"></i> Feedback:  <a href="#" id="write_comment">有问题? 点一下即可吐槽...Orz</a>
   </div>
   <div id="disqus_thread"></div>
   <script type="text/javascript">
@@ -61,13 +62,14 @@
 
   /* * * DON'T EDIT BELOW THIS LINE * * */
   (function() {
+    $("#write_comment").click(function(){
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })
     })();
   
   </script>
-
   <div id="footer">
     <hr>
     &copy; <?php echo date('Y'); ?> Copyright by Sea Star Children‘s Foundation.

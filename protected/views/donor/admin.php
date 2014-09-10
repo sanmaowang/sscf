@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'合作机构'=>array('index'),
+	'捐赠者'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List OtherOrg','url'=>array('index')),
-	array('label'=>'Create OtherOrg','url'=>array('create')),
+	array('label'=>'List Donor','url'=>array('index')),
+	array('label'=>'Create Donor','url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -15,7 +15,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('other-org-grid', {
+	$.fn.yiiGridView.update('donor-grid', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -23,7 +23,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Orgs</h1>
+<h1>Manage Donors</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -38,18 +38,27 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'other-org-grid',
+	'id'=>'donor-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'parent_id',
+		'username',
 		'name',
-		'contact',
-		'type',
-		'create_time',
+		'email',
+		'mobile',
 		/*
+		'company',
+		'job',
+		'department',
+		'password',
+		'mobile',
+		'avatar',
+		'create_time',
 		'update_time',
+		'login_count',
+		'role',
+		'is_deleted',
 		*/
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',

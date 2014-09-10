@@ -23,13 +23,12 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('update_time')); ?>:</b>
 	<?php echo CHtml::encode($data->update_time); ?>
 	<br />
-	
-	<?php /*
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
 	<?php echo CHtml::encode($data->status); ?>
 	<br />
 
+	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('is_deleted')); ?>:</b>
 	<?php echo CHtml::encode($data->is_deleted); ?>
 	<br />

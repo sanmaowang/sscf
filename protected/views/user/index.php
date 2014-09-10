@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Users',
+	'海星团队',
 );
 
 $this->menu=array(
@@ -11,8 +11,8 @@ $this->menu=array(
 );
 ?>
 
-<h1>Users</h1>
-<p>List all the users include admin users..</p>
+<h1>海星团队</h1>
+<p>List all the users include adminmaster..</p>
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',

@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Orgs'=>array('index'),
+	'合作机构'=>array('index'),
 	$model->name=>array('view','id'=>$model->id),
 	'Update',
 );

@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Users'=>array('index'),
+	'海星团队'=>array('index'),
 	'Manage',
 );
 
@@ -42,12 +42,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'user-grid',
-	'type'=>'striped bordered condensed',
+	'type'=>'striped',
 	'dataProvider'=>$model->search(),
-	'filter'=>$model,
+	// 'filter'=>$model,
 	'columns'=>array(
 		array('name'=>'id', 'header'=>'#'),
-    array('name'=>'username', 'header'=>'Name'),
+    array('name'=>'username', 'header'=>'Username'),
     array('name'=>'name', 'header'=>'Name'),
     array('name'=>'email', 'header'=>'Email'),
     array('name'=>'mobile', 'header'=>'Mobile'),

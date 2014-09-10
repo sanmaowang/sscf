@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Users'=>array('index'),
+	'海星团队'=>array('index'),
 	$model->name,
 );
 

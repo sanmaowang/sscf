@@ -3,7 +3,7 @@
 /* @var $model Childcase */
 
 $this->breadcrumbs=array(
-	'Case'=>array('index'),
+	'案例'=>array('index'),
 	$model->name,
 );
 
@@ -241,7 +241,7 @@ $img_exts = array("jpg","png","bmp","jpeg","gif");
 </div>
 </div>
 <div class="tab-pane" id="medical_assessment">
-
+	
 </div>
   <?php foreach($topics as $t){?>
   <div class="tab-pane" id="<?php echo $t;?>">

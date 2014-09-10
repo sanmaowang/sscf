@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Childcases'=>array('index'),
+	'案例'=>array('index'),
 	'Manage',
 );
 
