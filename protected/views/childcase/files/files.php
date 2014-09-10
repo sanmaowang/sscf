@@ -90,12 +90,12 @@
         <div class="caption">
           <h4><?php echo $f->title?$f->title:"untitled";?></h4>
           <p><?php echo $f->desc;?></p>
-          <p><a href="<?php echo $this->createUrl('caseFile/update',array('id'=>$f->id));?>" class="btn btn-primary">Edit</a>
-          	<?php echo CHtml::ajaxLink('Delete',array('caseFile/delete','id'=>$f->id),
+          <p><a href="<?php echo $this->createUrl('caseFile/update',array('id'=>$f->id));?>"><i class="icon icon-edit"></i></a>
+          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('caseFile/delete','id'=>$f->id),
                   array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;$("#delete-"+_id+"").parent().parent().parent().remove();}'),
                   array('confirm'=>'该操作不可逆，确定要删除吗?',
                         'id'=>'delete-'.$f->id,
-                        'class'=>'btn btn-danger')); ?>
+                        )); ?>
         </div>
       </div>
     </li>
