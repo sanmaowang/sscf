@@ -29,44 +29,51 @@ $img_exts = array("jpg","png","bmp","jpeg","gif");
 </div>
 </div>
 <div class="alert">
-	It's a Demo show, plz tell me the process.
+	系统自动检查部分属性. <br> 请告诉我哪些是提交审核所必须需要的资料，请精确到字段级别。例如下面未完成项目：
 </div>
 <h4>资料完成率:</h4>
 <div class="progress progress-striped">
-   <div class="bar" style="width: 20%">
-   	20%
+   <div class="bar" style="width:0%">
    </div>
 </div>
 <h4>未完成项目:</h4>
-<ul>
-	<li class="text-error">[DC MEMO] 【出生日期】 缺失</li>
-	<li class="text-error">[DC MEMO] 【身份证】 缺失</li>
-	<li class="text-error">[Family Background] 缺失</li>
-	<li class="text-error">[Medical Background] 缺失</li>
+<ul class="unfinish">
+	<?php foreach ($errors as $error) {?>
+	<li class="text-error hide"><?php echo $error;?> <a href="#"><i class="icon-edit"></i></a></li>
+	<?php }?>
 </ul>
 <div class="form-actions text-center">
 	<a href="#" class="btn btn-success disabled">提交审核</a>
 </div>
 
-
-<?php
-    $baseUrl = Yii::app()->baseUrl;
-    $cs = Yii::app()->getClientScript();
-    $cs->registerCssFile($baseUrl."/js/vendor/colorbox/colorbox.css");
-    $cs->registerScriptFile($baseUrl.'/js/vendor/colorbox/jquery.colorbox-min.js',CClientScript::POS_END);
-    $cs->registerScript('update-detail', '
-    $(function(){
-      $(".files").colorbox({ innerWidth:500});
-    })', CClientScript::POS_END);
-?>
-
-
 <script>
+	function showUn(obj){
+  		var next = $(obj).next();
+  		obj.show(100,function(){
+  			if(next){
+  				showUn(next);
+  			}
+  		});
+	}
   $(function () {
-    $('#child_info a').click(function (e) {
-		  e.preventDefault();
-		  $(this).tab('show');
-		})
+  	var bar = $(".bar");
+  	var rate = <?php echo $rate;?>;
+  	var unfinish = $(".unfinish li").eq(0);
+  	showUn(unfinish);
+
+  	if(rate){
+  		var f = 0;
+  		var progress = setInterval(function(){
+  			if(f >= parseInt(rate)){
+  				clearInterval(progress);
+  			}else{
+  				f += 1;
+  				bar.css("width",f+"%");
+  			}
+  			bar.text(f+"%");
+  		},200);
+  	}
+
   })
 </script>
 

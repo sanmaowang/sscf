@@ -59,9 +59,17 @@ class ChildcaseController extends Controller
 	{
 		$model = $this->loadModel($id);
 		// calcuate the rate
-		
+		$errors = array();
+		foreach ($model->attributes as $key => $value) {
+			if(!$value){
+				$errors[] = "缺失 - [".$model->getAttributeLabel($key)."]";
+			}
+		}
+		$rate = 100 -  (int)(100 * (count($errors) / count($model->attributes)));
 		$this->render('check',array(
 			'model'=>$model,
+			'errors'=>$errors,
+			'rate'=>$rate
 		));
 	}
 
@@ -178,8 +186,6 @@ class ChildcaseController extends Controller
 		// if(!isset($_GET['ajax']))
 		// 	$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
-
-	
 
 	/**
 	 * Lists all models.
