@@ -1764,3 +1764,46 @@ Stack trace:
 REQUEST_URI=/childcase/check/44
 in /Users/sanmao/sscf/protected/controllers/ChildcaseController.php (65)
 in /Users/sanmao/sscf/index.php (13)
+2014/09/11 17:45:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "themes/bootstrap/img/logo.png"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('themes/bootstra...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/themes/bootstrap/img/logo.png
+HTTP_REFERER=http://seastar.local/childcase/index
+---
+2014/09/11 17:48:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "themes/bootstrap/css/img/logo_mini.png"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('themes/bootstra...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/themes/bootstrap/css/img/logo_mini.png
+HTTP_REFERER=http://seastar.local/themes/bootstrap/css/styles.css
+---
+2014/09/11 17:48:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "themes/bootstrap/css/img/logo_mini.png"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('themes/bootstra...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/themes/bootstrap/css/img/logo_mini.png
+---
+2014/09/11 17:48:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "themes/bootstrap/css/img/logo_mini.png"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('themes/bootstra...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/themes/bootstrap/css/img/logo_mini.png
+HTTP_REFERER=http://seastar.local/themes/bootstrap/css/styles.css
+---
+2014/09/11 17:48:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "themes/bootstrap/css/img/logo_mini.png"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('themes/bootstra...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/themes/bootstrap/css/img/logo_mini.png
+---
