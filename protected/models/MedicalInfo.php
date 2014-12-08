@@ -1,51 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "tb_case_budget".
+ * This is the model class for table "tb_medical_info".
  *
- * The followings are the available columns in table 'tb_case_budget':
+ * The followings are the available columns in table 'tb_medical_info':
  * @property string $id
+ * @property integer $file_id
  * @property integer $case_id
- * @property string $type
- * @property integer $fee_type
- * @property double $amount
- * @property integer $source
- * @property string $note
- * @property string $last_date
+ * @property string $title
+ * @property string $content
  * @property string $create_datetime
  * @property string $update_datetime
  */
-class CaseBudget extends CActiveRecord
+class MedicalInfo extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return CaseBudget the static model class
+	 * @return MedicalInfo the static model class
 	 */
-
-	static $budget_type_name = array(
-		'org_budget'=>'机构意向',
-		'our_budget'=>'海星意向',
-	);
-
-	static $cost_type_name = array(
-		'org_cost'=>'机构资助',
-		'our_cost'=>'海星资助',
-	);
-
-	public function getType($key)
-	{
-		$labels = array(
-		'hospital_cost'=>'手术实际费用',
-		'our_cost'=>'海星资助',
-		'org_cost'=>'机构资助',
-		'hospital_budget'=>'手术预算',
-		'our_budget'=>'海星意向',
-		'org_budget'=>'机构意向',
-		);
-		return $labels[$key];
-	}
-
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -56,19 +29,9 @@ class CaseBudget extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'tb_case_budget';
+		return 'tb_medical_info';
 	}
 
-	
-
-	public function getTypes($fee_type)
-	{
-		if($fee_type == 0){
-			return self::$budget_type_name;
-		}else{
-			return self::$cost_type_name;
-		}
-	}
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -77,12 +40,13 @@ class CaseBudget extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('case_id, amount, fee_type, source, note','required'),
-			array('case_id, amount, fee_type, source', 'numerical', 'integerOnly'=>true),
-			array('amount', 'numerical'),
+			array('file_id, case_id', 'required'),
+			array('file_id, case_id', 'numerical', 'integerOnly'=>true),
+			array('title', 'length', 'max'=>80),
+			array('content, create_datetime, update_datetime', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, case_id, fee_type, type, amount, source, note, last_date, create_datetime, update_datetime', 'safe', 'on'=>'search'),
+			array('id, file_id, case_id, title, content, create_datetime, update_datetime', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -94,7 +58,6 @@ class CaseBudget extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'case'=>array(self::BELONGS_TO, 'Childcase', 'case_id'),
 		);
 	}
 
@@ -105,12 +68,10 @@ class CaseBudget extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'case_id'=>'所属case',
-			'type' => '类型',
-			'amount' => '金额',
-			'source' => '来源',
-			'note' => '说明',
-			'last_date' => '截至日期',
+			'file_id' => 'File',
+			'case_id' => 'Case',
+			'title' => 'Title',
+			'content' => 'Content',
 			'create_datetime' => 'Create Datetime',
 			'update_datetime' => 'Update Datetime',
 		);
@@ -128,13 +89,10 @@ class CaseBudget extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
+		$criteria->compare('file_id',$this->file_id);
 		$criteria->compare('case_id',$this->case_id);
-		$criteria->compare('fee_type',$this->fee_type);
-		$criteria->compare('type',$this->type);
-		$criteria->compare('amount',$this->amount);
-		$criteria->compare('source',$this->source);
-		$criteria->compare('note',$this->note,true);
-		$criteria->compare('last_date',$this->last_date,true);
+		$criteria->compare('title',$this->title,true);
+		$criteria->compare('content',$this->content,true);
 		$criteria->compare('create_datetime',$this->create_datetime,true);
 		$criteria->compare('update_datetime',$this->update_datetime,true);
 

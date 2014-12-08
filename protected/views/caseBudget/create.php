@@ -1,15 +1,13 @@
 <?php
 $this->breadcrumbs=array(
-	'Case Budgets'=>array('index'),
-	'Create',
+	'案例'=>array('childcase/index'),
+	'手术预算和资助情况'=>array('childcase/update','id'=>$_GET['case_id'],'flag'=>'economic'),
+	'添加数据'
 );
 
-$this->menu=array(
-	array('label'=>'List CaseBudget','url'=>array('index')),
-	array('label'=>'Manage CaseBudget','url'=>array('admin')),
-);
+
 ?>
 <div class="page-header">
-<h1>Create CaseBudget</h1>
+<h1>添加数据</h1>
 </div>
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model,'orgs'=>$orgs)); ?>

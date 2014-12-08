@@ -1,13 +1,16 @@
 <?php 
 $u = array();
 $o = array();
+$applicant = "";
 foreach($users as $user){
 	$u[$user->id] = $user->name;
 }
 foreach ($orgs as $org) {
 	$o[$org->id] = $org->name;
+	if(count($org->contact) > 0){
+		$applicant .= "<option value=".$org->contact->id.">".$org->contact->name."</option>";
+	}
 }
-
 ?>
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'childcase-form',
@@ -24,6 +27,8 @@ foreach ($orgs as $org) {
 	<?php echo $form->textFieldRow($model,'other_foundation_staff',array('class'=>'span3','maxlength'=>11)); ?>
 	
 	<?php echo $form->dropDownListRow($model,'staff',$u); ?>
+	<?php echo $form->textFieldRow($model,'applicant',array('class'=>'span3','maxlength'=>11)); ?>
+	<?php echo $form->textFieldRow($model,'applicant_relationship',array('class'=>'span3','maxlength'=>11)); ?>
 
 
 	<div class="form-actions">

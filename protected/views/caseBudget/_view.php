@@ -20,5 +20,13 @@
 	<?php echo CHtml::encode($data->note); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('create_datetime')); ?>:</b>
+	<?php echo CHtml::encode($data->create_datetime); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('update_datetime')); ?>:</b>
+	<?php echo CHtml::encode($data->update_datetime); ?>
+	<br />
+
 
 </div>

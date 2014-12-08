@@ -16,10 +16,9 @@ $this->menu=array(
 );
 $topics = array("fbg","pic","mbg","casesummary","appfiles");
 $img_exts = array("jpg","png","bmp","jpeg","gif");
-      $excel_exts = array("xls","xlsx");
-      $word_exts = array("doc","docx");
-      $folder_type = array("under review","under review","under review","funded","passed");
-
+$excel_exts = array("xls","xlsx");
+$word_exts = array("doc","docx");
+$folder_type = array("under review","under review","under review","funded","passed");
 ?>
 <div class="page-header row-fluid" style="border:none;margin-bottom:10px;">
 	<div class="span6">
@@ -252,10 +251,10 @@ $img_exts = array("jpg","png","bmp","jpeg","gif");
     <li class="span3">
       <div class="thumbnail">
       	<div class="img-thumb">
-      	<a class="files" href="<?php echo Yii::app()->request->baseUrl.'/uploads/case/'.$folder_type[$model->status].'/'.$f->path;?>">
+      	<a class="files" href="<?php echo IMG_CLOUD.'/case/'.$folder_type[$model->status].'/'.$f->path;?>">
       	<?php 
       if(in_array($f->getExt(),$img_exts)){
-			  echo CHtml::image(Yii::app()->request->baseUrl.'/uploads/case/'.$folder_type[$model->status].'/'.$f->path,"file",array("width"=>300,"height"=>195)); 
+			  echo CHtml::image(IMG_CLOUD.'/case/'.$folder_type[$model->status].'/'.$f->path,"file",array("width"=>300,"height"=>195)); 
 			}else if(in_array($f->getExt(),$excel_exts)){
 			  echo CHtml::image(Yii::app()->request->baseUrl.'/img/excel.png',"file",array("class"=>'file-thumb')); 
 			}else if(in_array($f->getExt(),$word_exts)){
@@ -268,7 +267,7 @@ $img_exts = array("jpg","png","bmp","jpeg","gif");
 			</div>
         <div class="caption">
           <h4><?php echo $f->title?$f->title:"noname";?></h4>
-          <span class="label label-info"><?php echo $f->getLabel($f->key);?></span>
+          <span class="label label-info"><?php echo FileArray::getLabel($f->key);?></span>
           <p><?php echo $f->desc;?></p>
         </div>
       </div>

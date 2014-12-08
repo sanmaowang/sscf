@@ -18,7 +18,7 @@
 		<th>年龄</th>
 		<th>职业</th>
 		<th>年收入</th>
-		<th>健康状况</th>
+		<!-- <th>健康状况</th> -->
 		<th>备注</th>
 		<th>操作</th>
 	</tr>
@@ -32,7 +32,6 @@
 			<td><?php echo $f->age;?></td>
 			<td><?php echo $f->career;?></td>
 			<td><?php echo $f->annual_income;?></td>
-			<td><?php echo $f->health_state;?></td>
 			<td><?php echo $f->note;?></td>
 			<td>
 				<a href="<?php echo $this->createUrl('caseFamily/update',array('id'=>$f->id));?>" class="btn btn-primary">Edit</a>
@@ -53,7 +52,8 @@
 	<input type="hidden" name="CaseFamily[return]" value="other"/>
 	<?php echo $form->textFieldRow($fmodel,'name',array('class'=>'span5','maxlength'=>20)); ?>
 
-	<?php echo $form->dropDownListRow($fmodel, 'relationship', array('父亲','母亲','兄弟姐妹')); ?>
+	<?php echo $form->textFieldRow($fmodel,'relationship',array('class'=>'span5','maxlength'=>80)); ?>
+	
 	
 	<input type="hidden" name="CaseFamily[is_immediate]" value="0"/>
 
@@ -63,7 +63,6 @@
 
 	<?php echo $form->textFieldRow($fmodel,'annual_income',array('class'=>'span5','maxlength'=>25)); ?>
 
-	<?php echo $form->textFieldRow($fmodel,'health_state',array('class'=>'span5','maxlength'=>80)); ?>
 
 	<?php echo $form->textAreaRow($fmodel,'note',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
 

@@ -32,7 +32,7 @@ class CaseFileController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','delete'),
+				'actions'=>array('create','update','delete','updatetag','multicreate'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -76,7 +76,7 @@ class CaseFileController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new CaseFile;
+		$model=new CaseFile("create");
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -96,21 +96,25 @@ class CaseFileController extends Controller
         $file_path = $model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR.$model->title.'.'.$file->extensionName;
         $model->path = $file_path;
         
-        if (!file_exists($path.$model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR)) {
-          FileUtil::createDir($path.$model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR);
-        }
+        // if (!file_exists($path.$model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR)) {
+        //   FileUtil::createDir($path.$model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR);
+        // }
 
-        $file->saveAs(Yii::app()->basePath.'/../uploads/case/'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR.$file_path);
-        
+        // $file->saveAs(Yii::app()->basePath.'/../uploads/case/'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR.$file_path);
+				
+      	$upyun_path = DIRECTORY_SEPARATOR.'case'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR;
+      	$result = Yii::app()->upyun->saveImg($file->tempName,$upyun_path.$file_path);
+
       }
 
-			if($model->save()){
+			if(count($result) > 0 && $model->save()){
 				if(isset($_POST['CaseFamily']['return'])){
 					$this->redirect(array('/childcase/update','id'=>$model->case_id,'flag'=>$_POST['CaseFamily']['return']));
 				}else{
 					$this->redirect(array('view','id'=>$model->id));
 				}
 			}
+
 		}
 
 		$this->render('create',array(
@@ -124,16 +128,14 @@ class CaseFileController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($id)
+	public function actionUpdate($id,$flag)
 	{
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['CaseFile']))
 		{
-			$model->attributes=$_POST['CaseFile'];
 
 			$file=CUploadedFile::getInstance($model,'path');
 
@@ -146,15 +148,21 @@ class CaseFileController extends Controller
         $file_path = $model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR.$model->title.'.'.$file->extensionName;
         $model->path = $file_path;
         
-        if (!file_exists($path.$model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR)) {
-          FileUtil::createDir($path.$model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR);
-        }
+        // if (!file_exists($path.$model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR)) {
+        //   FileUtil::createDir($path.$model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR);
+        // }
 
-        $file->saveAs(Yii::app()->basePath.'/../uploads/case/'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR.$file_path);
+        // $file->saveAs(Yii::app()->basePath.'/../uploads/case/'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR.$file_path);
         
-      }
+        $upyun_path = DIRECTORY_SEPARATOR.'case'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR;
+      	$result = Yii::app()->upyun->saveImg($file->tempName,$upyun_path.$file_path);
 
-			if($model->save()){
+      }else{
+      	$_POST['CaseFile']['path'] = $model->path;
+      }
+			$model->attributes=$_POST['CaseFile'];
+
+			if(count($result) > 0  && $model->save()){
 				if(isset($_POST['CaseFamily']['return'])){
 					$this->redirect(array('/childcase/update','id'=>$model->case_id,'flag'=>$_POST['CaseFamily']['return']));
 				}else{
@@ -166,9 +174,25 @@ class CaseFileController extends Controller
 
 		$this->render('update',array(
 			'model'=>$model,
+			'flag'=>$flag
 		));
 	}
 
+	public function actionUpdateTag()
+	{
+		if(Yii::app()->request->isAjaxRequest)
+		{
+		  $id =  (int)Yii::app()->request->getParam('id');
+		  $key = Yii::app()->request->getParam('key');
+			$model = $this->loadModel($id);
+			if($key){
+				$model->key = $key;
+				$model->title = FileArray::getLabel($key);
+				$model->save();
+			}
+		  echo CJSON::encode(array("id"=>$id));
+		}
+	}
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
@@ -182,6 +206,38 @@ class CaseFileController extends Controller
 		  echo CJSON::encode(array("id"=>$id));
 		}
 	}
+
+
+	// public function actionMultiCreate($id)
+ //  {
+ //    $this->layout = '//layouts/json';
+ //    $file = $_FILES['Filedata'];
+
+ //    $folder_type = array("under review","under review","under review","funded","passed");
+
+ //    if(is_uploaded_file($file['tmp_name'])){
+      
+ //      $extension = Utils::fileExt($file['name']);
+ //      $model = new CaseFile;
+ //      $model->case_id = $id;
+ //      $model->key = $flag;
+      
+	// 		$case_name = $this->toEnglish($model->case->name);
+ //  		$file_path = $model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR.$file['name'].'.'.$extension;
+ //  		$path = Yii::getPathOfAlias('webroot').DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'case'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR;
+
+ //      if(move_uploaded_file(($file['tmp_name']),$path.$file_path)){
+
+	//       $model->name = $file['name'];
+ //        $model->path = $file_path;
+ //        $model->update_time= $model->create_time= date('Y-m-d H:i:s');
+
+ //        if($model->save()){
+ //          echo "FILEID:".Yii::app()->getBaseUrl().'/uploads/case/'.$folder_type[$model->case->status].$file_path;
+ //        }
+	//     }
+ //    }
+ //  }
 
 	/**
 	 * Lists all models.

@@ -61,8 +61,20 @@ class ChildcaseController extends Controller
 		// calcuate the rate
 		$errors = array();
 		foreach ($model->attributes as $key => $value) {
-			if(!$value){
+			if(!$value && $key!="nickname" && $key!="address"){
 				$errors[] = "缺失 - [".$model->getAttributeLabel($key)."]";
+			}
+		}
+		$files = CaseFile::model()->findAllByAttributes(array('case_id'=>$model->id));
+		$requires = FileArray::getRequiredFiles();
+		$existArr = array();
+		foreach ($files as $file) {
+			$existArr[] .= $file->key;			
+		}
+
+		foreach ($requires as $key => $value) {
+			if(!in_array($key,$existArr)){
+				$errors[] = "缺失 - [".FileArray::getLabel($value)."]";
 			}
 		}
 		$rate = 100 -  (int)(100 * (count($errors) / count($model->attributes)));
@@ -81,6 +93,8 @@ class ChildcaseController extends Controller
 	{
 		$model=new Childcase;
 		$model->create_by = Yii::app()->user->id;
+
+		$model->scenario = 'case';
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -109,8 +123,17 @@ class ChildcaseController extends Controller
 		$this->layout = "//layouts/column2";
 		$model=$this->loadModel($id);
 
+		$model->scenario = $flag;
+
+		$orgs = null;
+
+		if($flag =="economic"){
+			$orgs = Org::model()->findAll( 'type < 3');
+		}
+
+
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Childcase']))
 		{
@@ -133,11 +156,14 @@ class ChildcaseController extends Controller
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
+
 		$this->render('update',array(
 			'model'=>$model,
 			'flag'=>$flag,
-			'fmodel'=>new CaseFamily(),
-			'amodel'=>new CaseFile()
+			'fmodel'=>new CaseFamily($flag),
+			'amodel'=>new CaseFile(),
+			'bmodel'=>new CaseBudget(),
+			'orgs'=>$orgs
 		));
 	}
 
@@ -147,6 +173,8 @@ class ChildcaseController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+		$model->scenario = 'case';
+
 
 		if(isset($_POST['Childcase']))
 		{
@@ -159,10 +187,20 @@ class ChildcaseController extends Controller
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
+		$orgs = Org::model()->findAll();
+		// $o = array();
+		// foreach ($orgs as $key => $org) {
+		// 	if($org->parent_id == 0){
+		// 		$o[$org->id] = $org;
+		// 	}else{
+		// 		$o[$org->parent_id]['sub'][] = $org;
+		// 	}
+		// }
+
 		$this->render('update_case',array(
 			'model'=>$model,
 			'users'=>User::model()->findAll(),
-			'orgs'=>Org::model()->findAll( 'type < 3')
+			'orgs'=>$orgs
 		));
 	}
 

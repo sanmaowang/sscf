@@ -32,6 +32,7 @@
  * @property string $other_foundation_staff
  * @property string $staff
  * @property string $applicant
+ * @property string $applicant_relationship
  * @property integer $create_by
  * @property integer $source
  * @property integer $status
@@ -66,10 +67,16 @@ class Childcase extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('name, avatar, birthday, gender, home, height, weight, id_card, nation, citivaltype, contact, telephone', 'required','on'=>'child'),
+			array('state_desc, medical_insurance_rate, other_subsidy, have_other_illness, have_pneumonia, operation_hospital, doctor, is_one_time_cure, admission_time, operation_plan_time', 'required','on'=>'medical'),
+			array('economical_source_desc, special_desc', 'required','on'=>'family'),
 			array('name, create_by', 'required'),
+			array('name, source, other_foundation_staff, staff, applicant, applicant_relationship', 'required','on'=>'case'),
 			array('gender, source, create_by, status', 'numerical', 'integerOnly'=>true),
 			array('name, id_card, nation, citivaltype,is_one_time_cure, contact, telephone', 'length', 'max'=>25),
 			array('id_card', 'length', 'max'=>18),
+			array('id_card', 'match', 'pattern'=>'/^\d{6}((1[89])|(2\d))\d{2}((0\d)|(1[0-2]))((3[01])|([0-2]\d))\d{3}(\d|X)$/i',
+          'message'=>'身份证格式不正确.'),
 			array('nickname, avatar', 'length', 'max'=>64),
 			array('home, doctor', 'length', 'max'=>80),
 			array('height, weight', 'length', 'max'=>6),
@@ -79,7 +86,7 @@ class Childcase extends CActiveRecord
 			array('birthday, state_desc, have_other_illness, have_pneumonia, admission_time, operation_plan_time, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, nickname, avatar, birthday, gender, home, height, weight, id_card, address, nation, citivaltype, contact, telephone, state_desc, medical_insurance_rate, other_subsidy, have_other_illness, have_pneumonia, operation_hospital, doctor, is_one_time_cure, admission_time, operation_plan_time, other_foundation_staff, staff, applicant, create_by, source, status, create_time, update_time', 'safe', 'on'=>'search'),
+			array('id, name, nickname, avatar, birthday, gender, home, height, weight, id_card, address, nation, citivaltype, contact, telephone, state_desc, medical_insurance_rate, other_subsidy, have_other_illness, have_pneumonia, operation_hospital, doctor, is_one_time_cure, admission_time, operation_plan_time, other_foundation_staff, staff, applicant,applicant_relationship, create_by, source, status, create_time, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -94,6 +101,7 @@ class Childcase extends CActiveRecord
 			'createby'=>array(self::BELONGS_TO, 'User', 'create_by'),
 			'family'=>array(self::HAS_MANY,'CaseFamily','case_id'),
 			'files'=>array(self::HAS_MANY,'CaseFile','case_id'),
+			'budget'=>array(self::HAS_MANY,'CaseBudget','case_id'),
 			'charge'=>array(self::BELONGS_TO,'User','staff'),
 			'sourcefrom'=>array(self::BELONGS_TO,'Org','source'),
 		);
@@ -159,9 +167,10 @@ class Childcase extends CActiveRecord
 			'is_one_time_cure' => '是否一次性根治',
 			'admission_time' => '入院时间',
 			'operation_plan_time' => '计划手术时间',
-			'other_foundation_staff' => '其他基金会牵头人',
+			'other_foundation_staff' => '基金会牵头联系人',
 			'staff' => '海星尽职调查专员',
 			'applicant' => '申请者',
+			'applicant_relationship'=>'申请者与患儿关系',
 			'source' => '案例来源',
 			'status' => '状态',
 			'create_by' => '创建者',
@@ -237,6 +246,7 @@ class Childcase extends CActiveRecord
 		$criteria->compare('other_foundation_staff',$this->other_foundation_staff,true);
 		$criteria->compare('staff',$this->staff,true);
 		$criteria->compare('applicant',$this->applicant,true);
+		$criteria->compare('applicant_relationship',$this->applicant,true);
 		$criteria->compare('create_by',$this->create_by);
 		$criteria->compare('source',$this->source);
 		$criteria->compare('status',$this->status);

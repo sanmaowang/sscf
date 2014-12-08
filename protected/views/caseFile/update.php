@@ -9,4 +9,4 @@ $this->breadcrumbs=array(
 <div class="page-header">
 <h1>更新文件 #<?php echo $model->title; ?></h1>
 </div>
-<?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form',array('model'=>$model,'flag'=>$flag)); ?>

@@ -11,7 +11,11 @@
 
 	<?php echo $form->textFieldRow($model,'source',array('class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'note',array('class'=>'span5')); ?>
+	<?php echo $form->textAreaRow($model,'note',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
+
+	<?php echo $form->textFieldRow($model,'create_datetime',array('class'=>'span5')); ?>
+
+	<?php echo $form->textFieldRow($model,'update_datetime',array('class'=>'span5')); ?>
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(

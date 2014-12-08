@@ -1,18 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Case Budgets'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
+	'案例'=>array('childcase/index'),
+	$model->case->name=>array('childcase/update','id'=>$model->case_id,'flag'=>'economic'),
+	'更新账单',
 );
 
-$this->menu=array(
-	array('label'=>'List CaseBudget','url'=>array('index')),
-	array('label'=>'Create CaseBudget','url'=>array('create')),
-	array('label'=>'View CaseBudget','url'=>array('view','id'=>$model->id)),
-	array('label'=>'Manage CaseBudget','url'=>array('admin')),
-);
 ?>
 <div class="page-header">
-<h1>Update CaseBudget <?php echo $model->id; ?></h1>
+<h1>更新账单 <?php echo $model->id; ?></h1>
 </div>
-<?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form',array('model'=>$model,'orgs'=>$orgs,'first'=>$first)); ?>

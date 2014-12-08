@@ -120,6 +120,10 @@ return array(
         'viewPath' => 'application.views.mail',
     ),
     */
+
+		'upyun'=>array(
+      'class'=>'application.extensions.upyun.CUpyunComponent',
+    ),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',

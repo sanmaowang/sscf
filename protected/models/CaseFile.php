@@ -21,39 +21,6 @@ class CaseFile extends CActiveRecord
 	 * @return CaseFile the static model class
 	 */
 
-	public function getLabel($key)
-	{
-   $labels = array(
-			"family_idcard"=>"父母及监护人身份证",
-			"family_registry"=>"患儿及家庭成员户口本",
-			"family_proof"=>"贫困证明（乡级以上盖章有效）",
-			"family_other"=>"其它",
-			"pic_life"=>"患儿生活照片",
-			"pic_household"=>"家庭房屋照片",
-			"pic_visit"=>"海星探视孩子照片",
-			"pic_other"=>'其它照片',
-			"mbg_echocardiography"=>"心脏彩超（超声心动）报告",
-			"mbg_IV"=>"导管诊断报告（如做导管）",
-			"mbg_X_Ray"=>"胸部X光片报告（有肺炎记录）",
-			"mbg_CT_Directed"	=>"CT引导穿刺",
-			"mbg_3D_Echocardiography"	=>"三维心超图、心电图",
-			"mbg_Lung_infection"	=>"肺炎住院纪录、肺炎用药治疗纪录（有过肺炎并住院治疗的患儿）",
-			"mbg_Incurred_medical_expenses"	=>"已经产生的医疗费用收费单据（已经有过手术或者肺炎治疗的孩子）",
-			"mbg_other"=>"其他资料",
-			"case_Hospital_Receipt"=>"医院收据",
-			"case_Expenses_Breakdown"=>"费用清单",
-			"case_Discharge_Summary"=>"出院小结",
-			"case_Funding_Source"=>"手术资金来源和费用明细(EXCEL)",
-			"case_other"=>'其他文件',
-			"appfile_Indemnity_Agreement"=>"免责协议",
-			"appfile_other"=>"其他文件",
-			"medical_assessment"=>"医疗评估",
-			"dc_memo"=>"dc_memo",
-			"attach_file"=>"其他附件"
-   	);
-   return $labels[$key];
-	}
-
 	public function getFolder()
 	{
 		switch ($this->key[0]) {
@@ -88,7 +55,7 @@ class CaseFile extends CActiveRecord
 				return "家庭背景";
 				break;
 			case 'p':
-				return "各种照片";
+				return "照片";
 				break;
 			case 'm':
 				return "病史";

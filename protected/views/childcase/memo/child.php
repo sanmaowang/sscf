@@ -1,7 +1,7 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'childcase-form',
 	'type'=>'horizontal',
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>true,
 	'htmlOptions' => array(
         'enctype' => 'multipart/form-data',
     ),

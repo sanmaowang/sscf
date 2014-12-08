@@ -23,5 +23,7 @@ $this->menu=array(
 		'amount',
 		'source',
 		'note',
+		'create_datetime',
+		'update_datetime',
 	),
 )); ?>

@@ -52,6 +52,8 @@ class CaseFamily extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name, relationship', 'required'),
+			array('age, id_card, education, nation, career, annual_income, note ', 'required','on'=>'family'),
+			array('age,career, annual_income, note', 'required','on'=>'other'),
 			array('name, relationship', 'length', 'max'=>20),
 			array('case_id, is_immediate, age', 'numerical', 'integerOnly'=>true),
 			array('id_card, education, health_state, career', 'length', 'max'=>80),

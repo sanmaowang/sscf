@@ -28,8 +28,6 @@
 
 	<?php echo $form->textFieldRow($model,'operation_plan_time',array('class'=>'span5 datetime')); ?>
 
-	<?php echo $form->textFieldRow($model,'applicant',array('class'=>'span5','maxlength'=>11)); ?>
-
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
