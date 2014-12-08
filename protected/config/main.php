@@ -107,19 +107,17 @@ return array(
   //           array('host'=>'127.0.0.1', 'port'=>11211, 'weight'=>60),
   //       ),
   //   ),
-		/*
 	  'mail' => array(
         'class' => 'application.extensions.yii-mail.YiiMail',  
         'transportType'=>'smtp',
         'transportOptions'=>array(
 	        'host'=>'smtpcloud.sohu.com',
-	        'username'=>'postmaster@hpomail.sendcloud.org',
-	        'password'=>'ULqMEink',
+	        'username'=>'seastar',
+	        'password'=>'hFiR7z2QHgxdz5BZ',
 	        'port'=>'25',
         ),
         'viewPath' => 'application.views.mail',
     ),
-    */
 
 		'upyun'=>array(
       'class'=>'application.extensions.upyun.CUpyunComponent',

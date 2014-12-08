@@ -102,6 +102,7 @@ class Childcase extends CActiveRecord
 			'family'=>array(self::HAS_MANY,'CaseFamily','case_id'),
 			'files'=>array(self::HAS_MANY,'CaseFile','case_id'),
 			'budget'=>array(self::HAS_MANY,'CaseBudget','case_id'),
+			'medicalinfo'=>array(self::HAS_MANY,'MedicalInfo','case_id'),
 			'charge'=>array(self::BELONGS_TO,'User','staff'),
 			'sourcefrom'=>array(self::BELONGS_TO,'Org','source'),
 		);
@@ -167,7 +168,7 @@ class Childcase extends CActiveRecord
 			'is_one_time_cure' => '是否一次性根治',
 			'admission_time' => '入院时间',
 			'operation_plan_time' => '计划手术时间',
-			'other_foundation_staff' => '基金会牵头联系人',
+			'other_foundation_staff' => '牵头基金会联系人',
 			'staff' => '海星尽职调查专员',
 			'applicant' => '申请者',
 			'applicant_relationship'=>'申请者与患儿关系',

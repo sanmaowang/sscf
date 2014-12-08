@@ -6,7 +6,8 @@ class MedicalInfoController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/column1';
+	public $code ="Childcase";
 
 	/**
 	 * @return array action filters
@@ -60,9 +61,11 @@ class MedicalInfoController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($id)
 	{
 		$model=new MedicalInfo;
+		
+		$model->case_id = $id;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -71,11 +74,17 @@ class MedicalInfoController extends Controller
 		{
 			$model->attributes=$_POST['MedicalInfo'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('childcase/update','id'=>$id,'flag'=>'chris'));
 		}
+  	$folder_type = array("under review","under review","under review","funded","passed");
+		$case = Childcase::model()->findByPk($model->case_id);
+		$folder = $folder_type[$case->status];
+		$files = CaseFile::model()->findAllByAttributes(array('case_id'=>$model->case_id,'key'=>'mbg_echocardiography'));
 
 		$this->render('create',array(
 			'model'=>$model,
+			'files'=>$files,
+			'folder'=>$folder
 		));
 	}
 
@@ -95,11 +104,19 @@ class MedicalInfoController extends Controller
 		{
 			$model->attributes=$_POST['MedicalInfo'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('childcase/update','id'=>$model->case_id,'flag'=>'chris'));
 		}
+
+		$folder_type = array("under review","under review","under review","funded","passed");
+		$case = Childcase::model()->findByPk($model->case_id);
+		$folder = $folder_type[$case->status];
+
+		$files = CaseFile::model()->findAllByAttributes(array('case_id'=>$model->case_id,'key'=>'mbg_echocardiography'));
 
 		$this->render('update',array(
 			'model'=>$model,
+			'files'=>$files,
+			'folder'=>$folder
 		));
 	}
 

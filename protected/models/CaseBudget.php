@@ -142,4 +142,18 @@ class CaseBudget extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+	protected function beforeSave()
+	{
+    	if(parent::beforeSave()){
+        	if($this->isNewRecord){
+    				$this->create_time=$this->update_time=date('Y-m-d H:i:s');
+        	}	
+        	else{
+        		$this->update_time=date('Y-m-d H:i:s');
+        	}
+        	return true;
+    	}else
+        	return false;
+	}
 }

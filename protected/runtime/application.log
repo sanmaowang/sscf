@@ -5333,3 +5333,421 @@ Stack trace:
 REQUEST_URI=/childcase/updatecase/44?flag=case
 in /Users/sanmao/sscf/protected/controllers/ChildcaseController.php (192)
 in /Users/sanmao/sscf/index.php (13)
+2014/12/08 15:50:20 [error] [exception.CException] exception 'CException' with message 'ChildcaseController 无法找到请求的视图 "memo/chris".' in /Users/sanmao/sscf/framework/web/CController.php:878
+Stack trace:
+#0 /Users/sanmao/sscf/protected/views/childcase/update.php(42): CController->renderPartial('memo/chris', Array)
+#1 /Users/sanmao/sscf/framework/web/CBaseController.php(126): require('/Users/sanmao/s...')
+#2 /Users/sanmao/sscf/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Users/sanmao/s...', Array, true)
+#3 /Users/sanmao/sscf/framework/web/CController.php(869): CBaseController->renderFile('/Users/sanmao/s...', Array, true)
+#4 /Users/sanmao/sscf/framework/web/CController.php(782): CController->renderPartial('update', Array, true)
+#5 /Users/sanmao/sscf/protected/controllers/ChildcaseController.php(167): CController->render('update', Array)
+#6 [internal function]: ChildcaseController->actionUpdate('45', 'chris')
+#7 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ChildcaseController), Array)
+#8 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ChildcaseController), Object(ReflectionMethod), Array)
+#9 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#16 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('update')
+#18 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childcase/updat...')
+#19 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#21 {main}
+REQUEST_URI=/childcase/update/45?flag=chris
+HTTP_REFERER=http://seastar.local/childcase/update/45?flag=family
+---
+2014/12/08 16:31:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "medicalinfo" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('medicalinfo')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('medicalinfo')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childcase/medic...')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/childcase/medicalinfo/create
+---
+2014/12/08 16:31:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "medicalInfo" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('medicalInfo')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('medicalInfo')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childcase/medic...')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/childcase/medicalInfo/create
+---
+2014/12/08 16:32:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "medicalInfo" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('medicalInfo')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('medicalInfo')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childcase/medic...')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/childcase/medicalInfo/create
+---
+2014/12/08 16:32:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "medicalinfo" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('medicalinfo')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('medicalinfo')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childcase/medic...')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/childcase/medicalinfo/create
+---
+2014/12/08 16:32:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "medicalinfo" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('medicalinfo')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('medicalinfo')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childcase/medic...')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/childcase/medicalinfo/
+---
+2014/12/08 16:32:59 [error] [exception.CException] exception 'CException' with message 'MedicalInfoController 无法找到请求的视图 "index".' in /Users/sanmao/sscf/framework/web/CController.php:878
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#1 /Users/sanmao/sscf/protected/controllers/MedicalinfoController.php(128): CController->render('index', Array)
+#2 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): MedicalInfoController->actionIndex()
+#3 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('')
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalinfo')
+#13 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#15 {main}
+REQUEST_URI=/medicalinfo/
+---
+2014/12/08 16:33:02 [error] [exception.CException] exception 'CException' with message '属性 "MedicalInfoController.code" 未被定义.' in /Users/sanmao/sscf/framework/base/CComponent.php:130
+Stack trace:
+#0 /Users/sanmao/sscf/themes/bootstrap/views/layouts/main.php(19): CComponent->__get('code')
+#1 /Users/sanmao/sscf/framework/web/CBaseController.php(126): require('/Users/sanmao/s...')
+#2 /Users/sanmao/sscf/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Users/sanmao/s...', Array, true)
+#3 /Users/sanmao/sscf/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/Users/sanmao/s...', Array, true)
+#4 /Users/sanmao/sscf/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div class="row...')
+#5 /Users/sanmao/sscf/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div class="row...')
+#6 /Users/sanmao/sscf/framework/web/CBaseController.php(206): COutputProcessor->run()
+#7 /Users/sanmao/sscf/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#8 /Users/sanmao/sscf/themes/bootstrap/views/layouts/column2.php(30): CBaseController->endContent()
+#9 /Users/sanmao/sscf/framework/web/CBaseController.php(126): require('/Users/sanmao/s...')
+#10 /Users/sanmao/sscf/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Users/sanmao/s...', Array, true)
+#11 /Users/sanmao/sscf/framework/web/CController.php(784): CBaseController->renderFile('/Users/sanmao/s...', Array, true)
+#12 /Users/sanmao/sscf/protected/controllers/MedicalinfoController.php(79): CController->render('create', Array)
+#13 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): MedicalInfoController->actionCreate()
+#14 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#21 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('create')
+#23 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalinfo/cre...')
+#24 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#25 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#26 {main}
+REQUEST_URI=/medicalinfo/create
+---
+2014/12/08 16:35:13 [error] [exception.CException] exception 'CException' with message 'MedicalInfoController 无法找到请求的视图 "index".' in /Users/sanmao/sscf/framework/web/CController.php:878
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#1 /Users/sanmao/sscf/protected/controllers/MedicalinfoController.php(129): CController->render('index', Array)
+#2 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): MedicalInfoController->actionIndex()
+#3 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('')
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalinfo')
+#13 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#15 {main}
+REQUEST_URI=/medicalinfo/
+---
+2014/12/08 16:35:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "medicalinfo" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('medicalinfo')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('medicalinfo')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childcase/medic...')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/childcase/medicalinfo/
+---
+2014/12/08 16:35:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "medicalinfo" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('medicalinfo')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('medicalinfo')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childcase/medic...')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/childcase/medicalinfo/create
+---
+2014/12/08 16:35:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "medicalInfo" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('medicalInfo')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('medicalInfo')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childcase/medic...')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/childcase/medicalInfo/create
+---
+2014/12/08 16:35:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "medicalinfo" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('medicalinfo')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('medicalinfo')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('childcase/medic...')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/childcase/medicalinfo/create
+---
+2014/12/08 17:22:43 [error] [exception.CException] exception 'CException' with message '属性 "MedicalInfo.update_time" 未被定义.' in /Users/sanmao/sscf/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(159): CComponent->__set('update_time', '2014-12-08 17:2...')
+#1 /Users/sanmao/sscf/protected/models/MedicalInfo.php(111): CActiveRecord->__set('update_time', '2014-12-08 17:2...')
+#2 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(1017): MedicalInfo->beforeSave()
+#3 /Users/sanmao/sscf/framework/db/ar/CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#4 /Users/sanmao/sscf/protected/controllers/MedicalinfoController.php(76): CActiveRecord->save()
+#5 [internal function]: MedicalInfoController->actionCreate('45')
+#6 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#7 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#8 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#15 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('create')
+#17 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalinfo/cre...')
+#18 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#19 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#20 {main}
+REQUEST_URI=/medicalinfo/create/45
+HTTP_REFERER=http://seastar.local/medicalinfo/create/45
+---
+2014/12/08 17:23:22 [error] [exception.CException] exception 'CException' with message 'MedicalInfoController 无法找到请求的视图 "view".' in /Users/sanmao/sscf/framework/web/CController.php:878
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(782): CController->renderPartial('view', Array, true)
+#1 /Users/sanmao/sscf/protected/controllers/MedicalinfoController.php(57): CController->render('view', Array)
+#2 [internal function]: MedicalInfoController->actionView('1')
+#3 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#4 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#5 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#12 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('view')
+#14 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalinfo/vie...')
+#15 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/medicalinfo/1
+HTTP_REFERER=http://seastar.local/medicalinfo/create/45
+---
+2014/12/08 17:39:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /Users/sanmao/sscf/protected/controllers/MedicalinfoController.php:160
+Stack trace:
+#0 /Users/sanmao/sscf/protected/controllers/MedicalinfoController.php(92): MedicalInfoController->loadModel('45')
+#1 [internal function]: MedicalInfoController->actionUpdate('45')
+#2 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#3 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#4 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalinfo/upd...')
+#14 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#16 {main}
+REQUEST_URI=/medicalinfo/update/45
+HTTP_REFERER=http://seastar.local/childcase/update/45?flag=chris
+---
+2014/12/08 17:40:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /Users/sanmao/sscf/protected/controllers/MedicalinfoController.php:160
+Stack trace:
+#0 /Users/sanmao/sscf/protected/controllers/MedicalinfoController.php(92): MedicalInfoController->loadModel('45')
+#1 [internal function]: MedicalInfoController->actionUpdate('45')
+#2 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#3 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#4 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#11 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalinfo/upd...')
+#14 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#16 {main}
+REQUEST_URI=/medicalinfo/update/45
+HTTP_REFERER=http://seastar.local/childcase/update/45?flag=chris
+---
+2014/12/08 17:40:21 [error] [exception.CException] exception 'CException' with message 'MedicalInfoController 无法找到请求的视图 "update".' in /Users/sanmao/sscf/framework/web/CController.php:878
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(782): CController->renderPartial('update', Array, true)
+#1 /Users/sanmao/sscf/protected/controllers/MedicalinfoController.php(106): CController->render('update', Array)
+#2 [internal function]: MedicalInfoController->actionUpdate('1')
+#3 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#4 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#5 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#12 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('update')
+#14 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalinfo/upd...')
+#15 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/medicalinfo/update/1
+HTTP_REFERER=http://seastar.local/childcase/update/45?flag=chris
+---
+2014/12/08 17:49:15 [error] [exception.CException] exception 'CException' with message 'MedicalInfoController 无法找到请求的视图 "update".' in /Users/sanmao/sscf/framework/web/CController.php:878
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(782): CController->renderPartial('update', Array, true)
+#1 /Users/sanmao/sscf/protected/controllers/MedicalinfoController.php(106): CController->render('update', Array)
+#2 [internal function]: MedicalInfoController->actionUpdate('1')
+#3 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#4 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#5 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#12 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('update')
+#14 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalinfo/upd...')
+#15 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/medicalinfo/update/1
+HTTP_REFERER=http://seastar.local/childcase/update/45?flag=chris
+---
+2014/12/08 17:53:57 [error] [exception.CException] exception 'CException' with message '属性 "CActiveForm.type" 未被定义.' in /Users/sanmao/sscf/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWidgetFactory.php(161): CComponent->__set('type', 'horizontal')
+#1 /Users/sanmao/sscf/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(MedicalInfoController), 'CActiveForm', Array)
+#2 /Users/sanmao/sscf/framework/web/CBaseController.php(189): CBaseController->createWidget('CActiveForm', Array)
+#3 /Users/sanmao/sscf/protected/views/medicalinfo/_form.php(12): CBaseController->beginWidget('CActiveForm', Array)
+#4 /Users/sanmao/sscf/framework/web/CBaseController.php(126): require('/Users/sanmao/s...')
+#5 /Users/sanmao/sscf/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Users/sanmao/s...', Array, true)
+#6 /Users/sanmao/sscf/framework/web/CController.php(869): CBaseController->renderFile('/Users/sanmao/s...', Array, true)
+#7 /Users/sanmao/sscf/protected/views/medicalinfo/update.php(18): CController->renderPartial('_form', Array)
+#8 /Users/sanmao/sscf/framework/web/CBaseController.php(126): require('/Users/sanmao/s...')
+#9 /Users/sanmao/sscf/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Users/sanmao/s...', Array, true)
+#10 /Users/sanmao/sscf/framework/web/CController.php(869): CBaseController->renderFile('/Users/sanmao/s...', Array, true)
+#11 /Users/sanmao/sscf/framework/web/CController.php(782): CController->renderPartial('update', Array, true)
+#12 /Users/sanmao/sscf/protected/controllers/MedicalinfoController.php(106): CController->render('update', Array)
+#13 [internal function]: MedicalInfoController->actionUpdate('1')
+#14 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#15 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#16 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#19 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#23 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('update')
+#25 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalinfo/upd...')
+#26 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#27 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#28 {main}
+REQUEST_URI=/medicalinfo/update/1
+HTTP_REFERER=http://seastar.local/childcase/update/45?flag=chris
+---
+2014/12/08 19:21:51 [error] [exception.CException] exception 'CException' with message 'MedicalInfoController 无法找到请求的视图 "view".' in /Users/sanmao/sscf/framework/web/CController.php:878
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(782): CController->renderPartial('view', Array, true)
+#1 /Users/sanmao/sscf/protected/controllers/MedicalinfoController.php(57): CController->render('view', Array)
+#2 [internal function]: MedicalInfoController->actionView('2')
+#3 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#4 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#5 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#12 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('view')
+#14 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalinfo/vie...')
+#15 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/medicalinfo/2
+HTTP_REFERER=http://seastar.local/medicalinfo/create/42
+---
+2014/12/08 21:06:51 [error] [exception.CException] exception 'CException' with message 'MedicalInfoController 无法找到请求的视图 "view".' in /Users/sanmao/sscf/framework/web/CController.php:878
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(782): CController->renderPartial('view', Array, true)
+#1 /Users/sanmao/sscf/protected/controllers/MedicalinfoController.php(57): CController->render('view', Array)
+#2 [internal function]: MedicalInfoController->actionView('2')
+#3 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#4 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#5 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#12 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('view')
+#14 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalinfo/vie...')
+#15 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/medicalinfo/2
+HTTP_REFERER=http://seastar.local/medicalinfo/update/2
+---
+2014/12/08 21:07:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "childcase" 动作.' in /Users/sanmao/sscf/framework/web/CController.php:483
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(270): CController->missingAction('childcase')
+#1 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('childcase')
+#2 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalinfo/chi...')
+#3 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/medicalinfo/childcase/42?flag=chris
+HTTP_REFERER=http://seastar.local/medicalinfo/update/2
+---

@@ -12,6 +12,8 @@ $this->menu=array(
 	array('label'=>'其他家庭成员信息','url'=>array('update','id'=>$model->id,'flag'=>'other'),'active'=>$flag == 'other'),
 	array('label'=>'病情描述','url'=>array('update','id'=>$model->id,'flag'=>'medical'),'active'=>$flag == 'medical'),
 	array('label'=>'手术预算和资助情况','url'=>array('update','id'=>$model->id,'flag'=>'economic'),'active'=>$flag == 'economic'),
+	array('label'=>'医疗评价'),
+	array('label'=>'医疗评价','url'=>array('update','id'=>$model->id,'flag'=>'chris'),'active'=>$flag == 'chris'),
 	array('label'=>'附加材料'),
 	array('label'=>'家庭背景','url'=>array('update','id'=>$model->id,'flag'=>'fbg'),'active'=>$flag == 'fbg'),
 	array('label'=>'病史','url'=>array('update','id'=>$model->id,'flag'=>'mbg'),'active'=>$flag == 'mbg'),
