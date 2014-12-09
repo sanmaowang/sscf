@@ -29,6 +29,7 @@ foreach ($orgs as $org) {
 	<?php echo $form->dropDownListRow($model,'staff',$u); ?>
 	<?php echo $form->textFieldRow($model,'applicant',array('class'=>'span3','maxlength'=>11)); ?>
 	<?php echo $form->textFieldRow($model,'applicant_relationship',array('class'=>'span3','maxlength'=>11)); ?>
+	<?php echo $form->dropDownListRow($model,'status',$status = array(0 => "新建",1 => "等待资助",2 => "确认资助",3 => "已资助",4 => "不资助")); ?>
 
 
 	<div class="form-actions">

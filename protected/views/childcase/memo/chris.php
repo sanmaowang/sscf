@@ -1,4 +1,4 @@
-<legend>医疗评价</legend>
+<legend>医疗评估</legend>
 <?php 
 if(count($model->medicalinfo) >0){
    foreach ($model->medicalinfo as $key => $medical) {

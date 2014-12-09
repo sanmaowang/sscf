@@ -50,8 +50,10 @@ class ChildcaseController extends Controller
 	public function actionView($id)
 	{
 		$model = $this->loadModel($id);
+		$orgs = Org::model()->findAll();
 		$this->render('view',array(
 			'model'=>$model,
+			'orgs'=>$orgs
 		));
 	}
 
@@ -105,6 +107,8 @@ class ChildcaseController extends Controller
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
+
+		$orgs = Org::model()->with('contact')->findAll();
 
 		$this->render('create_case',array(
 			'model'=>$model,

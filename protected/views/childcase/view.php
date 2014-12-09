@@ -31,13 +31,14 @@ $folder_type = array("under review","under review","under review","funded","pass
   </div>
 </div>
 <ul class="nav nav-tabs" id="child_info">
-  <li class="active"><a href="#basic_info">DC MEMO</a></li>
-  <li><a href="#medical_assessment">Medical Assessment</a></li>
-  <li><a href="#fbg">Family Background</a></li>
-  <li><a href="#pic">Pictures</a></li>
-  <li><a href="#mbg">Medical Background</a></li>
-  <li><a href="#casesummary">Case Summary and Post-Surgery</a></li>
-  <li><a href="#appfiles">Application Files</a></li>
+  <li class="active"><a href="#basic_info">基本信息</a></li>
+  <li><a href="#medical_assessment">医疗评估</a></li>
+  <li><a href="#surgery_economic">手术预算和资助情况</a></li>
+  <li><a href="#fbg">家庭背景</a></li>
+  <li><a href="#pic">照片</a></li>
+  <li><a href="#mbg">病史</a></li>
+  <li><a href="#casesummary">结案及术后</a></li>
+  <li><a href="#appfiles">申请文件</a></li>
 </ul>
 <div class="tab-content">
   <div class="tab-pane active" id="basic_info">
@@ -239,20 +240,239 @@ $folder_type = array("under review","under review","under review","funded","pass
 	</div>
 </div>
 </div>
-<div class="tab-pane" id="medical_assessment">
-	
+<div class="tab-pane" id="surgery_economic">
+	<?php 
+
+$o = array();
+
+foreach ($orgs as $org) {
+	$o[$org->id] = $org->name;
+}
+
+$fees = $model->budget;
+$budget = array();
+$cost = array();
+
+$total_cost;
+$total_hospital_cost;
+$total_budget;
+$total_hospital_budget;
+
+
+foreach ($fees as $fee) {
+	if($fee->fee_type == 0){
+		if($fee->type == 'hospital_budget'){
+			$budget['hospital'][] = $fee;
+			$total_hospital_budget += $fee->amount;
+		}else if($fee->type == 'our_budget'){
+			$budget['our'][] = $fee;
+			$total_budget += $fee->amount;
+		}else if($fee->type == 'org_budget'){
+			$budget['org'][] = $fee;
+			$total_budget += $fee->amount;
+		}
+	}else if($fee->fee_type == 1){
+		if($fee->type == 'hospital_cost'){
+			$cost['hospital'][] = $fee;
+			$total_hospital_cost += $fee->amount;
+		}else if($fee->type == 'our_cost'){
+			$cost['our'][] = $fee;
+			$total_cost += $fee->amount;
+		}else if($fee->type == 'org_budget'){
+			$cost['org'][] = $fee;
+			$total_cost += $fee->amount;
+		}
+	}
+}
+
+
+$rest_budget = $total_hospital_budget - $total_budget;
+
+$rest_cost =  $total_cost - $total_hospital_cost;
+
+?>
+<legend>预算表</legend>
+<table class="table table-bordered">
+	<thead>
+	<tr>
+		<th>医院</th>
+		<th>数额</th>
+		<th>备注</th>
+		<th>预算日期</th>
+	</tr>
+	</thead>
+	<tbody>
+		<?php if(isset($budget['hospital']) && count($budget['hospital']) > 0 ){?>
+		<?php foreach ($budget['hospital'] as $b) {?>
+		<tr class="warning">
+			<td>
+				<?php echo $o[$b->source];?>
+			</td>
+			<td>
+				<?php echo $b->amount;?> 元
+			</td>
+			<td>
+				<?php echo $b->note;?>
+			</td>
+			<td>
+				<?php echo substr($b->last_date,0,10);?>
+			</td>
+		</tr>
+		<?php }}?>
+	</tbody>
+	<thead>
+	<tr>
+		<th>机构</th>
+		<th>数额</th>
+		<th>备注</th>
+		<th>截至日期</th>
+	</tr>
+	</thead>
+	<tbody>
+		<?php if(isset($budget['org']) && count($budget['org']) > 0 ){?>
+		<?php foreach ($budget['org'] as $b) {?>
+		<tr>
+			<td>
+				<?php echo $o[$b->source];?> 
+			</td>
+			<td>
+				<?php echo $b->amount;?> 元
+			</td>
+			<td>
+				<?php echo $b->note;?>
+			</td>
+			<td>
+				<?php echo substr($b->last_date,0,10);?>
+			</td>
+		</tr>
+		<?php }}?>
+		<?php if(isset($budget['our']) && count($budget['our']) > 0 ){?>
+		<?php foreach ($budget['our'] as $b) {?>
+		<tr>
+			<td>
+				<?php if($b->source == 0){echo "海星意向";}else{ echo $o[$b->source];}?>
+			</td>
+			<td>
+				<?php echo $b->amount;?> 元
+			</td>
+			<td>
+				<?php echo $b->note;?>
+			</td>
+			<td>
+				<?php echo substr($b->last_date,0,10);?>
+			</td>
+		</tr>
+		<?php }}?>
+		<tr class="info">
+			<td colspan="4">
+				最终缺口：<?php echo $rest_budget;?> 元
+			</td>
+		</tr>
+	</tbody>
+</table>
+<hr>
+<legend>结案表</legend>
+<table class="table table-bordered">
+	<thead>
+	<tr>
+		<th>医院</th>
+		<th>数额</th>
+		<th>备注</th>
+		<th>结账日期</th>
+	</tr>
+	</thead>
+	<tbody>
+		<?php if(isset($cost['hospital']) && count($cost['hospital']) > 0 ){?>
+		<?php foreach ($cost['hospital'] as $b) {?>
+		<tr class="error">
+			<td>
+				<?php echo $o[$b->source];?>
+			</td>
+			<td>
+				<?php echo $b->amount;?> 元
+			</td>
+			<td>
+				<?php echo $b->note;?>
+			</td>
+			<td>
+				<?php echo substr($b->last_date,0,10);?>
+			</td>
+		</tr>
+		<?php }}?>
+	</tbody>
+	<thead>
+	<tr>
+		<th>机构</th>
+		<th>数额</th>
+		<th>备注</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+		<?php if(isset($cost['org']) && count($cost['org']) > 0 ){?>
+		<?php foreach ($cost['org'] as $b) {?>
+		<tr>
+			<td>
+				<?php echo $o[$b->source];?>
+			</td>
+			<td>
+				<?php echo $b->amount;?> 元
+			</td>
+			<td>
+				<?php echo $b->note;?>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<?php }}?>
+		<?php if(isset($cost['our']) && count($cost['our']) > 0 ){?>
+		<?php foreach ($cost['our'] as $b) {?>
+		<tr>
+			<td>
+				<?php if($b->source == 0){echo "海星资助";}else{ echo $o[$b->source];}?>
+			</td>
+			<td>
+				<?php echo $b->amount;?> 元
+			</td>
+			<td>
+				<?php echo $b->note;?>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<?php }}?>
+		<tr class="info">
+			<td colspan="4">
+				任何总额：<?php echo $rest_cost;?> 元
+			</td>
+		</tr>
+	</tbody>
+</table>
 </div>
+<div class="tab-pane" id="medical_assessment">
+	<?php 
+if(count($model->medicalinfo) >0){
+   foreach ($model->medicalinfo as $key => $medical) {
+?>
+	<h3><?php echo $medical->title?></h3>
+	<p><?php echo $medical->content?></p>
+	<hr>
+<?php
+   }}
+?>
+</div>
+
   <?php foreach($topics as $t){?>
   <div class="tab-pane" id="<?php echo $t;?>">
   	<?php if(count($model->files) >0):?>
   	<ul class="thumbnails">
-		<?php foreach($model->files as $f):?>
+		<?php $d = 0; foreach($model->files as $f):?>
 		<?php if($f->getCate() == $t):?>
     <li class="span3">
       <div class="thumbnail">
       	<div class="img-thumb">
       	<a class="files" href="<?php echo IMG_CLOUD.'/case/'.$folder_type[$model->status].'/'.$f->path;?>">
-      	<?php 
+      	<?php  $d++;
       if(in_array($f->getExt(),$img_exts)){
 			  echo CHtml::image(IMG_CLOUD.'/case/'.$folder_type[$model->status].'/'.$f->path,"file",array("width"=>300,"height"=>195)); 
 			}else if(in_array($f->getExt(),$excel_exts)){
@@ -272,6 +492,9 @@ $folder_type = array("under review","under review","under review","funded","pass
         </div>
       </div>
     </li>
+   	<?php if($d!=0 && $d%4 == 0){?>
+   	</ul><ul class="thumbnails">
+   	<?php }?>
 		<?php endif;?>
     <?php endforeach;?>
 		</ul>

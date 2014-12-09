@@ -5751,3 +5751,27 @@ Stack trace:
 REQUEST_URI=/medicalinfo/childcase/42?flag=chris
 HTTP_REFERER=http://seastar.local/medicalinfo/update/2
 ---
+2014/12/09 09:55:00 [error] [php] Invalid argument supplied for foreach() (/Users/sanmao/sscf/protected/views/childcase/view.php:250)
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(869): ChildcaseController->renderFile()
+#1 /Users/sanmao/sscf/framework/web/CController.php(782): ChildcaseController->renderPartial()
+#2 /Users/sanmao/sscf/protected/controllers/ChildcaseController.php(55): ChildcaseController->render()
+#3 unknown(0): ChildcaseController->actionView()
+#4 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#5 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): ChildcaseController->runAction()
+#8 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /Users/sanmao/sscf/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#10 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): ChildcaseController->filterAccessControl()
+#11 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#12 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#13 /Users/sanmao/sscf/framework/web/CController.php(265): ChildcaseController->runActionWithFilters()
+#14 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): ChildcaseController->run()
+#15 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#17 /Users/sanmao/sscf/index.php(16): CWebApplication->run()
+REQUEST_URI=/childcase/44
+in /Users/sanmao/sscf/protected/views/childcase/view.php (250)
+in /Users/sanmao/sscf/protected/controllers/ChildcaseController.php (55)
+in /Users/sanmao/sscf/index.php (16)
