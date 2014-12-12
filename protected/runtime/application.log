@@ -8268,3 +8268,76 @@ Stack trace:
 REQUEST_URI=/caseFamily/44
 HTTP_REFERER=http://seastar.local/caseFamily/update/51
 ---
+2014/12/12 16:46:59 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in /Users/sanmao/sscf/framework/web/CController.php:336
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#7 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('create')
+#9 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalInfo/cre...')
+#10 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#12 {main}
+REQUEST_URI=/medicalInfo/create/45
+HTTP_REFERER=http://seastar.local/childcase/update/45?flag=chris
+---
+2014/12/12 16:54:31 [error] [php] Cannot modify header information - headers already sent by (output started at /Users/sanmao/sscf/protected/extensions/upyun/CUpyunComponent.php:31) (/Users/sanmao/sscf/framework/web/CHttpRequest.php:789)
+Stack trace:
+#0 /Users/sanmao/sscf/protected/controllers/CasefileController.php(118): CaseFileController->redirect()
+#1 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(49): CaseFileController->actionCreate()
+#2 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CaseFileController->runAction()
+#4 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/sanmao/sscf/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#6 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CaseFileController->filterAccessControl()
+#7 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#8 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/sanmao/sscf/framework/web/CController.php(265): CaseFileController->runActionWithFilters()
+#10 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CaseFileController->run()
+#11 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#13 /Users/sanmao/sscf/index.php(16): CWebApplication->run()
+REQUEST_URI=/casefile/create
+in /Users/sanmao/sscf/protected/controllers/CasefileController.php (118)
+in /Users/sanmao/sscf/index.php (16)
+2014/12/12 17:09:50 [error] [exception.CException] exception 'CException' with message '属性 "CUrlManager.caseSentive" 未被定义.' in /Users/sanmao/sscf/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/sanmao/sscf/framework/YiiBase.php(220): CComponent->__set('caseSentive', false)
+#1 /Users/sanmao/sscf/framework/base/CModule.php(386): YiiBase::createComponent(Array)
+#2 /Users/sanmao/sscf/framework/base/CApplication.php(510): CModule->getComponent('urlManager')
+#3 /Users/sanmao/sscf/framework/web/CWebApplication.php(140): CApplication->getUrlManager()
+#4 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#5 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#6 {main}
+REQUEST_URI=/donor/index
+HTTP_REFERER=http://seastar.local/childcase/update/46?flag=medical
+---
+2014/12/12 17:09:59 [error] [exception.CException] exception 'CException' with message '属性 "CUrlManager.caseSensetive" 未被定义.' in /Users/sanmao/sscf/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/sanmao/sscf/framework/YiiBase.php(220): CComponent->__set('caseSensetive', false)
+#1 /Users/sanmao/sscf/framework/base/CModule.php(386): YiiBase::createComponent(Array)
+#2 /Users/sanmao/sscf/framework/base/CApplication.php(510): CModule->getComponent('urlManager')
+#3 /Users/sanmao/sscf/framework/web/CWebApplication.php(140): CApplication->getUrlManager()
+#4 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#5 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#6 {main}
+REQUEST_URI=/donor/index
+HTTP_REFERER=http://seastar.local/childcase/update/46?flag=medical
+---
+2014/12/12 17:10:04 [error] [exception.CException] exception 'CException' with message '属性 "CUrlManager.caseSenstive" 未被定义.' in /Users/sanmao/sscf/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/sanmao/sscf/framework/YiiBase.php(220): CComponent->__set('caseSenstive', false)
+#1 /Users/sanmao/sscf/framework/base/CModule.php(386): YiiBase::createComponent(Array)
+#2 /Users/sanmao/sscf/framework/base/CApplication.php(510): CModule->getComponent('urlManager')
+#3 /Users/sanmao/sscf/framework/web/CWebApplication.php(140): CApplication->getUrlManager()
+#4 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#5 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#6 {main}
+REQUEST_URI=/donor/index
+HTTP_REFERER=http://seastar.local/childcase/update/46?flag=medical
+---

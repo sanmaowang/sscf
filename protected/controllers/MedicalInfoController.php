@@ -61,7 +61,7 @@ class MedicalInfoController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate($id)
+	public function actionCreate($id,$type)
 	{
 		$model=new MedicalInfo;
 		
@@ -77,9 +77,8 @@ class MedicalInfoController extends Controller
 				$this->redirect(array('childcase/update','id'=>$id,'flag'=>'chris'));
 		}
   	$folder_type = array("under review","under review","under review","funded","passed");
-		$case = Childcase::model()->findByPk($model->case_id);
-		$folder = $folder_type[$case->status];
-		$files = CaseFile::model()->findAllByAttributes(array('case_id'=>$model->case_id,'key'=>'mbg_echocardiography'));
+		$folder = $folder_type[$model->case->status];
+		$files = CaseFile::model()->findAllByAttributes(array('case_id'=>$model->case_id,'key'=>$type));
 
 		$this->render('create',array(
 			'model'=>$model,

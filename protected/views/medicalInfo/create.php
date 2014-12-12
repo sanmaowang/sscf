@@ -14,6 +14,12 @@ $this->menu=array(
 );
 ?>
 <div class="page-header">
-<h2>创建 医生评价 报告</h2>
+	<h2>创建 医生评价 报告</h2>
 </div>
-<?php echo $this->renderPartial('_form', array('model'=>$model,'files'=>$files,'folder'=>$folder)); ?>
+<?php if(count($files) > 0){ foreach ($files as $key => $value) {?>
+	
+
+<?php }}else{?>
+<p class="alert">您还没有上传相关文件，立即去上传？</p>
+<a href="<?php echo $this->createUrl('childcase/update',array('id'=>$model->case_id,'flag'=>'mbg'))?>" class="btn">去上传</a>
+<?php }?>

@@ -6,6 +6,7 @@
  * The followings are the available columns in table 'tb_medical_info':
  * @property string $id
  * @property integer $case_id
+ * @property integer $file_id
  * @property string $title
  * @property string $content
  * @property string $create_datetime
@@ -41,13 +42,13 @@ class MedicalInfo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('case_id, title, content', 'required'),
+			array('case_id, file_id, title, content', 'required'),
 			array('case_id, is_replied, is_send', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>80),
 			array('content, create_datetime, update_datetime', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, case_id, title, content, create_datetime, update_datetime, is_replied, is_send', 'safe', 'on'=>'search'),
+			array('id, case_id, file_id, title, content, create_datetime, update_datetime, is_replied, is_send', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,6 +60,7 @@ class MedicalInfo extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'case'=>array(self::BELONGS_TO, 'Childcase', 'case_id'),
 		);
 	}
 
