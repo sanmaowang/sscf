@@ -30,13 +30,7 @@ class FileArray {
         "mbg_Incurred_medical_expenses" =>"已经产生的医疗费用收费单据（已经有过手术或者肺炎治疗的孩子）", 
     );
 
-    public function getRequiredFiles(){
-      return self::$submitRequiredFiles;
-    }
-
-    public function getLabel($key)
-    {
-     $labels = array(
+    static $labels = array(
         "family_idcard"=>"父母或监护人身份证", 
         "family_registry"=>"患儿户口本", 
         "family_parents_registry"=>"父母或监护人户口本", 
@@ -54,19 +48,31 @@ class FileArray {
         "mbg_3D_Echocardiography"   =>"三维心超图、心电图", 
         "mbg_Lung_infection"    =>"肺炎住院纪录、肺炎用药治疗纪录（有过肺炎并住院治疗的患儿）", 
         "mbg_Incurred_medical_expenses" =>"已经产生的医疗费用收费单据（已经有过手术或者肺炎治疗的孩子）", 
-        "mbg_other"=>"其他资料", 
+        "mbg_other"=>"其他医疗资料", 
         "case_Hospital_Receipt"=>"医院收据", 
         "case_Expenses_Breakdown"=>"费用清单", 
         "case_Discharge_Summary"=>"出院小结", 
         "case_Funding_Source"=>"手术资金来源和费用明细(EXCEL)", 
-        "case_other"=>'其他文件', 
+        "case_other"=>'其他费用文件', 
         "appfile_Indemnity_Agreement"=>"免责协议",
-        "appfile_other"=>"其他文件",
+        "appfile_other"=>"其他申请文件",
         "medical_assessment"=>"医疗评估", 
         "dc_memo"=>"dc_memo", 
         "attach_file"=>"其他附件",
     );
-    return $labels[$key];
+
+    public function getRequiredFiles(){
+      return self::$submitRequiredFiles;
+    }
+
+  public function getLabel($key)
+  {
+    return self::$labels[$key];
+  }
+
+  public function getLabels()
+  {
+    return self::$labels;
   }
 
   public function getPageTitle($key){

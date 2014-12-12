@@ -105,7 +105,6 @@ class CaseFileController extends Controller
 				
       	$upyun_path = DIRECTORY_SEPARATOR.'case'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR;
       	$result = Yii::app()->upyun->saveImg($file->tempName,$upyun_path.$file_path);
-
       }
 
 			if(count($result) > 0 && $model->save()){

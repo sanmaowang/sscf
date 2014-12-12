@@ -62,9 +62,10 @@ class ChildcaseController extends Controller
 		$model = $this->loadModel($id);
 		// calcuate the rate
 		$errors = array();
+		$arr = ['nickname','address','family_note','other_note'];
 		foreach ($model->attributes as $key => $value) {
-			if(!$value && $key!="nickname" && $key!="address"){
-				$errors[] = "缺失 - [".$model->getAttributeLabel($key)."]";
+			if($value != 0 && !$value && !in_array($key, $arr)){
+				$errors[] = "缺失 - [".$model->getAttributeLabel($key)."] - ".$key;
 			}
 		}
 		$files = CaseFile::model()->findAllByAttributes(array('case_id'=>$model->id));

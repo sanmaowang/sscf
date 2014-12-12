@@ -92,9 +92,26 @@
   </div>
   <div class="modal-body">
     <p>
-    	<?php foreach ($tags as $key => $value) {
+      <h4>家庭背景</h4>
+    	<?php foreach (FileArray::getDropDown('fbg') as $key => $value) {
     	  echo "<a class='label taglabel' href='#' data-tag=".$key.">".$value."</a>&nbsp;&nbsp;";
     	}?>
+      <h4>病史</h4>
+      <?php foreach (FileArray::getDropDown('mbg') as $key => $value) {
+        echo "<a class='label taglabel' href='#' data-tag=".$key.">".$value."</a>&nbsp;&nbsp;";
+      }?>
+      <h4>照片</h4>
+      <?php foreach (FileArray::getDropDown('pic') as $key => $value) {
+        echo "<a class='label taglabel' href='#' data-tag=".$key.">".$value."</a>&nbsp;&nbsp;";
+      }?>
+      <h4>结案及术后</h4>
+      <?php foreach (FileArray::getDropDown('casesummary') as $key => $value) {
+        echo "<a class='label taglabel' href='#' data-tag=".$key.">".$value."</a>&nbsp;&nbsp;";
+      }?>
+      <h4>申请表</h4>
+      <?php foreach (FileArray::getDropDown('appfiles') as $key => $value) {
+        echo "<a class='label taglabel' href='#' data-tag=".$key.">".$value."</a>&nbsp;&nbsp;";
+      }?>
     </p>
   </div>
 </div>

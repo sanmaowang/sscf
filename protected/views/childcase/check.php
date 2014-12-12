@@ -71,7 +71,7 @@ $img_exts = array("jpg","png","bmp","jpeg","gif");
   				bar.css("width",f+"%");
   			}
   			bar.text(f+"%");
-  		},200);
+  		},50);
   	}
 
   })
