@@ -108,12 +108,12 @@ class ChildcaseController extends Controller
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
-		$orgs = Org::model()->with('contact')->findAll();
+		$orgs = Org::model()->findAll();
 
 		$this->render('create_case',array(
 			'model'=>$model,
 			'users'=>User::model()->findAll(),
-			'orgs'=>Org::model()->findAll( 'type < 3')
+			'orgs'=>$orgs
 		));
 	}
 
@@ -141,6 +141,10 @@ class ChildcaseController extends Controller
 
 		if(isset($_POST['Childcase']))
 		{
+			if($model->avatar){
+				$avatar = $model->avatar;
+			}
+			
 			$model->attributes=$_POST['Childcase'];
 
 			$file=CUploadedFile::getInstance($model,'avatar');
@@ -150,6 +154,8 @@ class ChildcaseController extends Controller
         $fileName = 'avatar_'.time().'.'.$file->extensionName;
         $model->avatar = $fileName;
         $file->saveAs(Yii::app()->basePath.'/../uploads/avatar/'.$model->avatar);
+      }else{
+      	$model->avatar = $avatar;
       }
 
 			if($flag == 'family'){
@@ -158,7 +164,7 @@ class ChildcaseController extends Controller
 			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
-		}
+			}
 
 
 		$this->render('update',array(

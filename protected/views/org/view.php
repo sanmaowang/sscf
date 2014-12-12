@@ -2,79 +2,31 @@
 
 $this->breadcrumbs=array(
 	'合作机构'=>array('index'),
+	$model->name,
 );
-if($menu){
-	$this->breadcrumbs +=array_reverse($menu);
-}
-array_push($this->breadcrumbs,$model->name);
+// if($menu){
+// 	$this->breadcrumbs +=array_reverse($menu);
+// }
+// array_push($this->breadcrumbs,$model->name);
 ?>
 <div class="row-fluid">
-	<div class="span4">
-		<h2>#<?php echo $model->name; ?></h2>
-	</div>
-	<div class="span8 text-right" style="padding-top:15px;">
-	</div>
-</div>
-<div class="row-fluid">
-	<div class="span4">
 		<div class="row-fluid">
 			<div class="span6">
-				<h3>客户信息</h3>
+				<h3><?php echo $model->name;?></h3>
 			</div>
 			<div class="span6 text-right" style="padding-top:18px;">
 				<a href="<?php echo $this->createUrl('update',array('id'=>$model->id))?>" class="btn btn-info btn-small"><i class="icon-edit icon-white"></i>  编辑客户</a>
 			</div>
 		</div>
-	<?php $this->widget('bootstrap.widgets.TbDetailView',array(
-	'data'=>$model,
-	'attributes'=>array(
-		'name',
-		'english_name',
-		'official_name',
-		'address',
-		'website',
-		'contact',
-	),
-)); ?>
-	</div>
-	<div class="span8">
 		<div class="row-fluid">
-			<div class="span6">
-				<h3>下属机构</h3>
-			</div>
-			<div class="span6 text-right" style="padding-top:15px;">
-				<a href="<?php echo $this->createUrl('create',array('pid'=>$model->id))?>" class="btn btn-primary btn-small"><i class="icon-plus icon-white"></i>  新建部门</a>
-			</div>
+			<span><?php echo $model->english_name;?>  <?php echo $model->official_name;?>  <?php if($model->website){?><a href="<?php echo $model->website;?>" target="_blank" class="label label-info">官网</a><?php }?></span>
 		</div>
-		<table class="table">
-			<thead>
-				<tr>
-					<td>#</td>
-					<td>机构名称</td>
-					<td>类型</td>
-					<td>操作</td>
-				</tr>
-			</thead>
-			<tbody>
-			<?php foreach($model->sub as $index=>$c):?>
-				<tr>
-					<td><?php echo $index+1;?></td>
-					<td><a href="<?php echo $this->createUrl('view',array('id'=>$c->id))?>"><?php echo $c->name;?></a></td>
-					<td><?php echo $c->types[$c->type];?></td>
-					<td>
-						<a href="<?php echo $this->createUrl('update',array('id'=>$c->id));?>" class="btn btn-info btn-mini">编辑</a>
-					</td>
-				</tr>
-			<?php endforeach;?>
-			</tbody>
-		</table>
-
 	<div class="row-fluid">
 			<div class="span6">
-				<h3>联系人</h3>
+				<h3>工作人员</h3>
 			</div>
 			<div class="span6 text-right" style="padding-top:15px;">
-				<a href="<?php echo $this->createUrl('orgContact/create',array('oid'=>$model->id))?>" class="btn btn-primary btn-small"><i class="icon-plus icon-white"></i>  新建职员</a>
+				<a href="<?php echo $this->createUrl('orgContact/create',array('oid'=>$model->id))?>" class="btn btn-primary btn-small"><i class="icon-plus icon-white"></i>  新建工作人员</a>
 			</div>
 		</div>
 		<table class="table">
@@ -82,8 +34,9 @@ array_push($this->breadcrumbs,$model->name);
 				<tr>
 					<td>#</td>
 					<td>姓名</td>
+					<td>部门</td>
+					<td>职务</td>
 					<td>电话</td>
-					<td>Email</td>
 					<td>操作</td>
 				</tr>
 			</thead>
@@ -94,8 +47,9 @@ array_push($this->breadcrumbs,$model->name);
 				<tr>
 					<td><?php echo $index+1;?></td>
 					<td><a href="<?php echo $this->createUrl('orgContact/view',array('id'=>$c->id))?>"><?php echo $c->name;?></a></td>
+					<td><?php echo $c->department;?></td>
+					<td><?php echo $c->job;?></td>
 					<td><?php echo $c->mobile;?></td>
-					<td><a href="mailto:<?php echo $c->email;?>"><?php echo $c->email;?></a></td>
 					<td>
 						<a href="<?php echo $this->createUrl('orgContact/update',array('id'=>$c->id));?>" class="btn btn-info btn-mini">编辑</a>
 					</td>
@@ -106,4 +60,3 @@ array_push($this->breadcrumbs,$model->name);
 		</table>
 	</div>
 
-</div>

@@ -1,15 +1,7 @@
 <?php 
 $u = array();
-$o = array();
-$applicant = "";
 foreach($users as $user){
 	$u[$user->id] = $user->name;
-}
-foreach ($orgs as $org) {
-	$o[$org->id] = $org->name;
-	if(count($org->contact) > 0){
-		$applicant .= "<option value=".$org->contact->id.">".$org->contact->name."</option>";
-	}
 }
 ?>
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
@@ -23,12 +15,25 @@ foreach ($orgs as $org) {
 	<?php echo $form->errorSummary($model); ?>
 
 	<?php echo $form->textFieldRow($model,'name',array('class'=>'span3','maxlength'=>25)); ?>
-	<?php echo $form->dropDownListRow($model,'source',$o); ?>
-	<?php echo $form->textFieldRow($model,'other_foundation_staff',array('class'=>'span3','maxlength'=>11)); ?>
+	<div class="control-group ">
+		<label class="control-label required" for="Childcase_source">案例来源 <span class="required">*</span></label>
+		<div class="controls">
+			<select name="Childcase[source]" id="Childcase_source">
+			</select>
+		</div>
+	</div>
+	<div class="control-group ">
+		<label class="control-label required" for="Childcase_other_foundation_staff">牵头基金会联系人 <span class="required">*</span></label>
+		<div class="controls">
+			<select name="Childcase[other_foundation_staff]" id="Childcase_other_foundation_staff">
+			</select>
+		</div>
+	</div>
 	
 	<?php echo $form->dropDownListRow($model,'staff',$u); ?>
 	<?php echo $form->textFieldRow($model,'applicant',array('class'=>'span3','maxlength'=>11)); ?>
 	<?php echo $form->textFieldRow($model,'applicant_relationship',array('class'=>'span3','maxlength'=>11)); ?>
+	
 	<?php echo $form->dropDownListRow($model,'status',$status = array(0 => "新建",1 => "等待资助",2 => "确认资助",3 => "已资助",4 => "不资助")); ?>
 
 
@@ -41,3 +46,46 @@ foreach ($orgs as $org) {
 	</div>
 
 <?php $this->endWidget(); ?>
+
+<script>
+	$(function(){
+		var source_data;
+		$.get("<?php echo $this->createUrl('org/getcontacts');?>",function(data){
+			source_data = data;
+			var segment = '';
+			for(var key in source_data){
+				var selected = '';
+				if(key == "<?php echo $model->source?>"){
+					selected = "selected = 'selected'";
+				}
+				segment += '<option value = "'+ key+'" '+selected+' >'+ data[key].name+ '</option>';
+			}
+			$("#Childcase_source").html(segment);
+
+			$("#Childcase_source").on("change",function(){
+				var oid = $(this).val();
+				if(source_data[oid].contacts){
+					var _contacts = source_data[oid].contacts;
+					var _segment = "";
+					for(var key in _contacts){
+						var contact = _contacts[key];
+						var selected = '';
+						if(contact.id == "<?php echo $model->other_foundation_staff?>"){
+							selected = "selected = 'selected'";
+						}
+						_segment += '<option value = "'+ contact.id+'" '+selected+' >'+ contact.name+ '</option>';
+					}
+					$("#Childcase_other_foundation_staff").html(_segment);
+				}else{
+					alert("该机构下无联系人记录，请先在机构中添加");
+					$("#Childcase_other_foundation_staff").html('');
+				}
+			});
+
+			$("#Childcase_source").trigger("change");
+
+		});
+		
+	})
+
+</script>

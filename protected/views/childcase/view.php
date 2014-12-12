@@ -23,7 +23,7 @@ $folder_type = array("under review","under review","under review","funded","pass
 <div class="page-header row-fluid" style="border:none;margin-bottom:10px;">
 	<div class="span6">
 <h2><?php echo $model->name; ?> </h2>
-<p class="muted"><span>海星尽职调查专员: <?php if($model->charge) echo CHtml::encode($model->charge->name); ?></span> <span style="margin-left:30px;">其他基金会牵头人: <?php if($model->other_foundation_staff){ echo CHtml::encode($model->other_foundation_staff);} else{ echo "暂无登记";}; ?></span></p>
+<p class="muted"><span>海星尽职调查专员: <?php if($model->charge) echo CHtml::encode($model->charge->name); ?></span> <span style="margin-left:30px;">其他基金会牵头人: <?php if($model->otherfoundationstaff){ echo '<a href="'.$this->createUrl('orgContact/view',array('id'=>$model->otherfoundationstaff->id)).'">'.$model->otherfoundationstaff->name.'</a>';} else{ echo "暂无登记";}; ?></span></p>
 </div>
   <div class="span6 text-right" style="padding-top:20px;">
   	<a href="<?php echo $this->createUrl('update',array('id'=>$model->id,'flag'=>'child'))?>" class="btn btn-info"><i class="icon-edit icon-white"></i> 编辑案例</a>
@@ -38,7 +38,7 @@ $folder_type = array("under review","under review","under review","funded","pass
   <li><a href="#pic">照片</a></li>
   <li><a href="#mbg">病史</a></li>
   <li><a href="#casesummary">结案及术后</a></li>
-  <li><a href="#appfiles">申请文件</a></li>
+  <li><a href="#appfiles">申请表</a></li>
 </ul>
 <div class="tab-content">
   <div class="tab-pane active" id="basic_info">
@@ -48,7 +48,7 @@ $folder_type = array("under review","under review","under review","funded","pass
 			    <?php echo CHtml::image(Yii::app()->request->baseUrl.'/uploads/avatar/'.$model->avatar,"avatar",array("width"=>120)); ?>
 		  	</div>
 		  	<div class="span10">
-		  		<table class="table table-bordered">
+		  		<table class="table table-bordered personal-tb">
 		<tr>
 	<th>
 		患儿姓名
@@ -69,10 +69,10 @@ $folder_type = array("under review","under review","under review","funded","pass
 		<?php if($model->gender == 0){echo "男";}elseif($model->gender == 1){ echo "女";};?>
 	</td>
 	<th>
-		出生地
+		民族
 	</th>
 	<td colspan="2">
-		<?php echo CHtml::encode($model->home); ?>
+		<?php echo CHtml::encode($model->nation); ?>
 	</td>
 </tr>
 <tr>
@@ -88,10 +88,10 @@ $folder_type = array("under review","under review","under review","funded","pass
 	<td>
 		<?php echo CHtml::encode($model->weight); ?>
 	</td>
-	<th colspan="2">
+	<th>
 		身份证号
 	</th>
-	<td colspan="3">
+	<td colspan="4">
 		<?php echo CHtml::encode($model->id_card); ?>
 	</td>
 </tr>
@@ -103,10 +103,10 @@ $folder_type = array("under review","under review","under review","funded","pass
 		<?php echo CHtml::encode($model->home); ?>
 	</td>
 	<th>
-		民族
+		出生地
 	</th>
 	<td>
-		<?php echo CHtml::encode($model->nation); ?>
+		<?php echo CHtml::encode($model->home); ?>
 	</td>
 	<th colspan="2">
 		户口性质
@@ -119,13 +119,13 @@ $folder_type = array("under review","under review","under review","funded","pass
 	<th>
 		家庭联系人
 	</th>
-	<td colspan="2">
+	<td>
 		<?php echo CHtml::encode($model->contact); ?>
 	</td>
 	<th>
 		联系电话
 	</th>
-	<td colspan="5">
+	<td colspan="6">
 		<?php echo CHtml::encode($model->telephone); ?>
 	</td>
 </tr>
@@ -198,42 +198,56 @@ $folder_type = array("under review","under review","under review","funded","pass
 			</tbody>
 		</table>
 		<?php endif;?>
+<h4>家庭经济情况说明</h4>
+<table class="table table-bordered table-striped">
+		<tbody>
+		<tr>
+		<th width="300" >主要经济情况来源</th>
+		<td colspan="6"><?php echo CHtml::encode($model->economical_source_desc); ?></td>
+		</tr>
+		<tr>
+		<th>特殊情况说明</th>
+		<td colspan="6"><?php echo $model->special_desc; ?></td>
+		</tr>
+</table>
 		<h4>病情描述</h4>
 		<table class="table table-bordered table-striped">
 		<tbody>
 		<tr>
-		<td width="300" >患儿病情描述</td>
-		<td colspan="6"><?php echo CHtml::encode($model->state_desc); ?></td>
+		<th width="300" >患儿病情描述</th>
+		<td colspan="6"><?php echo $model->state_desc; ?></td>
 		</tr>
 		<tr>
-		<td>是否有医疗保险及跨地区治疗报销比例</td>
-		<td colspan="6"><?php echo CHtml::encode($model->medical_insurance_rate); ?></td>
+		<th>是否有医疗保险及跨地区治疗报销比例</th>
+		<td colspan="6"><?php echo CHtml::encode($model->medical_insurance_rate);if($model->medical_insurance_rate !="无" && $model->medical_insurance_rate !=null){echo "%";}; ?></td>
 		</tr>
 		<tr>
-		<td>当地民政或其他形式的大病救助补贴</td>
+		<th>当地民政或其他形式的大病救助补贴</th>
 		<td colspan="6"><?php echo CHtml::encode($model->other_subsidy); ?></td>
 		</tr>
 		<tr>
-		<td>是否有家族遗传病、其他重大疾病（如有请详细说明）</td>
+		<th>是否有家族遗传病、其他重大疾病（如有请详细说明）</th>
 		<td colspan="6"><?php echo CHtml::encode($model->have_other_illness); ?></td>
 		</tr>
 		<tr>
-		<td>是否在半年内患有肺炎（如有请详细说明肺炎治疗时间和治疗经过）</td>
+		<th>是否在半年内患有肺炎（如有请详细说明肺炎治疗时间和治疗经过）</th>
 		<td colspan="6"><?php echo CHtml::encode($model->have_pneumonia); ?></td>
 		</tr>
 		<tr>
-		<td>手术医院</td>
+		<th>手术医院</th>
 		<td><?php echo CHtml::encode($model->operation_hospital); ?></td>
-		<td>主治大夫</td>
+		<th>主治大夫</th>
 		<td colspan="2"><?php echo CHtml::encode($model->doctor); ?></td>
-		<td>是否一次性根治</td>
+		<th>是否一次性根治</th>
 		<td><?php echo CHtml::encode($model->is_one_time_cure); ?></td>
 		</tr>
 		<tr>
-		<td>入院时间</td>
-		<td><?php echo CHtml::encode($model->admission_time); ?></td>
-		<td colspan="2">计划手术时间</td>
-		<td colspan="3"><?php echo CHtml::encode($model->operation_plan_time); ?></td>
+			<th>第几次手术</th>
+		<td><?php echo CHtml::encode($model->surgery_time); ?></td>
+		<th>入院时间</th>
+		<td><?php echo substr($model->admission_time,0,10); ?></td>
+		<th>计划手术时间</th>
+		<td colspan="2"><?php echo substr($model->operation_plan_time,0,10); ?></td>
 		</tr>
 		</tbody>
 		</table>
@@ -257,7 +271,7 @@ $total_cost;
 $total_hospital_cost;
 $total_budget;
 $total_hospital_budget;
-
+$last_date = null;
 
 foreach ($fees as $fee) {
 	if($fee->fee_type == 0){
@@ -267,9 +281,11 @@ foreach ($fees as $fee) {
 		}else if($fee->type == 'our_budget'){
 			$budget['our'][] = $fee;
 			$total_budget += $fee->amount;
+		  $last_date = $fee->last_date?$fee->last_date:$last_date;
 		}else if($fee->type == 'org_budget'){
 			$budget['org'][] = $fee;
 			$total_budget += $fee->amount;
+		  $last_date = $fee->last_date?$fee->last_date:$last_date;
 		}
 	}else if($fee->fee_type == 1){
 		if($fee->type == 'hospital_cost'){
@@ -278,7 +294,7 @@ foreach ($fees as $fee) {
 		}else if($fee->type == 'our_cost'){
 			$cost['our'][] = $fee;
 			$total_cost += $fee->amount;
-		}else if($fee->type == 'org_budget'){
+		}else if($fee->type == 'org_cost'){
 			$cost['org'][] = $fee;
 			$total_cost += $fee->amount;
 		}
@@ -292,7 +308,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 
 ?>
 <legend>预算表</legend>
-<table class="table table-bordered">
+<table class="table table-bordered personal-tb">
 	<thead>
 	<tr>
 		<th>医院</th>
@@ -304,11 +320,11 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 	<tbody>
 		<?php if(isset($budget['hospital']) && count($budget['hospital']) > 0 ){?>
 		<?php foreach ($budget['hospital'] as $b) {?>
-		<tr class="warning">
+		<tr>
 			<td>
 				<?php echo $o[$b->source];?>
 			</td>
-			<td>
+			<td class="text-error">
 				<?php echo $b->amount;?> 元
 			</td>
 			<td>
@@ -325,17 +341,17 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 		<th>机构</th>
 		<th>数额</th>
 		<th>备注</th>
-		<th>截至日期</th>
+		<th>截至 <?php echo substr($last_date,0,10);?></th>
 	</tr>
 	</thead>
 	<tbody>
 		<?php if(isset($budget['org']) && count($budget['org']) > 0 ){?>
-		<?php foreach ($budget['org'] as $b) {?>
+		<?php foreach ($budget['org'] as $b) { ?>
 		<tr>
 			<td>
 				<?php echo $o[$b->source];?> 
 			</td>
-			<td>
+			<td class="text-info">
 				<?php echo $b->amount;?> 元
 			</td>
 			<td>
@@ -352,19 +368,18 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			<td>
 				<?php if($b->source == 0){echo "海星意向";}else{ echo $o[$b->source];}?>
 			</td>
-			<td>
+			<td class="text-info">
 				<?php echo $b->amount;?> 元
 			</td>
 			<td>
 				<?php echo $b->note;?>
 			</td>
 			<td>
-				<?php echo substr($b->last_date,0,10);?>
 			</td>
 		</tr>
 		<?php }}?>
-		<tr class="info">
-			<td colspan="4">
+		<tr class="error">
+			<td colspan="4" class="text-error">
 				最终缺口：<?php echo $rest_budget;?> 元
 			</td>
 		</tr>
@@ -372,7 +387,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 </table>
 <hr>
 <legend>结案表</legend>
-<table class="table table-bordered">
+<table class="table table-bordered personal-tb">
 	<thead>
 	<tr>
 		<th>医院</th>
@@ -384,11 +399,11 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 	<tbody>
 		<?php if(isset($cost['hospital']) && count($cost['hospital']) > 0 ){?>
 		<?php foreach ($cost['hospital'] as $b) {?>
-		<tr class="error">
+		<tr>
 			<td>
 				<?php echo $o[$b->source];?>
 			</td>
-			<td>
+			<td class="text-error">
 				<?php echo $b->amount;?> 元
 			</td>
 			<td>
@@ -415,7 +430,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			<td>
 				<?php echo $o[$b->source];?>
 			</td>
-			<td>
+			<td class="text-success">
 				<?php echo $b->amount;?> 元
 			</td>
 			<td>
@@ -431,7 +446,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			<td>
 				<?php if($b->source == 0){echo "海星资助";}else{ echo $o[$b->source];}?>
 			</td>
-			<td>
+			<td class="text-success">
 				<?php echo $b->amount;?> 元
 			</td>
 			<td>
@@ -441,9 +456,9 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			</td>
 		</tr>
 		<?php }}?>
-		<tr class="info">
-			<td colspan="4">
-				任何总额：<?php echo $rest_cost;?> 元
+		<tr class="success">
+			<td colspan="4" class="text-success">
+				结款总额：<?php echo $rest_cost;?> 元
 			</td>
 		</tr>
 	</tbody>

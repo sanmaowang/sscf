@@ -12,7 +12,8 @@
  * @property string $email
  * @property string $wechat
  * @property string $job
- * @property string $first_time
+ * @property string $staff
+ * @property string $department
  * @property string $create_time
  * @property string $update_time
  */
@@ -23,6 +24,26 @@ class OrgContact extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return OrgContact the static model class
 	 */
+
+	public $departments = array(
+		'心脏外科',
+		'心脏内科',
+		'住院部',
+		'社工部',
+		'财务部',
+		'办公室',
+		'其它'
+	);
+
+	public $other_departments = array(
+		'理事会',
+		'管委会',
+		'助医部',
+		'筹款',
+		'志愿者'
+	);
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -46,7 +67,7 @@ class OrgContact extends CActiveRecord
 		return array(
 			array('org_id, gender', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>60),
-			array('name, org_id', 'required'),
+			array('name, org_id, department', 'required'),
 			array('mobile', 'length', 'max'=>20),
 			array('email', 'length', 'max'=>64),
 			array('job', 'length', 'max'=>64),
@@ -84,7 +105,8 @@ class OrgContact extends CActiveRecord
 			'email' => 'Email',
 			'wechat' => '微信号',
 			'job' => '职务',
-			'first_time' => '初次建立联系时间',
+			'department' => '部门',
+			'note' => '与海星主要联络记录',
 			'create_time' => 'Create Time',
 			'update_time' => 'Update Time',
 		);
@@ -109,7 +131,8 @@ class OrgContact extends CActiveRecord
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('wechat',$this->wechat,true);
 		$criteria->compare('job',$this->job,true);
-		$criteria->compare('first_time',$this->first_time,true);
+		$criteria->compare('note',$this->note,true);
+		$criteria->compare('department',$this->note,true);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_time',$this->update_time,true);
 

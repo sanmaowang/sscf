@@ -33,8 +33,9 @@ class Org extends CActiveRecord
 		"全国公募基金会",
 		"地方公募基金会",
 		"全国非公募基金会",
-		"地方非公募",
-		"医院银行"
+		"地方非公募基金会",
+		"医院银行",
+		"志愿者机构",
 	);
 	
 	public static function model($className=__CLASS__)
@@ -77,9 +78,9 @@ class Org extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'parent'=>array(self::BELONGS_TO, 'Org', 'parent_id'),
-      'sub' => array(self::HAS_MANY, 'Org', 'parent_id'),
-      'contact' => array(self::HAS_MANY, 'OrgContact', 'org_id'),
+			// 'parent'=>array(self::BELONGS_TO, 'Org', 'parent_id'),
+      // 'sub' => array(self::HAS_MANY, 'Org', 'parent_id'),
+      'sub_contacts' => array(self::HAS_MANY, 'OrgContact', 'org_id'),
 		);
 	}
 

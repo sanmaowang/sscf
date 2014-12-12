@@ -147,10 +147,10 @@ class CaseBudget extends CActiveRecord
 	{
     	if(parent::beforeSave()){
         	if($this->isNewRecord){
-    				$this->create_time=$this->update_time=date('Y-m-d H:i:s');
+    				$this->create_datetime=$this->update_datetime=date('Y-m-d H:i:s');
         	}	
         	else{
-        		$this->update_time=date('Y-m-d H:i:s');
+        		$this->update_datetime=date('Y-m-d H:i:s');
         	}
         	return true;
     	}else

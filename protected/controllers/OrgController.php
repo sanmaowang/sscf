@@ -32,7 +32,7 @@ class OrgController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete'),
+				'actions'=>array('create','update','admin','delete','getcontacts'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -173,6 +173,81 @@ class OrgController extends Controller
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
+	}
+
+
+	public function actionGetContacts()
+	{
+		$arr = array();
+		$orgs = Org::model()->with('sub_contacts')->findAll();
+		$condition = true;
+		if(isset($_GET['type']) && $_GET['type'] == 'hospital'){
+			foreach ($orgs as $key => $org) {
+				if($org->type < 2){
+					$org_arr['id'] = $org->id;
+					$org_arr['name'] = $org->name;
+					$org_arr['type'] = $org->type;
+					if(count($org->sub_contacts) > 0){
+						foreach ($org->sub_contacts as  $contact) {
+							$c_arr['id'] = $contact->id;
+							$c_arr['org_id'] = $contact->org_id;
+							$c_arr['name'] = $contact->name;
+							$c_arr['department'] = $contact->department;
+							$c_arr['mobile'] = $contact->mobile;
+							$org_arr['contacts'][] = $c_arr; 
+						}
+					}else{
+							$org_arr['contacts'] = null; 
+					}
+					$arr[$org->id] = $org_arr;
+				}
+			}
+		}else if($_GET['type'] == 'jg'){
+			foreach ($orgs as $key => $org) {
+				if($org->type > 1){
+					$org_arr['id'] = $org->id;
+					$org_arr['name'] = $org->name;
+					$org_arr['type'] = $org->type;
+					if(count($org->sub_contacts) > 0){
+						foreach ($org->sub_contacts as  $contact) {
+							$c_arr['id'] = $contact->id;
+							$c_arr['org_id'] = $contact->org_id;
+							$c_arr['name'] = $contact->name;
+							$c_arr['department'] = $contact->department;
+							$c_arr['mobile'] = $contact->mobile;
+							$org_arr['contacts'][] = $c_arr; 
+						}
+					}else{
+							$org_arr['contacts'] = null; 
+					}
+					$arr[$org->id] = $org_arr;
+				}
+			}
+		}else{
+			foreach ($orgs as $key => $org) {
+				$org_arr['id'] = $org->id;
+				$org_arr['name'] = $org->name;
+				$org_arr['type'] = $org->type;
+				if(count($org->sub_contacts) > 0){
+					foreach ($org->sub_contacts as  $contact) {
+						$c_arr['id'] = $contact->id;
+						$c_arr['org_id'] = $contact->org_id;
+						$c_arr['name'] = $contact->name;
+						$c_arr['department'] = $contact->department;
+						$c_arr['mobile'] = $contact->mobile;
+						$org_arr['contacts'][] = $c_arr; 
+					}
+				}else{
+						$org_arr['contacts'] = null; 
+				}
+				$arr[$org->id] = $org_arr;
+			}
+		}
+
+		$this->layout = false; 
+    header('Content-type: application/json'); 
+    echo json_encode($arr); 
+    Yii::app()->end(); 
 	}
 
 	/**

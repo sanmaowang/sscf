@@ -43,12 +43,17 @@
 	</tbody>
 </table>
 <?php endif;?>
+<p class="alert">
+	1.	其他家庭成员，主要指和患儿家庭共同居住的成员，以及需要患儿家庭承担相应经济责任的成员；<br>
+2. 如果家庭成员有身体疾病，需要在备注写清楚病情、患病时间、之前的治疗情况、目前的病情和治疗情况、目前的治疗费用、费用由谁承担等。
+
+</p>
 	<legend>添加其他家属（非直系亲属）</legend>
 
 	<p class="help-block">带<span class="required">*</span> 是必填项目.</p>
 
 	<?php echo $form->errorSummary($fmodel); ?>
-	<input type="hidden" name="CaseFamily[case_id]" value=<?php echo $model->id;?>/>
+	<input type="hidden" name="CaseFamily[case_id]" value="<?php echo $model->id;?>"/>
 	<input type="hidden" name="CaseFamily[return]" value="other"/>
 	<?php echo $form->textFieldRow($fmodel,'name',array('class'=>'span5','maxlength'=>20)); ?>
 
@@ -61,6 +66,8 @@
 
 	<?php echo $form->textFieldRow($fmodel,'career',array('class'=>'span5','maxlength'=>80)); ?>
 
+	<?php echo $form->textFieldRow($fmodel,'health_state',array('class'=>'span5','maxlength'=>25)); ?>
+	
 	<?php echo $form->textFieldRow($fmodel,'annual_income',array('class'=>'span5','maxlength'=>25)); ?>
 
 

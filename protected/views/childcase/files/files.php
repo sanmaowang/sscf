@@ -71,7 +71,7 @@
 	<?php echo $form->hiddenField($amodel,'case_id',array('class'=>'span5','value'=>$model->id)); ?>
 	<?php echo $form->fileFieldRow($amodel,'path'); ?>
 	<?php echo $form->radioButtonListRow($amodel, 'key', $tags); ?>
-	<?php echo $form->textFieldRow($amodel,'title',array('class'=>'span5','maxlength'=>60,'id'=>'input_title')); ?>
+	<?php echo $form->textFieldRow($amodel,'title',array('class'=>'span5','maxlength'=>60,'id'=>'input_title','hint'=>'请附上报告日期')); ?>
 	<?php echo $form->textAreaRow($amodel,'desc',array('rows'=>6, 'cols'=>50, 'class'=>'span8','placeholder'=>'选填')); ?>
 
 	<div class="form-actions">

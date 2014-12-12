@@ -82,9 +82,9 @@ class OrgContactController extends Controller
 		$model=new OrgContact;
 
 		$org = Org::model()->findByPk($oid);
-		$breadcrumbs = array();
-		$breadcrumbs[$org->name] = array('org/view','id'=>$org->id);
-		$menu = $this->showBread($org, $breadcrumbs);
+		// $breadcrumbs = array();
+		// $breadcrumbs[$org->name] = array('org/view','id'=>$org->id);
+		// $menu = $this->showBread($org, $breadcrumbs);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -92,13 +92,14 @@ class OrgContactController extends Controller
 		if(isset($_POST['OrgContact']))
 		{
 			$model->attributes=$_POST['OrgContact'];
+			$model->org_id = $oid;
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('org/view','id'=>$org->id));
 		}
 		$this->render('create',array(
 			'model'=>$model,
 			'oid'=>$oid,
-			'menu'=>$menu,
+			// 'menu'=>$menu,
 			'org'=>$org
 		));
 	}
@@ -113,9 +114,9 @@ class OrgContactController extends Controller
 		$model=$this->loadModel($id);
 
 		$org = $model->org;
-		$breadcrumbs = array();
-		$breadcrumbs[$org->name] = array('org/view','id'=>$org->id);
-		$menu = $this->showBread($org, $breadcrumbs);
+		// $breadcrumbs = array();
+		// $breadcrumbs[$org->name] = array('org/view','id'=>$org->id);
+		// $menu = $this->showBread($org, $breadcrumbs);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -124,12 +125,13 @@ class OrgContactController extends Controller
 		{
 			$model->attributes=$_POST['OrgContact'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('org/view','id'=>$org->id));
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
-			'menu'=>$menu
+			'org'=>$org
+			// 'menu'=>$menu
 		));
 	}
 

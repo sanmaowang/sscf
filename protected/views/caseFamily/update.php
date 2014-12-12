@@ -1,8 +1,13 @@
 <?php
+if($model->is_immediate){
+	$flag = 'family';
+}else{
+	$flag = 'other';
+}
 $this->breadcrumbs=array(
-	'Case Families'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
+	'案例'=>array('childcase/index'),
+	$model->case->name=>array('childcase/update','id'=>$model->case_id,'flag'=>$flag),
+	'更新家属',
 );
 
 $this->menu=array(

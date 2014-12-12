@@ -81,6 +81,7 @@ class CaseFileController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
+
 		if(isset($_POST['CaseFile']))
 		{
 
@@ -113,6 +114,8 @@ class CaseFileController extends Controller
 				}else{
 					$this->redirect(array('view','id'=>$model->id));
 				}
+			}else{
+				$this->redirect(array('/childcase/update','id'=>$model->case_id,'flag'=>$_POST['CaseFamily']['return']));
 			}
 
 		}

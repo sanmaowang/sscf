@@ -82,6 +82,8 @@ class CaseBudgetController extends Controller
 
 		if($_GET['type']){
 			$orgs = Org::model()->findAll( 'type < 2 && parent_id = 0');
+			// $case = Childcase::model()->findByPk($case_id);
+			// $orgs[] = $case->operation_hospital;
 		}else{
 			$orgs = Org::model()->findAll( 'type > 1 && parent_id = 0');
 		}

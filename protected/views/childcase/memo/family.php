@@ -44,7 +44,9 @@
 		<?php endif;?>
 	</tbody>
 </table>
-<p class="alert">家庭直系亲属包括父母和兄弟姐妹，请如实填写所有直系亲属情况，如身体有特殊情况，请在特殊情况说明中说明</p>
+<p class="alert">1.家庭直系亲属包括父母和兄弟姐妹，请如实填写所有直系亲属情况，如身体有特殊情况，请在特殊情况说明中说明.<br>
+2.如果患儿和其兄弟姐妹为学龄儿童，需要明确在哪个学校上几年级，上学的费用，请在特殊情况说明中注明。
+</p>
 	<legend>添加家属直系亲属</legend>
 	<p class="help-block">带<span class="required">*</span> 是必填项目.</p>
 
@@ -84,7 +86,7 @@
 	'type'=>'horizontal',
 	'enableAjaxValidation'=>false,
 )); ?>
-	<legend>其它说明</legend>
+	<legend>家庭经济情况说明</legend>
 	<?php echo $form->textAreaRow($model,'economical_source_desc',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
 
 	<?php echo $form->textAreaRow($model,'special_desc',array('rows'=>6, 'cols'=>50, 'class'=>'span8','placeholder'=>'如果患儿和其兄弟姐妹为学龄儿童，需要明确在哪个学校上几年级，上学的费用，请在特殊情况说明中注明。')); ?>

@@ -30,6 +30,7 @@
  * @property string $admission_time
  * @property string $operation_plan_time
  * @property string $other_foundation_staff
+ * @property integer $surgery_time
  * @property string $staff
  * @property string $applicant
  * @property string $applicant_relationship
@@ -68,7 +69,7 @@ class Childcase extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name, avatar, birthday, gender, home, height, weight, id_card, nation, citivaltype, contact, telephone', 'required','on'=>'child'),
-			array('state_desc, medical_insurance_rate, other_subsidy, have_other_illness, have_pneumonia, operation_hospital, doctor, is_one_time_cure, admission_time, operation_plan_time', 'required','on'=>'medical'),
+			array('state_desc, medical_insurance_rate, other_subsidy, have_other_illness, have_pneumonia, operation_hospital, doctor, is_one_time_cure, admission_time, operation_plan_time,surgery_time', 'required','on'=>'medical'),
 			array('economical_source_desc, special_desc', 'required','on'=>'family'),
 			array('name, create_by', 'required'),
 			array('name, source, other_foundation_staff, staff, applicant, applicant_relationship', 'required','on'=>'case'),
@@ -105,6 +106,7 @@ class Childcase extends CActiveRecord
 			'medicalinfo'=>array(self::HAS_MANY,'MedicalInfo','case_id'),
 			'charge'=>array(self::BELONGS_TO,'User','staff'),
 			'sourcefrom'=>array(self::BELONGS_TO,'Org','source'),
+			'otherfoundationstaff'=>array(self::BELONGS_TO,'OrgContact','other_foundation_staff'),
 		);
 	}
 
@@ -117,6 +119,7 @@ class Childcase extends CActiveRecord
 			2 => "确认资助",
 			3 => "已资助",
 			4 => "不资助",
+			5 => "已结案",
 		);
 		return $status[$key];
 	}
@@ -130,6 +133,7 @@ class Childcase extends CActiveRecord
 			2 => "<span class='label label-warning'>确认资助</label>",
 			3 => "<span class='label label-success'>已资助</label>",
 			4 => "<span class='label label-important'>不资助</label>",
+			5 => "<span class='label label-inverse'>已结案</label>",
 		);
 		return $status[$key];
 	}
@@ -164,9 +168,10 @@ class Childcase extends CActiveRecord
 			'have_other_illness' => '是否有家族遗传病、其他重大疾病（如有请详细说明）',
 			'have_pneumonia' => '是否在半年内患有肺炎（如有请详细说明肺炎治疗时间和治疗经过）',
 			'operation_hospital' => '手术医院',
-			'doctor' => '主治大夫',
+			'doctor' => '主刀大夫',
 			'is_one_time_cure' => '是否一次性根治',
-			'admission_time' => '入院时间',
+			'surgery_time'=>'第几次手术',
+			'admission_time' => '计划入院时间',
 			'operation_plan_time' => '计划手术时间',
 			'other_foundation_staff' => '牵头基金会联系人',
 			'staff' => '海星尽职调查专员',
@@ -243,6 +248,7 @@ class Childcase extends CActiveRecord
 		$criteria->compare('doctor',$this->doctor,true);
 		$criteria->compare('is_one_time_cure',$this->is_one_time_cure);
 		$criteria->compare('admission_time',$this->admission_time,true);
+		$criteria->compare('surgery_time',$this->admission_time,true);
 		$criteria->compare('operation_plan_time',$this->operation_plan_time,true);
 		$criteria->compare('other_foundation_staff',$this->other_foundation_staff,true);
 		$criteria->compare('staff',$this->staff,true);

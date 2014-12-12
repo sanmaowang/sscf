@@ -14,7 +14,7 @@ $total_cost;
 $total_hospital_cost;
 $total_budget;
 $total_hospital_budget;
-
+$last_date = null;
 
 foreach ($fees as $fee) {
 	if($fee->fee_type == 0){
@@ -24,9 +24,11 @@ foreach ($fees as $fee) {
 		}else if($fee->type == 'our_budget'){
 			$budget['our'][] = $fee;
 			$total_budget += $fee->amount;
+		  $last_date = $fee->last_date?$fee->last_date:$last_date;
 		}else if($fee->type == 'org_budget'){
 			$budget['org'][] = $fee;
 			$total_budget += $fee->amount;
+		  $last_date = $fee->last_date?$fee->last_date:$last_date;
 		}
 	}else if($fee->fee_type == 1){
 		if($fee->type == 'hospital_cost'){
@@ -35,7 +37,7 @@ foreach ($fees as $fee) {
 		}else if($fee->type == 'our_cost'){
 			$cost['our'][] = $fee;
 			$total_cost += $fee->amount;
-		}else if($fee->type == 'org_budget'){
+		}else if($fee->type == 'org_cost'){
 			$cost['org'][] = $fee;
 			$total_cost += $fee->amount;
 		}
@@ -49,7 +51,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 
 ?>
 <legend>预算表</legend>
-<table class="table table-bordered">
+<table class="table table-bordered personal-tb">
 	<thead>
 	<tr>
 		<th>医院</th>
@@ -66,7 +68,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			<td>
 				<?php echo $o[$b->source];?>
 			</td>
-			<td>
+			<td class="text-error">
 				<?php echo $b->amount;?> 元
 			</td>
 			<td>
@@ -87,7 +89,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 		<?php }}else{?>
 		<tr class="warning">
 			<td colspan="5">
-				<a href="<?php echo $this->createUrl('caseBudget/create',array('case_id'=>$model->id,'fee_type'=>'0','type'=>'hospital_budget'));?>">请填写医院预算</a>
+				<i class="icon icon-plus"></i><a href="<?php echo $this->createUrl('caseBudget/create',array('case_id'=>$model->id,'fee_type'=>'0','type'=>'hospital_budget'));?>">请填写医院预算</a>
 			</td>
 		</tr>
 		<?php }?>
@@ -97,7 +99,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 		<th>机构</th>
 		<th>数额</th>
 		<th>备注</th>
-		<th>截至日期</th>
+		<th>截至 <?php echo substr($last_date, 0,10);?></th>
 		<th>操作</th>
 	</tr>
 	</thead>
@@ -108,14 +110,13 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			<td>
 				<?php echo $o[$b->source];?> 
 			</td>
-			<td>
+			<td class="text-info">
 				<?php echo $b->amount;?> 元
 			</td>
 			<td>
 				<?php echo $b->note;?>
 			</td>
 			<td>
-				<?php echo substr($b->last_date,0,10);?>
 			</td>
 			<td>
 				<a href="<?php echo $this->createUrl('caseBudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
@@ -133,14 +134,13 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			<td>
 				<?php if($b->source == 0){echo "海星意向";}else{ echo $o[$b->source];}?>
 			</td>
-			<td>
+			<td class="text-info">
 				<?php echo $b->amount;?> 元
 			</td>
 			<td>
 				<?php echo $b->note;?>
 			</td>
 			<td>
-				<?php echo substr($b->last_date,0,10);?>
 			</td>
 			<td>
 				<a href="<?php echo $this->createUrl('caseBudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
@@ -153,7 +153,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 		</tr>
 		<?php }}?>
 		<tr>
-			<td colspan="5">
+			<td colspan="5"><i class="icon icon-plus"></i>
 				<?php if(count($budget['our']) > 0 || count($budget['org']) > 0 ){?>
 				<a href="<?php echo $this->createUrl('caseBudget/create',array('case_id'=>$model->id,'fee_type'=>'0'));?>">添加预算数据</a>
 				<?php }else{?>
@@ -161,8 +161,8 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			<?php }?>
 			</td>
 		</tr>
-		<tr class="info">
-			<td colspan="5">
+		<tr class="error">
+			<td colspan="5" class="text-error">
 				最终缺口：<?php echo $rest_budget;?> 元
 			</td>
 		</tr>
@@ -170,7 +170,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 </table>
 <hr>
 <legend>结案表</legend>
-<table class="table table-bordered">
+<table class="table table-bordered personal-tb">
 	<thead>
 	<tr>
 		<th>医院</th>
@@ -183,11 +183,11 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 	<tbody>
 		<?php if(isset($cost['hospital']) && count($cost['hospital']) > 0 ){?>
 		<?php foreach ($cost['hospital'] as $b) {?>
-		<tr class="error">
+		<tr class="warning">
 			<td>
 				<?php echo $o[$b->source];?>
 			</td>
-			<td>
+			<td class="text-error">
 				<?php echo $b->amount;?> 元
 			</td>
 			<td>
@@ -208,7 +208,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 		<?php }}else{?>
 		<tr class="warning">
 			<td colspan="5">
-				<a href="<?php echo $this->createUrl('caseBudget/create',array('case_id'=>$model->id,'fee_type'=>'1','type'=>'hospital_cost'));?>">请填写</a>
+				<i class="icon icon-plus"></i> <a href="<?php echo $this->createUrl('caseBudget/create',array('case_id'=>$model->id,'fee_type'=>'1','type'=>'hospital_cost'));?>">请填写</a>
 			</td>
 		</tr>
 		<?php }?>
@@ -229,7 +229,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			<td>
 				<?php echo $o[$b->source];?>
 			</td>
-			<td>
+			<td class="text-success">
 				<?php echo $b->amount;?> 元
 			</td>
 			<td>
@@ -253,7 +253,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			<td>
 				<?php if($b->source == 0){echo "海星资助";}else{ echo $o[$b->source];}?>
 			</td>
-			<td>
+			<td class="text-success">
 				<?php echo $b->amount;?> 元
 			</td>
 			<td>
@@ -273,12 +273,12 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 		<?php }}?>
 		<tr>
 			<td colspan="5">
-				<a href="<?php echo $this->createUrl('caseBudget/create',array('case_id'=>$model->id,'fee_type'=>'1'));?>">添加结款数据</a>
+				<i class="icon icon-plus"></i> <a href="<?php echo $this->createUrl('caseBudget/create',array('case_id'=>$model->id,'fee_type'=>'1'));?>">添加结款数据</a>
 			</td>
 		</tr>
-		<tr class="info">
-			<td colspan="5">
-				任何总额：<?php echo $rest_cost;?> 元
+		<tr class="success">
+			<td colspan="5" class="text-success">
+				结款总额：<?php echo $rest_cost;?> 元
 			</td>
 		</tr>
 	</tbody>

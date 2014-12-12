@@ -13,7 +13,7 @@
 
 	<?php echo $form->fileFieldRow($model,'path',array('class'=>'span5','hint'=>'当前文件: <a href="/uploads/file/'.$model->path.'">'.$model->title.'</a>')); ?>
 
-	<?php echo $form->textFieldRow($model,'title',array('class'=>'span5','maxlength'=>60)); ?>
+	<?php echo $form->textFieldRow($model,'title',array('class'=>'span5','maxlength'=>60,'hint'=>'请附上报告日期')); ?>
 
 	<?php echo $form->textAreaRow($model,'desc',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
 
