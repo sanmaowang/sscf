@@ -65,7 +65,7 @@ class MedicalInfoController extends Controller
 	{
 		$model=new MedicalInfo;
 		
-		$model->case_id = $id;
+	  $model->case_id = $id;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -76,14 +76,25 @@ class MedicalInfoController extends Controller
 			if($model->save())
 				$this->redirect(array('childcase/update','id'=>$id,'flag'=>'chris'));
 		}
+
   	$folder_type = array("under review","under review","under review","funded","passed");
 		$folder = $folder_type[$model->case->status];
-		$files = CaseFile::model()->findAllByAttributes(array('case_id'=>$model->case_id,'key'=>$type));
+		$files = CaseFile::model()->findAllByAttributes(array('case_id'=>$id,'key'=>$type));
+
+		$arr = array();
+		foreach ($files as $key => $file) {
+			$result = MedicalInfo::model()->findByAttributes(array('file_id'=>$file->id));
+			if(count($result) == 0){
+				$arr[] = $file;
+			}
+		}
 
 		$this->render('create',array(
 			'model'=>$model,
-			'files'=>$files,
-			'folder'=>$folder
+			'files'=>$arr,
+			'folder'=>$folder,
+			'type'=>$type,
+			'id'=>$id
 		));
 	}
 

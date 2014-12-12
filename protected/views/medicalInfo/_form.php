@@ -24,7 +24,6 @@
 				<?php echo $form->error($model,'title'); ?>
 				</div>
 			</div>
-
 			<div class="control-group">
 				<?php echo $form->labelEx($model,'content',array('class'=>'control-label')); ?>
 				<div class="controls">

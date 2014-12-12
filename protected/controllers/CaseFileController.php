@@ -94,7 +94,7 @@ class CaseFileController extends Controller
         $path = Yii::getPathOfAlias('webroot').DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'case'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR;
 
       	$case_name = $this->toEnglish($model->case->name);
-        $file_path = $model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR.$model->title.'.'.$file->extensionName;
+        $file_path = $model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR.$model->title.'_'.intval(time(), 16).'.'.$file->extensionName;
         $model->path = $file_path;
         
         // if (!file_exists($path.$model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR)) {
