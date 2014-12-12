@@ -76,10 +76,11 @@ class ChildcaseController extends Controller
 		}
 
 		foreach ($requires as $key => $value) {
-			if(!in_array($key,$existArr)){
+			if(!in_array($value,$existArr)){
 				$errors[] = "缺失 - [".FileArray::getLabel($value)."]";
 			}
 		}
+
 		$rate = 100 -  (int)(100 * (count($errors) / count($model->attributes)));
 		$this->render('check',array(
 			'model'=>$model,
@@ -297,9 +298,8 @@ class ChildcaseController extends Controller
 				// {
 				//   echo CJSON::encode(array("id"=>$id));
 				// }
-				$this->redirect('/childcase/view',array(
-					'id'=>$id,
-				));
+				$this->redirect(array('/childcase/view','id'=>$model->id));
+				
 			}
 		}
 

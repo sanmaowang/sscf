@@ -36,16 +36,24 @@ $img_exts = array("jpg","png","bmp","jpeg","gif");
    <div class="bar" style="width:0%">
    </div>
 </div>
+<?php if(count($errors) > 0):?>
 <h4>未完成项目:</h4>
 <ul class="unfinish">
 	<?php foreach ($errors as $error) {?>
 	<li class="text-error hide"><?php echo $error;?> <a href="#"><i class="icon-edit"></i></a></li>
 	<?php }?>
 </ul>
+<?php endif;?>
 <div class="form-actions text-center">
+  <?php if(count($errors) > 0):?>
 	<a href="#" class="btn btn-success disabled">提交审核</a>
+  <?php else:?>
+  <form action="<?php echo $this->createUrl('childcase/submit',array('id'=>$model->id));?>" method="POST">
+    <input type="hidden" name="status" value="1"/>
+    <button type="submit" class="btn btn-success">提交审核</button>
+  </form>
+  <?php endif;?>
 </div>
-
 <script>
 	function showUn(obj){
   		var next = $(obj).next();

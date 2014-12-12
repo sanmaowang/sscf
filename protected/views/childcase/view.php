@@ -27,9 +27,12 @@ $folder_type = array("under review","under review","under review","funded","pass
 </div>
   <div class="span6 text-right" style="padding-top:20px;">
   	<a href="<?php echo $this->createUrl('update',array('id'=>$model->id,'flag'=>'child'))?>" class="btn btn-info"><i class="icon-edit icon-white"></i> 编辑案例</a>
-  	<a href="<?php echo $this->createUrl('check',array('id'=>$model->id))?>" class="btn btn-primary"><i class="icon-ok-sign icon-white"></i> 提交审核</a>
+  	<?php if($model->status == 0):?><a href="<?php echo $this->createUrl('check',array('id'=>$model->id))?>" class="btn btn-primary"><i class="icon-ok-sign icon-white"></i> 提交审核</a><?php endif;?>
   </div>
 </div>
+<?php if($model->status == 1):?>
+	<p class="alert">已提交审核，请等待审核结果；</p>
+	<?php endif;?>
 <ul class="nav nav-tabs" id="child_info">
   <li class="active"><a href="#basic_info">基本信息</a></li>
   <li><a href="#medical_assessment">医疗评估</a></li>
