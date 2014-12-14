@@ -9049,3 +9049,162 @@ Stack trace:
 REQUEST_URI=/childcase/view
 HTTP_REFERER=http://seastar.local/childcase/check/40
 ---
+2014/12/14 20:59:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/12/14 21:19:28 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_sscf.tb_auth_item' doesn't exist. The SQL statement executed was: SELECT name, type, description, t1.bizrule, t1.data, t2.bizrule AS bizrule2, t2.data AS data2 FROM tb_auth_item t1, tb_auth_assignment t2 WHERE name=itemname AND userid=:userid.
+in /Users/sanmao/sscf/protected/modules/srbac/components/SDbAuthManager.php (34)
+in /Users/sanmao/sscf/protected/modules/srbac/controllers/AuthitemController.php (53)
+in /Users/sanmao/sscf/index.php (16)
+2014/12/14 21:19:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_sscf.tb_auth_item' doesn't exist. The SQL statement executed was: SELECT name, type, description, t1.bizrule, t1.data, t2.bizrule AS bizrule2, t2.data AS data2 FROM tb_auth_item t1, tb_auth_assignment t2 WHERE name=itemname AND userid=:userid' in /Users/sanmao/sscf/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /Users/sanmao/sscf/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/sanmao/sscf/protected/modules/srbac/components/SDbAuthManager.php(34): CDbCommand->queryAll()
+#2 /Users/sanmao/sscf/framework/web/auth/CWebUser.php(806): SDbAuthManager->checkAccess('Admin', '1', Array)
+#3 /Users/sanmao/sscf/protected/modules/srbac/controllers/AuthitemController.php(53): CWebUser->checkAccess('Admin')
+#4 /Users/sanmao/sscf/framework/web/CController.php(306): AuthitemController->beforeAction(Object(CInlineAction))
+#5 /Users/sanmao/sscf/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('')
+#8 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('srbac/authitem')
+#9 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/srbac/authitem
+---
+2014/12/14 21:37:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "uploads/avatar/1_1409314331.jpg"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/avatar/...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/avatar/1_1409314331.jpg
+HTTP_REFERER=http://seastar.local/user/index
+---
+2014/12/14 21:37:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "uploads/avatar/1_1409314331.jpg"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/avatar/...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/avatar/1_1409314331.jpg
+HTTP_REFERER=http://seastar.local/user/index
+---
+2014/12/14 21:42:13 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Invalid request. Please do not repeat this request again.' in /Users/sanmao/sscf/protected/controllers/OrgController.php:147
+Stack trace:
+#0 [internal function]: OrgController->actionDelete('5')
+#1 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(OrgController), Array)
+#2 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(OrgController), Object(ReflectionMethod), Array)
+#3 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('delete')
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('org/delete')
+#13 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#15 {main}
+REQUEST_URI=/org/delete/5
+HTTP_REFERER=http://seastar.local/org/index
+---
+2014/12/14 21:42:20 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Invalid request. Please do not repeat this request again.' in /Users/sanmao/sscf/protected/controllers/OrgController.php:147
+Stack trace:
+#0 [internal function]: OrgController->actionDelete('5')
+#1 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(OrgController), Array)
+#2 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(OrgController), Object(ReflectionMethod), Array)
+#3 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('delete')
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('org/delete')
+#13 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#15 {main}
+REQUEST_URI=/org/delete/5
+HTTP_REFERER=http://seastar.local/org/index
+---
+2014/12/14 21:42:27 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Invalid request. Please do not repeat this request again.' in /Users/sanmao/sscf/protected/controllers/OrgController.php:147
+Stack trace:
+#0 [internal function]: OrgController->actionDelete('5')
+#1 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(OrgController), Array)
+#2 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(OrgController), Object(ReflectionMethod), Array)
+#3 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('delete')
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('org/delete')
+#13 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#15 {main}
+REQUEST_URI=/org/delete/5
+HTTP_REFERER=http://seastar.local/org/index
+---
+2014/12/14 21:42:45 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Invalid request. Please do not repeat this request again.' in /Users/sanmao/sscf/protected/controllers/OrgController.php:147
+Stack trace:
+#0 [internal function]: OrgController->actionDelete('5')
+#1 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(OrgController), Array)
+#2 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(OrgController), Object(ReflectionMethod), Array)
+#3 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/sanmao/sscf/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): CController->run('delete')
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('org/delete')
+#13 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#15 {main}
+REQUEST_URI=/org/delete/5
+HTTP_REFERER=http://seastar.local/org/index
+---
+2014/12/14 21:46:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "uploads/avatar/1_1409314331.jpg"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/avatar/...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/avatar/1_1409314331.jpg
+HTTP_REFERER=http://seastar.local/user/index
+---
+2014/12/14 21:50:17 [error] [php] move_uploaded_file(/Users/sanmao/sscf/protected/../uploads/avatar/avatar_1418565017.jpg): failed to open stream: Permission denied (/Users/sanmao/sscf/framework/web/CUploadedFile.php:196)
+Stack trace:
+#0 unknown(0): ChildcaseController->actionUpdate()
+#1 /Users/sanmao/sscf/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#2 /Users/sanmao/sscf/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#3 /Users/sanmao/sscf/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(133): ChildcaseController->runAction()
+#5 /Users/sanmao/sscf/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/sanmao/sscf/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#7 /Users/sanmao/sscf/framework/web/filters/CInlineFilter.php(58): ChildcaseController->filterAccessControl()
+#8 /Users/sanmao/sscf/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#9 /Users/sanmao/sscf/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/sanmao/sscf/framework/web/CController.php(265): ChildcaseController->runActionWithFilters()
+#11 /Users/sanmao/sscf/framework/web/CWebApplication.php(282): ChildcaseController->run()
+#12 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /Users/sanmao/sscf/index.php(16): CWebApplication->run()
+REQUEST_URI=/childcase/update/3?flag=child
+in /Users/sanmao/sscf/protected/controllers/ChildcaseController.php (158)
+in /Users/sanmao/sscf/index.php (16)

@@ -68,7 +68,7 @@ class Childcase extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, avatar, birthday, gender, home, height, weight, id_card, nation, citivaltype, contact, telephone', 'required','on'=>'child'),
+			array('name, birthday, gender, home, height, weight, id_card, nation, citivaltype, contact, telephone', 'required','on'=>'child'),
 			array('state_desc, medical_insurance_rate, other_subsidy, have_other_illness, have_pneumonia, operation_hospital, doctor, is_one_time_cure, admission_time, operation_plan_time,surgery_time', 'required','on'=>'medical'),
 			array('economical_source_desc, special_desc', 'required','on'=>'family'),
 			array('name, create_by', 'required'),

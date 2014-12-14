@@ -39,7 +39,7 @@ return array(
 			'userid'=>'id',
 			'username'=>'username',
 			'delimeter'=>'@',
-			'debug'=>true,
+			'debug'=>false,
 			'pageSize'=>10,
 			'superUser' =>'Admin',
 			'css'=>'srbac.css',
