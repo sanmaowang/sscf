@@ -9,14 +9,14 @@
 	
 	<?php echo $form->errorSummary($model); ?>
 	<?php if($model->is_immediate){?>
-	<?php echo $form->dropDownListRow($model,'relationship',array('父亲','母亲','兄弟姐妹')); ?>
+	<?php echo $form->dropDownListRow($model,'relationship',$model->r_label); ?>
 	<?php }else{?>
 	<?php echo $form->textFieldRow($model,'relationship',array('class'=>'span5','maxlength'=>80)); ?>
 	<?php }?>
 	<?php echo $form->textFieldRow($model,'age',array('class'=>'span5')); ?>
 	<?php if($model->is_immediate){?>
 	<?php echo $form->textFieldRow($model,'id_card',array('class'=>'span5','maxlength'=>80)); ?>
-	<?php echo $form->textFieldRow($model,'education',array('class'=>'span5','maxlength'=>80)); ?>
+	<?php echo $form->dropDownListRow($model,'education',$model->r_edu); ?>
 
 	<?php echo $form->textFieldRow($model,'nation',array('class'=>'span5','maxlength'=>25)); ?>
 	<?php }?>

@@ -29,7 +29,6 @@ class CUpyunComponent extends CApplicationComponent
         }
         catch(Exception $e) {
             echo $e->getCode();
-            echo "1111111";
             echo $e->getMessage();
         }
     }

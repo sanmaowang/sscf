@@ -1,6 +1,6 @@
 <div class="text-right">
 <div class="btn-group">
-  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">添加报告 <span class="caret"></span></button>
+  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">添加新报告 <span class="caret"></span></button>
   <ul class="dropdown-menu text-left">
     <li><a href="<?php echo $this->createUrl('medicalInfo/create',array('id'=>$model->id,'type'=>'mbg_echocardiography'));?>">心脏彩超（超声心动）报告</a></li>
     <li><a href="<?php echo $this->createUrl('medicalInfo/create',array('id'=>$model->id,'type'=>'mbg_IV'));?>">导管诊断报告（如做导管）</a></li>
@@ -16,6 +16,7 @@
 if(count($model->medicalinfo) >0){
    foreach ($model->medicalinfo as $key => $medical) {
 ?>
+<div class="row-fluid">
 	<h3><?php echo $medical->title?></h3>
 	<p><?php echo $medical->content?></p>
 	<br>
@@ -25,9 +26,15 @@ if(count($model->medicalinfo) >0){
 		</div>
 		<div class="text-right">
 			<a href="<?php echo $this->createUrl('medicalinfo/update',array('id'=>$medical->id))?>" class="btn btn-mini">修改报告</a>
+			<?php echo CHtml::ajaxLink('<button class="btn btn-mini btn-danger">删除报告</button>',array('medicalinfo/delete','id'=>$medical->id),
+                  array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;$("#delete-"+_id+"").parent().parent().parent().remove();}'),
+                  array('confirm'=>'该操作不可逆，确定要删除吗?',
+                        'id'=>'delete-'.$medical->id,
+                        )); ?>
 		</div>
 	</div>
 	<hr>
+</div>
 <?php
    }}
 ?>

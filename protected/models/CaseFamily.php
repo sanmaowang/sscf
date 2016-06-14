@@ -28,7 +28,7 @@ class CaseFamily extends CActiveRecord
 	 */
 
 	public $r_label = array('父亲','母亲','哥哥','姐姐','弟弟','妹妹','监护人');
-	public $r_edu =  array('小学','初中','高中','本科','硕士','博士及其以上');
+	public $r_edu =  array('小学','初中','高中','本科','硕士','博士及其以上','文盲');
 
 	public static function model($className=__CLASS__)
 	{
@@ -53,7 +53,7 @@ class CaseFamily extends CActiveRecord
 		return array(
 			array('name, relationship', 'required'),
 			array('age, id_card, education, nation, career, annual_income, note ', 'required','on'=>'family'),
-			array('age,career, annual_income, note,health_state', 'required','on'=>'other'),
+			array('age,career, annual_income,health_state', 'required','on'=>'other'),
 			array('name, relationship', 'length', 'max'=>20),
 			array('case_id, is_immediate, age', 'numerical', 'integerOnly'=>true),
 			array('id_card, education, health_state, career', 'length', 'max'=>80),

@@ -16,9 +16,11 @@ $this->breadcrumbs=array(
   <div class="span6">
     <div class="btn-group status_filter" data-toggle="buttons-checkbox">
       <a class="btn btn-mini btn-default" data-status="0">新建：<?php echo $new_count;?> </a>
-      <a class="btn btn-mini btn-info" data-status="1">等待资助：<?php echo $pending_count;?> </a>
-      <a class="btn btn-mini btn-primary" data-status="2">确认资助：<?php echo $confirm_count;?> </a>
-      <a class="btn btn-mini" data-status="3">已资助：<?php echo $funded_count;?> </a>
+      <a class="btn btn-mini btn-info" data-status="1">审核中：<?php echo $pending_count;?> </a>
+      <a class="btn btn-mini btn-primary" data-status="2">同意资助：<?php echo $confirm_count;?> </a>
+      <a class="btn btn-mini btn-success" data-status="3">已打款：<?php echo $funded_count;?> </a>
+      <a class="btn btn-mini" data-status="5">已结案：<?php echo $over_count;?> </a>
+      <a class="btn btn-mini" data-status="6">Deceased：<?php echo $deceased_count;?> </a>
       <a class="btn btn-mini" data-status="4">不资助：<?php echo $passed_count;?> </a>
     </div>
   </div>
@@ -33,7 +35,7 @@ $this->breadcrumbs=array(
 <table class="table table-striped table-bordered">
     <thead>
     <tr>
-      <th width="15">#</th>
+      <th width="30">编号</th>
       <th><i class="icon-user"></i> 姓名</th>
       <th><i class="icon-bookmark"></i> 来源</th>
       <th><i class="icon-tasks"></i> 状态</th>
@@ -62,6 +64,26 @@ $this->breadcrumbs=array(
             }
         );
     });
-    return false;",
+    ",
+    CClientScript::POS_READY);
+  Yii::app()->clientScript->registerScript('items_delete', '
+    $(".delete-btn").live("click",function(e){
+        e.preventDefault();
+        var _this = $(this);
+        if(confirm("该操作不可逆，确定要删除吗?")){
+          $.ajax({  
+            url:_this.attr("href"),   
+            type : "POST",  
+            data : {},  
+            async : false,  
+            success : function(data) {  
+              _this.parent().parent().remove()
+            },  
+            error : function() {  
+              alert("delete failed");  
+            }  
+          }); 
+        }
+      });',
     CClientScript::POS_READY);
 ?>

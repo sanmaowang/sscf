@@ -19,7 +19,7 @@
 		<th>职业</th>
 		<th>年收入</th>
 		<!-- <th>健康状况</th> -->
-		<th>备注</th>
+		<th width="300">备注</th>
 		<th>操作</th>
 	</tr>
 	</thead>
@@ -28,14 +28,19 @@
 		<?php if($f->is_immediate == 0):?>
 		<tr>
 			<td><?php echo $f->name;?></td>
-			<td><?php echo $f->r_label[$f->relationship]?></td>
+			<td><?php echo $f->relationship;?></td>
 			<td><?php echo $f->age;?></td>
 			<td><?php echo $f->career;?></td>
 			<td><?php echo $f->annual_income;?></td>
 			<td><?php echo $f->note;?></td>
 			<td>
-				<a href="<?php echo $this->createUrl('caseFamily/update',array('id'=>$f->id));?>" class="btn btn-primary">Edit</a>
-        <a href="<?php echo $this->createUrl('caseFamily/delete',array('id'=>$f->id));?>" class="btn btn-danger">Delete</a>
+				<a href="<?php echo $this->createUrl('casefamily/update',array('id'=>$f->id));?>" class="btn btn-primary">编辑</a>
+        <?php echo CHtml::ajaxLink('删除',array('casefamily/delete','id'=>$f->id),
+                  array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;$("#delete-"+_id+"").parent().parent().remove();}'),
+                  array('confirm'=>'该操作不可逆，确定要删除吗?',
+                  	'class'=>'btn btn-danger',
+                        'id'=>'delete-'.$f->id,
+                        )); ?>
 			</td>
 		</tr>
 	<?php endif;?>

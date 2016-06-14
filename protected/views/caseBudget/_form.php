@@ -1,8 +1,8 @@
 <?php 
-$type = isset($model->type)?$model->type:$_GET['type'];
-$fee_type = isset($model->fee_type)?$model->fee_type:$_GET['fee_type']; 
-$first = isset($first)?$first:$_GET['first'];
-
+$type = isset($model->type)?$model->type:null;
+$type = isset($_GET['type'])?$_GET['type']:$type; 
+$fee_type = isset($model->fee_type)?$model->fee_type:$_GET['fee_type'];
+$first = isset($first)?$first:null;
 ?>
 
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
@@ -19,7 +19,6 @@ $first = isset($first)?$first:$_GET['first'];
 	<?php echo $form->errorSummary($model); ?>
 	
 	<?php 
-
 		if($type == 'hospital_cost' || $type == "hospital_budget"){
 
 	?>
@@ -49,7 +48,7 @@ $first = isset($first)?$first:$_GET['first'];
 
 	<?php }else{?>
 	<?php echo $form->dropDownListRow($model, 'type', $model->getTypes($fee_type)); ?>
-	<div class="control-group ">
+	<div id="source_group" class="control-group">
 		<label class="control-label required" for="CaseBudget_source"><?php if($type == 'hospital_cost' || $type == 'hospital_budget'){ echo "手术医院";}else{echo "机构";}?> <span class="required">*</span></label>
 		<div class="controls">
 			<select name="CaseBudget[source]" id="CaseBudget_source">
@@ -114,13 +113,24 @@ $first = isset($first)?$first:$_GET['first'];
 
 		$("#CaseBudget_type").on("change",function(){
 			var _source = $("#CaseBudget_source");
+			var _row = $("#source_group");
 			if($(this).val() == 'our_budget'){
+				_row.show();
 				_source.html("<option value='0'>海星意向</option>");
 			}else if($(this).val() == 'our_cost'){
+				_row.show();
 				_source.html("<option value='0'>海星筹得</option>");
+			}else if($(this).val() == 'home_budget'){
+				_row.hide();
+				_source.html("<option value='0'>家庭自筹</option>");
+			}else if($(this).val() == 'home_cost'){
+				_row.hide();
+				_source.html("<option value='0'>家庭自筹</option>");
 			}else if(_source.val() == '0'){
+				_row.show();
 				_source.html(segment);
 			}
+
 		})
 		
 	})

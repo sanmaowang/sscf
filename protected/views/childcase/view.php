@@ -18,7 +18,7 @@ $topics = array("fbg","pic","mbg","casesummary","appfiles");
 $img_exts = array("jpg","png","bmp","jpeg","gif");
 $excel_exts = array("xls","xlsx");
 $word_exts = array("doc","docx");
-$folder_type = array("under review","under review","under review","funded","passed");
+$folder_type = array("under review","funded","passed");
 ?>
 <div class="page-header row-fluid" style="border:none;margin-bottom:10px;">
 	<div class="span6">
@@ -43,7 +43,7 @@ $folder_type = array("under review","under review","under review","funded","pass
   <li><a href="#casesummary">结案及术后</a></li>
   <li><a href="#appfiles">申请表</a></li>
 </ul>
-<div class="tab-content">
+<div class="tb-information tab-content">
   <div class="tab-pane active" id="basic_info">
 		  <div class="row-fluid">
 		  	<div class="span2">
@@ -155,7 +155,7 @@ $folder_type = array("under review","under review","under review","funded","pass
 		<?php if($f->is_immediate == 1):?>
 		<tr>
 			<td><?php echo $f->name;?></td>
-			<td><?php echo $f->r_label[$f->relationship]?></td>
+			<td><?php if(is_numeric($f->relationship)){ echo $f->r_label[$f->relationship]; }else{ echo $f->relationship;}?></td>
 			<td><?php echo $f->age;?></td>
 			<td><?php echo $f->id_card;?></td>
 			<td><?php echo $f->r_edu[$f->education];?></td>
@@ -188,10 +188,10 @@ $folder_type = array("under review","under review","under review","funded","pass
 				<?php if($f->is_immediate == 0):?>
 				<tr>
 					<td><?php echo $f->name;?></td>
-					<td><?php echo $f->r_label[$f->relationship]?></td>
+					<td><?php if(is_numeric($f->relationship)){ echo $f->r_label[$f->relationship]; }else{ echo $f->relationship;}?></td>
 					<td><?php echo $f->age;?></td>
 					<td><?php echo $f->id_card;?></td>
-					<td><?php echo $f->r_edu[$f->education];?></td>
+					<td><?php if(is_numeric($f->relationship)){echo $f->r_edu[$f->education];}?></td>
 					<td><?php echo $f->nation;?></td>
 					<td><?php echo $f->career;?></td>
 					<td><?php echo $f->annual_income;?></td>
@@ -238,9 +238,9 @@ $folder_type = array("under review","under review","under review","funded","pass
 		</tr>
 		<tr>
 		<th>手术医院</th>
-		<td><?php echo CHtml::encode($model->operation_hospital); ?></td>
+		<td><?php if($hospital) echo CHtml::encode($hospital->name); ?></td>
 		<th>主治大夫</th>
-		<td colspan="2"><?php echo CHtml::encode($model->doctor); ?></td>
+		<td colspan="2"><?php if($doctor) echo CHtml::encode($doctor->name); ?></td>
 		<th>是否一次性根治</th>
 		<td><?php echo CHtml::encode($model->is_one_time_cure); ?></td>
 		</tr>
@@ -270,10 +270,10 @@ $fees = $model->budget;
 $budget = array();
 $cost = array();
 
-$total_cost;
-$total_hospital_cost;
-$total_budget;
-$total_hospital_budget;
+$total_cost = 0;
+$total_hospital_cost = 0;
+$total_budget = 0;
+$total_hospital_budget = 0;
 $last_date = null;
 
 foreach ($fees as $fee) {
@@ -290,6 +290,11 @@ foreach ($fees as $fee) {
 			$total_budget += $fee->amount;
 		  $last_date = $fee->last_date?$fee->last_date:$last_date;
 		}
+		else if($fee->type == 'home_budget'){
+			$budget['home'][] = $fee;
+			$total_budget += $fee->amount;
+		  $last_date = $fee->last_date?$fee->last_date:$last_date;
+		}
 	}else if($fee->fee_type == 1){
 		if($fee->type == 'hospital_cost'){
 			$cost['hospital'][] = $fee;
@@ -299,6 +304,9 @@ foreach ($fees as $fee) {
 			$total_cost += $fee->amount;
 		}else if($fee->type == 'org_cost'){
 			$cost['org'][] = $fee;
+			$total_cost += $fee->amount;
+		}else if($fee->type == 'home_cost'){
+			$cost['home'][] = $fee;
 			$total_cost += $fee->amount;
 		}
 	}
@@ -325,7 +333,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 		<?php foreach ($budget['hospital'] as $b) {?>
 		<tr>
 			<td>
-				<?php echo $o[$b->source];?>
+				<?php if(isset($o[$b->source])){echo $o[$b->source];}?> 
 			</td>
 			<td class="text-error">
 				<?php echo $b->amount;?> 元
@@ -352,7 +360,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 		<?php foreach ($budget['org'] as $b) { ?>
 		<tr>
 			<td>
-				<?php echo $o[$b->source];?> 
+				<?php if(isset($o[$b->source])){echo $o[$b->source];}?> 
 			</td>
 			<td class="text-info">
 				<?php echo $b->amount;?> 元
@@ -381,9 +389,25 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			</td>
 		</tr>
 		<?php }}?>
+		<?php if(isset($budget['home']) && count($budget['home']) > 0 ){?>
+		<?php foreach ($budget['home'] as $b) {?>
+		<tr>
+			<td>
+				家庭自筹
+			</td>
+			<td class="text-info">
+				<?php echo $b->amount;?> 元
+			</td>
+			<td>
+				<?php echo $b->note;?>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<?php }}?>
 		<tr class="error">
 			<td colspan="4" class="text-error">
-				最终缺口：<?php echo $rest_budget;?> 元
+				最终缺口：<?php echo sprintf("%.2f", $rest_budget);?> 元
 			</td>
 		</tr>
 	</tbody>
@@ -404,7 +428,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 		<?php foreach ($cost['hospital'] as $b) {?>
 		<tr>
 			<td>
-				<?php echo $o[$b->source];?>
+				<?php if(isset($o[$b->source])){echo $o[$b->source];}?> 
 			</td>
 			<td class="text-error">
 				<?php echo $b->amount;?> 元
@@ -431,7 +455,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 		<?php foreach ($cost['org'] as $b) {?>
 		<tr>
 			<td>
-				<?php echo $o[$b->source];?>
+				<?php if(isset($o[$b->source])){echo $o[$b->source];}?> 
 			</td>
 			<td class="text-success">
 				<?php echo $b->amount;?> 元
@@ -459,9 +483,25 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			</td>
 		</tr>
 		<?php }}?>
+		<?php if(isset($cost['home']) && count($cost['home']) > 0 ){?>
+		<?php foreach ($cost['home'] as $b) {?>
+		<tr>
+			<td>
+				家庭自筹
+			</td>
+			<td class="text-success">
+				<?php echo $b->amount;?> 元
+			</td>
+			<td>
+				<?php echo $b->note;?>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<?php }}?>
 		<tr class="success">
 			<td colspan="4" class="text-success">
-				结款总额：<?php echo $rest_cost;?> 元
+				结款总额：<?php echo sprintf("%.2f", $rest_cost);?> 元
 			</td>
 		</tr>
 	</tbody>
@@ -489,10 +529,10 @@ if(count($model->medicalinfo) >0){
     <li class="span3">
       <div class="thumbnail">
       	<div class="img-thumb">
-      	<a class="files" href="<?php echo IMG_CLOUD.'/case/'.$folder_type[$model->status].'/'.$f->path;?>">
+      	<a class="files <?php if(in_array($f->getExt(),$img_exts)){ echo 'image-preview';} ?>" href="<?php echo IMG_CLOUD.'/case/'.$folder_type[$model->folder].'/'.$f->path;?>">
       	<?php  $d++;
       if(in_array($f->getExt(),$img_exts)){
-			  echo CHtml::image(IMG_CLOUD.'/case/'.$folder_type[$model->status].'/'.$f->path,"file",array("width"=>300,"height"=>195)); 
+			  echo CHtml::image(IMG_CLOUD.'/case/'.$folder_type[$model->folder].'/'.$f->path,"file",array("width"=>300,"height"=>195)); 
 			}else if(in_array($f->getExt(),$excel_exts)){
 			  echo CHtml::image(Yii::app()->request->baseUrl.'/img/excel.png',"file",array("class"=>'file-thumb')); 
 			}else if(in_array($f->getExt(),$word_exts)){
@@ -529,7 +569,7 @@ if(count($model->medicalinfo) >0){
     $cs->registerScriptFile($baseUrl.'/js/vendor/colorbox/jquery.colorbox-min.js',CClientScript::POS_END);
     $cs->registerScript('update-detail', '
     $(function(){
-      $(".files").colorbox({ innerWidth:500});
+      $(".image-preview").colorbox({ innerWidth:500});
     })', CClientScript::POS_END);
 ?>
 

@@ -7,7 +7,7 @@
 	<p class="help-block">带<span class="required">*</span> 是必填项目.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-	<input type="hidden" name="Org[org_id]" value="<?php echo $oid;?>"/>
+	<input type="hidden" name="Org[org_id]" value="<?php echo $org->id;?>"/>
 	<?php echo $form->textFieldRow($model,'name',array('class'=>'span5','maxlength'=>60)); ?>
 
 	<?php 

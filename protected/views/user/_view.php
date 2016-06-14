@@ -1,18 +1,20 @@
-<div class="span4">
+
+<div class="view" style="margin:10px 0 0;">
+	<div class="row-fluid">
+	<div class="pull-left">
 	<p>
 		<?php $data->avatar = empty($data->avatar)?"noavatar.jpg":$data->avatar?>
-    <a href="<?php echo $this->createUrl('user/view',array('id'=>$data->id))?>"><?php echo CHtml::image(Yii::app()->request->baseUrl.'/uploads/avatar/'.$data->avatar,"avatar",array("width"=>120)); ?></a>
+    <a href="<?php echo $this->createUrl('user/view',array('id'=>$data->id))?>"><?php echo CHtml::image(Yii::app()->request->baseUrl.'/uploads/avatar/'.$data->avatar,"avatar",array("width"=>60)); ?></a>
 	</p>
-	<h4><?php echo CHtml::encode($data->username); ?></h4>
-	<b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
+	</div>
+	<div class="pull-left" style="margin-left:10px">
+	<p><b><?php echo CHtml::encode($data->username); ?></b></p>
+	<p><b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
 	<?php echo CHtml::encode($data->name); ?>
-	<br />
-	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
-	<?php echo CHtml::encode($data->email); ?>
-	<br />
-	<b><?php echo CHtml::encode($data->getAttributeLabel('job')); ?>:</b>
-	<?php echo CHtml::encode($data->job); ?>
-	<br />
+	<span class="label"><?php echo CHtml::encode($data->job); ?></span>
+	</p>
+	</div>
+	</div>
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('job_number')); ?>:</b>
 	<?php echo CHtml::encode($data->job_number); ?>
@@ -64,3 +66,4 @@
 
 	*/ ?>
 </div>
+<hr>

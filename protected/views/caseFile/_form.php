@@ -9,7 +9,8 @@
 	<p class="help-block">带<span class="required">*</span> 是必填项目.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-	<?php echo $form->radioButtonListRow($model, 'key', FileArray::getDropDown($flag)); ?>
+	<?php //echo $form->radioButtonListRow($model, 'key', FileArray::getDropDown($flag)); ?>
+	<?php echo $form->hiddenField($model,'case_id',array('class'=>'span5','value'=>95)); ?>
 
 	<?php echo $form->fileFieldRow($model,'path',array('class'=>'span5','hint'=>'当前文件: <a href="/uploads/file/'.$model->path.'">'.$model->title.'</a>')); ?>
 

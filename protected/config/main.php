@@ -85,7 +85,7 @@ return array(
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
-			'caseSensitive'=>false
+			'caseSensitive'=>false,
 		),
 		// uncomment the following to use a MySQL database
 		'db'=>array(

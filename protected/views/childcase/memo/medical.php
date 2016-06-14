@@ -32,14 +32,14 @@
 	<?php echo $form->textAreaRow($model,'have_pneumonia',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
 
 	<div class="control-group ">
-		<label class="control-label required" for="Childcase_operation_hospital">手术医院 <span class="required">*</span></label>
+		<label class="control-label required" for="Childcase_operation_hospital">手术医院 </label>
 		<div class="controls">
 			<select name="Childcase[operation_hospital]" id="Childcase_operation_hospital">
 			</select>
 		</div>
 	</div>
 	<div class="control-group ">
-		<label class="control-label required" for="Childcase_doctor">主刀大夫 <span class="required">*</span></label>
+		<label class="control-label required" for="Childcase_doctor">主刀大夫</label>
 		<div class="controls">
 			<select name="Childcase[doctor]" id="Childcase_doctor">
 			</select>

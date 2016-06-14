@@ -10,10 +10,10 @@ $fees = $model->budget;
 $budget = array();
 $cost = array();
 
-$total_cost;
-$total_hospital_cost;
-$total_budget;
-$total_hospital_budget;
+$total_cost = 0;
+$total_hospital_cost = 0;
+$total_budget = 0;
+$total_hospital_budget = 0;
 $last_date = null;
 
 foreach ($fees as $fee) {
@@ -78,8 +78,8 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 				<?php echo substr($b->last_date,0,10);?>
 			</td>
 			<td>
-				<a href="<?php echo $this->createUrl('caseBudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
-          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('caseBudget/delete','id'=>$b->id),
+				<a href="<?php echo $this->createUrl('casebudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
+          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('casebudget/delete','id'=>$b->id),
                   array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;$("#delete-"+_id+"").parent().parent().remove();}'),
                   array('confirm'=>'该操作不可逆，确定要删除吗?',
                         'id'=>'delete-'.$b->id,
@@ -89,7 +89,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 		<?php }}else{?>
 		<tr class="warning">
 			<td colspan="5">
-				<i class="icon icon-plus"></i><a href="<?php echo $this->createUrl('caseBudget/create',array('case_id'=>$model->id,'fee_type'=>'0','type'=>'hospital_budget'));?>">请填写医院预算</a>
+				<i class="icon icon-plus"></i><a href="<?php echo $this->createUrl('casebudget/create',array('case_id'=>$model->id,'fee_type'=>'0','type'=>'hospital_budget'));?>">请填写医院预算</a>
 			</td>
 		</tr>
 		<?php }?>
@@ -119,8 +119,8 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			<td>
 			</td>
 			<td>
-				<a href="<?php echo $this->createUrl('caseBudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
-          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('caseBudget/delete','id'=>$b->id),
+				<a href="<?php echo $this->createUrl('casebudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
+          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('casebudget/delete','id'=>$b->id),
                   array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;$("#delete-"+_id+"").parent().parent().remove();}'),
                   array('confirm'=>'该操作不可逆，确定要删除吗?',
                         'id'=>'delete-'.$b->id,
@@ -143,8 +143,32 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			<td>
 			</td>
 			<td>
-				<a href="<?php echo $this->createUrl('caseBudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
-          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('caseBudget/delete','id'=>$b->id),
+				<a href="<?php echo $this->createUrl('casebudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
+          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('casebudget/delete','id'=>$b->id),
+                  array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;$("#delete-"+_id+"").parent().parent().remove();}'),
+                  array('confirm'=>'该操作不可逆，确定要删除吗?',
+                        'id'=>'delete-'.$b->id,
+                        )); ?>
+			</td>
+		</tr>
+		<?php }}?>
+		<?php if(isset($budget['home']) && count($budget['home']) > 0 ){?>
+		<?php foreach ($budget['home'] as $b) {?>
+		<tr>
+			<td>
+				家庭自筹
+			</td>
+			<td class="text-info">
+				<?php echo $b->amount;?> 元
+			</td>
+			<td>
+				<?php echo $b->note;?>
+			</td>
+			<td>
+			</td>
+			<td>
+				<a href="<?php echo $this->createUrl('casebudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
+          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('casebudget/delete','id'=>$b->id),
                   array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;$("#delete-"+_id+"").parent().parent().remove();}'),
                   array('confirm'=>'该操作不可逆，确定要删除吗?',
                         'id'=>'delete-'.$b->id,
@@ -154,10 +178,10 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 		<?php }}?>
 		<tr>
 			<td colspan="5"><i class="icon icon-plus"></i>
-				<?php if(count($budget['our']) > 0 || count($budget['org']) > 0 ){?>
-				<a href="<?php echo $this->createUrl('caseBudget/create',array('case_id'=>$model->id,'fee_type'=>'0'));?>">添加预算数据</a>
+				<?php if((isset($budget['our']) && count($budget['our']) > 0) || (isset($budget['org']) && count($budget['org'])) > 0 ){?>
+				<a href="<?php echo $this->createUrl('casebudget/create',array('case_id'=>$model->id,'fee_type'=>'0'));?>">添加预算数据</a>
 				<?php }else{?>
-				<a href="<?php echo $this->createUrl('caseBudget/create',array('case_id'=>$model->id,'fee_type'=>'0','first'=>'1'));?>">添加预算数据</a>
+				<a href="<?php echo $this->createUrl('casebudget/create',array('case_id'=>$model->id,'fee_type'=>'0','first'=>'1'));?>">添加预算数据</a>
 			<?php }?>
 			</td>
 		</tr>
@@ -197,8 +221,8 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 				<?php echo substr($b->last_date,0,10);?>
 			</td>
 			<td>
-				<a href="<?php echo $this->createUrl('caseBudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
-          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('caseBudget/delete','id'=>$b->id),
+				<a href="<?php echo $this->createUrl('casebudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
+          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('casebudget/delete','id'=>$b->id),
                   array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;$("#delete-"+_id+"").parent().parent().remove();}'),
                   array('confirm'=>'该操作不可逆，确定要删除吗?',
                         'id'=>'delete-'.$b->id,
@@ -208,7 +232,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 		<?php }}else{?>
 		<tr class="warning">
 			<td colspan="5">
-				<i class="icon icon-plus"></i> <a href="<?php echo $this->createUrl('caseBudget/create',array('case_id'=>$model->id,'fee_type'=>'1','type'=>'hospital_cost'));?>">请填写</a>
+				<i class="icon icon-plus"></i> <a href="<?php echo $this->createUrl('casebudget/create',array('case_id'=>$model->id,'fee_type'=>'1','type'=>'hospital_cost'));?>">请填写</a>
 			</td>
 		</tr>
 		<?php }?>
@@ -238,8 +262,8 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			<td>
 			</td>
 			<td>
-				<a href="<?php echo $this->createUrl('caseBudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
-          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('caseBudget/delete','id'=>$b->id),
+				<a href="<?php echo $this->createUrl('casebudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
+          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('casebudget/delete','id'=>$b->id),
                   array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;$("#delete-"+_id+"").parent().parent().remove();}'),
                   array('confirm'=>'该操作不可逆，确定要删除吗?',
                         'id'=>'delete-'.$b->id,
@@ -262,8 +286,32 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 			<td>
 			</td>
 			<td>
-				<a href="<?php echo $this->createUrl('caseBudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
-          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('caseBudget/delete','id'=>$b->id),
+				<a href="<?php echo $this->createUrl('casebudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
+          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('casebudget/delete','id'=>$b->id),
+                  array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;$("#delete-"+_id+"").parent().parent().remove();}'),
+                  array('confirm'=>'该操作不可逆，确定要删除吗?',
+                        'id'=>'delete-'.$b->id,
+                        )); ?>
+			</td>
+		</tr>
+		<?php }}?>
+		<?php if(isset($cost['home']) && count($cost['home']) > 0 ){?>
+		<?php foreach ($cost['home'] as $b) {?>
+		<tr>
+			<td>
+				家庭自筹
+			</td>
+			<td class="text-success">
+				<?php echo $b->amount;?> 元
+			</td>
+			<td>
+				<?php echo $b->note;?>
+			</td>
+			<td>
+			</td>
+			<td>
+				<a href="<?php echo $this->createUrl('casebudget/update',array('id'=>$b->id,'flag'=>'economic'));?>"><i class="icon icon-edit"></i></a>
+          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('casebudget/delete','id'=>$b->id),
                   array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;$("#delete-"+_id+"").parent().parent().remove();}'),
                   array('confirm'=>'该操作不可逆，确定要删除吗?',
                         'id'=>'delete-'.$b->id,
@@ -273,7 +321,7 @@ $rest_cost =  $total_cost - $total_hospital_cost;
 		<?php }}?>
 		<tr>
 			<td colspan="5">
-				<i class="icon icon-plus"></i> <a href="<?php echo $this->createUrl('caseBudget/create',array('case_id'=>$model->id,'fee_type'=>'1'));?>">添加结款数据</a>
+				<i class="icon icon-plus"></i> <a href="<?php echo $this->createUrl('casebudget/create',array('case_id'=>$model->id,'fee_type'=>'1'));?>">添加结款数据</a>
 			</td>
 		</tr>
 		<tr class="success">

@@ -16,7 +16,6 @@ $this->menu=array(
 <table class="table table-striped table-bordered">
     <thead>
     <tr>
-      <th width="15">#</th>
       <th><i class="icon-user"></i> 名称</th>
       <th>类型</th>
       <th><i class="icon-tasks"></i> 联系方式</th>
@@ -33,7 +32,7 @@ $this->menu=array(
   'preItemsTag'=>$pre_html,
   'postItemsTag'=>$post_html,
   'sortableAttributes'=>array(
-        'id',
+        'type',
         'create_time',
     ),
 )); ?>

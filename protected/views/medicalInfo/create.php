@@ -14,7 +14,7 @@ $this->menu=array(
 );
 ?>
 <div class="page-header">
-	<h2>创建 医生评价 报告</h2>
+	<h2>创建 医学评估 医疗报告</h2>
 </div>
 <?php if(count($files) > 0){ foreach ($files as $key => $file) {?>
 <div class="row-fluid">
@@ -50,7 +50,7 @@ $this->menu=array(
 </div>
 <hr>
 <?php }}else{?>
-<p class="alert">您还没有上传相关文件，立即去上传？</p>
+<p class="alert">没有找到有该标签的文件，您还没有上传相关文件，立即去上传？</p>
 <a href="<?php echo $this->createUrl('childcase/update',array('id'=>$model->case_id,'flag'=>'mbg'))?>" class="btn">去上传</a>
 <?php }?>
 

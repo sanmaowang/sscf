@@ -2,10 +2,11 @@
 	$img_exts = array("jpg","png","bmp","jpeg","gif");
   $excel_exts = array("xls","xlsx");
   $word_exts = array("doc","docx");
-  $folder_type = array("under review","under review","under review","funded","passed");
-  $tags = FileArray::getDropDown($flag);
+  $folder_type = array("under review","funded","passed","passed","passed");
+  $fileUtil = new FileArray();
+  $tags = $fileUtil->getDropDown($flag);
 ?>
-<legend><?php echo FileArray::getPageTitle($flag);?></legend>
+<legend><?php echo $fileUtil->getPageTitle($flag);?></legend>
 <div class="row-fluid">
   <ul class="thumbnails">
   	<?php if(count($model->files) > 0):?>
@@ -16,11 +17,13 @@
 		<li class="span4">
       <div class="thumbnail">
       	<div class="img-thumb">
-      	<a class="files" href="<?php echo IMG_CLOUD.'/case/'.$folder_type[$model->status].'/'.$f->path;?>">
+      	<a class="files" href="<?php echo IMG_CLOUD.'/case/'.$folder_type[$model->folder].'/'.$f->path;?>">
       <?php 
       
       if(in_array($f->getExt(),$img_exts)){
-			  echo CHtml::image(IMG_CLOUD.'/case/'.$folder_type[$model->status].'/'.$f->path,"file",array("width"=>300,"height"=>200)); 
+        if(isset($model->folder)){
+			   echo CHtml::image(IMG_CLOUD.'/case/'.$folder_type[$model->folder].'/'.$f->path,"file",array("width"=>300,"height"=>200)); 
+        }
 			}else if(in_array($f->getExt(),$excel_exts)){
 			  echo CHtml::image(Yii::app()->request->baseUrl.'/img/excel.png',"file",array("class"=>'file-thumb')); 
 			}else if(in_array($f->getExt(),$word_exts)){
@@ -35,9 +38,9 @@
           <h4><?php echo $f->title?$f->title:"untitled";?></h4>
           <p><?php echo $f->desc;?></p>
           <p>
-          	<a href="#" class="label label-warning tags" data-id="<?php echo $f->id;?>"><?php echo FileArray::getLabel($f->key);?></a>
-          	<a href="<?php echo $this->createUrl('caseFile/update',array('id'=>$f->id,'flag'=>$flag));?>"><i class="icon icon-edit"></i></a>
-          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('caseFile/delete','id'=>$f->id),
+          	<a href="#" class="label label-warning tags" data-id="<?php echo $f->id;?>"><?php echo $fileUtil->getLabel($f->key);?></a>
+          	<a href="<?php echo $this->createUrl('casefile/update',array('id'=>$f->id,'flag'=>$flag));?>"><i class="icon icon-edit"></i></a>
+          	<?php echo CHtml::ajaxLink('<i class="icon icon-trash"></i>',array('casefile/delete','id'=>$f->id),
                   array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;$("#delete-"+_id+"").parent().parent().parent().remove();}'),
                   array('confirm'=>'该操作不可逆，确定要删除吗?',
                         'id'=>'delete-'.$f->id,
@@ -62,7 +65,7 @@
 	'htmlOptions' => array(
         'enctype' => 'multipart/form-data',
     ),
-	'action'=>Yii::app()->createUrl('casefile/create')
+	'action'=>Yii::app()->createUrl('caseFile/create')
 )); ?>
 <legend>添加新文件</legend>
 	<p class="help-block">带<span class="required">*</span> 是必填项目.</p>
@@ -93,23 +96,23 @@
   <div class="modal-body">
     <p>
       <h4>家庭背景</h4>
-    	<?php foreach (FileArray::getDropDown('fbg') as $key => $value) {
+    	<?php foreach ($fileUtil->getDropDown('fbg') as $key => $value) {
     	  echo "<a class='label taglabel' href='#' data-tag=".$key.">".$value."</a>&nbsp;&nbsp;";
     	}?>
       <h4>病史</h4>
-      <?php foreach (FileArray::getDropDown('mbg') as $key => $value) {
+      <?php foreach ($fileUtil->getDropDown('mbg') as $key => $value) {
         echo "<a class='label taglabel' href='#' data-tag=".$key.">".$value."</a>&nbsp;&nbsp;";
       }?>
       <h4>照片</h4>
-      <?php foreach (FileArray::getDropDown('pic') as $key => $value) {
+      <?php foreach ($fileUtil->getDropDown('pic') as $key => $value) {
         echo "<a class='label taglabel' href='#' data-tag=".$key.">".$value."</a>&nbsp;&nbsp;";
       }?>
       <h4>结案及术后</h4>
-      <?php foreach (FileArray::getDropDown('casesummary') as $key => $value) {
+      <?php foreach ($fileUtil->getDropDown('casesummary') as $key => $value) {
         echo "<a class='label taglabel' href='#' data-tag=".$key.">".$value."</a>&nbsp;&nbsp;";
       }?>
       <h4>申请表</h4>
-      <?php foreach (FileArray::getDropDown('appfiles') as $key => $value) {
+      <?php foreach ($fileUtil->getDropDown('appfiles') as $key => $value) {
         echo "<a class='label taglabel' href='#' data-tag=".$key.">".$value."</a>&nbsp;&nbsp;";
       }?>
     </p>
@@ -150,7 +153,7 @@
 			$.ajax({
             type: "post",
             dataType: 'json',
-            url: "<?php echo $this->createUrl('caseFile/updateTag');?>",
+            url: "<?php echo $this->createUrl('casefile/updateTag');?>",
             data:_updatedata,
             cache: false,
             error: function (XMLHttpRequest, textStatus, errorThrown) {

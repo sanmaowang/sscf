@@ -20,11 +20,11 @@ class SiteController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('login','logout','error'),
+				'actions'=>array('index','login','logout','error'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','settings'),
+				'actions'=>array('settings'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -42,29 +42,47 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+		if(isset($_GET['getkids']) && $_GET['getkids'] == 'all'){
+			$criteria =new CDbCriteria;
+			$criteria->select = 'id,name,avatar,create_time,status';
+			$criteria->order = 'create_time DESC';
+
+			$children = Childcase::model()->findAll( $criteria );
+
+			$kids = array();
+			$d = array();
+			foreach ($children as $key => $child) {
+				if($child->status == 2 || $child->status == 3){
+					$date = substr($child->create_time,0,4);
+					$kid['id'] = $child->id;
+					$kid['name'] = $child->name;
+					$kid['avatar'] = $child->avatar;
+					$d[$date][] = $kid;
+				}
+			}
+			header('Content-type: application/json');
+      $json = CJSON::encode($d);
+  		echo $_GET['callback'] . ' (' . $json . ');';
+		}else{
 		$this->redirect('/childcase/index');
-		$criteria = new CDbCriteria;
-    $criteria->with = 'user';
-    $criteria->join = "JOIN tb_user_file on t.id=tb_user_file.file_id";  
-    $criteria->condition = 'tb_user_file.user_id=:user_id';
-    $criteria->params = array(':user_id'=>Yii::app()->user->id);
-    $criteria->order = 't.id asc';
-
-    $item_count = File::model()->count($criteria);
-
-		$pages = new CPagination($item_count);
-		$pages->setPageSize(10);
-		$pages->applyLimit($criteria); 
-
-		$this->render('index',array(
-		  'model'=> File::model()->findAll($criteria),
-		        'item_count'=>$item_count,
-		        'page_size'=>10,
-		        'items_count'=>$item_count,
-		        'pages'=>$pages,
-		));
+		}
 	}
 
+	public function actionChildren()
+	{
+		$children = Childcase::model()->findAll();
+		$kids = array();
+		foreach ($children as $key => $child) {
+			if($child->status == 2 || $child->status == 3){
+				$kid['id'] = $child->id;
+				$kid['name'] = $child->name;
+				$kid['avatar'] = $child->avatar;
+				array_push($kids,$kid);
+			}
+		}
+		header('Content-type: application/json');
+    echo CJSON::encode($kids);
+	}
 	public function actionSettings()
 	{
 		$id = Yii::app()->user->id;

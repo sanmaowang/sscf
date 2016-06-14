@@ -46,12 +46,17 @@ $this->breadcrumbs=array(
 			<?php foreach($contacts as $index=>$c):?>
 				<tr>
 					<td><?php echo $index+1;?></td>
-					<td><a href="<?php echo $this->createUrl('orgContact/view',array('id'=>$c->id))?>"><?php echo $c->name;?></a></td>
+					<td><a href="<?php echo $this->createUrl('orgcontact/view',array('id'=>$c->id))?>"><?php echo $c->name;?></a></td>
 					<td><?php echo $c->department;?></td>
 					<td><?php echo $c->job;?></td>
 					<td><?php echo $c->mobile;?></td>
 					<td>
-						<a href="<?php echo $this->createUrl('orgContact/update',array('id'=>$c->id));?>" class="btn btn-info btn-mini">编辑</a>
+						<a href="<?php echo $this->createUrl('orgcontact/update',array('id'=>$c->id));?>" class="btn btn-info btn-mini">编辑</a>
+							<?php echo CHtml::ajaxLink('删除',array('orgcontact/delete','id'=>$c->id),
+                  array('type'=>'POST','success'=>'function(data){var d = $.parseJSON(data);var _id = d.id;$("#delete-"+_id+"").parent().parent().remove();}'),
+                  array('confirm'=>'该操作不可逆，确定要删除吗?',
+                        'id'=>'delete-'.$c->id,
+                        'class'=>'btn btn-mini btn-danger')); ?>
 					</td>
 				</tr>
 			<?php endforeach;?>

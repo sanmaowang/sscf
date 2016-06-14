@@ -1,5 +1,7 @@
 <?php
 Yii::import("application.extensions.Pinyin");
+Yii::import("application.extensions.UpYun");
+
 class CaseFileController extends Controller
 {
 	public $code = "CaseFile";
@@ -78,6 +80,9 @@ class CaseFileController extends Controller
 	{
 		$model=new CaseFile("create");
 
+		ini_set('upload_max_filesize', '1024M'); 
+		ini_set('post_max_size', '1024M'); 
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -88,13 +93,15 @@ class CaseFileController extends Controller
 			$model->attributes=$_POST['CaseFile'];
       $file=CUploadedFile::getInstance($model,'path');
 
+      $result = array();
+
       if(!empty($file))
       {
-      	$folder_type = array("under review","under review","under review","funded","passed");
-        $path = Yii::getPathOfAlias('webroot').DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'case'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR;
+      	$folder_type = array("under review","funded","passed");
+        // $path = Yii::getPathOfAlias('webroot').DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'case'.DIRECTORY_SEPARATOR.$folder_type[$model->case->folder].DIRECTORY_SEPARATOR;
 
       	$case_name = $this->toEnglish($model->case->name);
-        $file_path = $model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR.$model->title.'_'.intval(time(), 16).'.'.$file->extensionName;
+        $file_path = $model->case_id.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR.$model->title.'_'.intval(time(), 16).'.'.$file->extensionName;
         $model->path = $file_path;
         
         // if (!file_exists($path.$model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR)) {
@@ -102,9 +109,21 @@ class CaseFileController extends Controller
         // }
 
         // $file->saveAs(Yii::app()->basePath.'/../uploads/case/'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR.$file_path);
-				
-      	$upyun_path = DIRECTORY_SEPARATOR.'case'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR;
-      	$result = Yii::app()->upyun->saveImg($file->tempName,$upyun_path.$file_path);
+      	$upyun_path = DIRECTORY_SEPARATOR.'case'.DIRECTORY_SEPARATOR.$folder_type[$model->case->folder].DIRECTORY_SEPARATOR;
+      	if($file->tempName){
+      		$config =  array(
+					    'user_name' => 'sanmao',
+					    'pwd' => 'N3XNuTuERE',
+					    'bucket' => 'seastar',
+					);
+					$upyun = new UpYun($config['bucket'], $config['user_name'], $config['pwd']);
+					$fh = fopen($file->tempName, 'rb');
+    			$result = $upyun->writeFile($upyun_path.$file_path, $fh, True);   // 上传图片，自动创建目录
+    			fclose($fh);
+      		// $result = Yii::app()->upyun->saveImg($file->tempName,$upyun_path.$file_path);
+      		// var_dump($result);
+      		// return false;
+      	}
       }
 
 			if(count($result) > 0 && $model->save()){
@@ -119,9 +138,9 @@ class CaseFileController extends Controller
 
 		}
 
-		$this->render('create',array(
-			'model'=>$model,
-		));
+		// $this->render('create',array(
+		// 	'model'=>$model,
+		// ));
 	}
 
 
@@ -136,18 +155,21 @@ class CaseFileController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+		ini_set('upload_max_filesize', '1024M'); 
+		ini_set('post_max_size', '1024M'); 
 		if(isset($_POST['CaseFile']))
 		{
 
 			$file=CUploadedFile::getInstance($model,'path');
+			$result = array();
 
       if(!empty($file))
       {
-      	$folder_type = array("under review","under review","under review","funded","passed");
-        $path = Yii::getPathOfAlias('webroot').DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'case'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR;
+      	$folder_type = array("under review","funded","passed");
+        // $path = Yii::getPathOfAlias('webroot').DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'case'.DIRECTORY_SEPARATOR.$folder_type[$model->case->folder].DIRECTORY_SEPARATOR;
 
       	$case_name = $this->toEnglish($model->case->name);
-        $file_path = $model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR.$model->title.'.'.$file->extensionName;
+        $file_path = $model->case_id.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR.$model->title.'.'.$file->extensionName;
         $model->path = $file_path;
         
         // if (!file_exists($path.$model->case_id.'_'.$case_name.DIRECTORY_SEPARATOR.$model->getFolder().DIRECTORY_SEPARATOR)) {
@@ -156,19 +178,24 @@ class CaseFileController extends Controller
 
         // $file->saveAs(Yii::app()->basePath.'/../uploads/case/'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR.$file_path);
         
-        $upyun_path = DIRECTORY_SEPARATOR.'case'.DIRECTORY_SEPARATOR.$folder_type[$model->case->status].DIRECTORY_SEPARATOR;
-      	$result = Yii::app()->upyun->saveImg($file->tempName,$upyun_path.$file_path);
-
+        $upyun_path = DIRECTORY_SEPARATOR.'case'.DIRECTORY_SEPARATOR.$folder_type[$model->case->folder].DIRECTORY_SEPARATOR;
+        if($file->tempName){
+      		$result = Yii::app()->upyun->saveImg($file->tempName,$upyun_path.$file_path);
+      	}
+      	if(isset($resut) && count($result) > 0){
+					$model->attributes=$_POST['CaseFile'];
+      	}
       }else{
       	$_POST['CaseFile']['path'] = $model->path;
+				$model->attributes=$_POST['CaseFile'];
       }
-			$model->attributes=$_POST['CaseFile'];
 
-			if(count($result) > 0  && $model->save()){
+			if($model->save()){
 				if(isset($_POST['CaseFamily']['return'])){
 					$this->redirect(array('/childcase/update','id'=>$model->case_id,'flag'=>$_POST['CaseFamily']['return']));
 				}else{
-					$this->redirect(array('view','id'=>$model->id));
+        	Yii::app()->user->setFlash('success', "保存成功");
+					$this->redirect(array('/childcase/update','id'=>$model->case_id,'flag'=>$flag));
 				}
 			}
 			

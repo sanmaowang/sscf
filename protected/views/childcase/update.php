@@ -20,8 +20,8 @@ $this->menu=array(
 	array('label'=>'照片','url'=>array('update','id'=>$model->id,'flag'=>'pic'),'active'=>$flag == 'pic'),
 	array('label'=>'结案及术后','url'=>array('update','id'=>$model->id,'flag'=>'casesummary'),'active'=>$flag == 'casesummary'),
 	array('label'=>'申请表','url'=>array('update','id'=>$model->id,'flag'=>'appfiles'),'active'=>$flag == 'appfiles'),
-	array('label'=>'Case负责人信息'),
-	array('label'=>'案例负责人','url'=>array('updatecase','id'=>$model->id,'flag'=>'case'),'active'=>$flag == 'case'),
+	array('label'=>'Case管理信息'),
+	array('label'=>'案例负责人及状态变更','url'=>array('updatecase','id'=>$model->id,'flag'=>'case'),'active'=>$flag == 'case'),
 );
 $template = 'memo/'.$flag;
 $data = array('model'=>$model);

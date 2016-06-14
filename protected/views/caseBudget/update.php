@@ -7,6 +7,6 @@ $this->breadcrumbs=array(
 
 ?>
 <div class="page-header">
-<h1>更新账单 <?php echo $model->id; ?></h1>
+<h1>更新账单</h1>
 </div>
 <?php echo $this->renderPartial('_form',array('model'=>$model,'orgs'=>$orgs,'first'=>$first)); ?>

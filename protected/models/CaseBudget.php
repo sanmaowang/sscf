@@ -24,24 +24,28 @@ class CaseBudget extends CActiveRecord
 	 */
 
 	static $budget_type_name = array(
-		'org_budget'=>'机构意向',
-		'our_budget'=>'海星意向',
+		'org_budget'=>'其他机构',
+		'our_budget'=>'海星',
+		'home_budget'=>'家庭自筹',
 	);
 
 	static $cost_type_name = array(
-		'org_cost'=>'机构资助',
-		'our_cost'=>'海星资助',
+		'org_cost'=>'其他机构',
+		'our_cost'=>'海星',
+		'home_cost'=>'家庭自筹',
 	);
 
 	public function getType($key)
 	{
 		$labels = array(
 		'hospital_cost'=>'手术实际费用',
-		'our_cost'=>'海星资助',
-		'org_cost'=>'机构资助',
+		'home_cost'=>'家庭自筹',
+		'our_cost'=>'海星',
+		'org_cost'=>'其他机构',
 		'hospital_budget'=>'手术预算',
-		'our_budget'=>'海星意向',
-		'org_budget'=>'机构意向',
+		'home_budget'=>'家庭自筹',
+		'our_budget'=>'海星',
+		'org_budget'=>'其他机构',
 		);
 		return $labels[$key];
 	}
@@ -77,8 +81,8 @@ class CaseBudget extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('case_id, amount, fee_type, source, note','required'),
-			array('case_id, amount, fee_type, source', 'numerical', 'integerOnly'=>true),
+			array('case_id, amount, fee_type, source','required'),
+			array('case_id, fee_type, source', 'numerical', 'integerOnly'=>true),
 			array('amount', 'numerical'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

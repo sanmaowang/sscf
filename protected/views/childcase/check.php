@@ -19,7 +19,7 @@ $topics = array("fbg","pic","mbg","casesummary","appfiles");
 $img_exts = array("jpg","png","bmp","jpeg","gif");
       $excel_exts = array("xls","xlsx");
       $word_exts = array("doc","docx");
-      $folder_type = array("under review","under review","under review","funded","passed");
+      $folder_type = array("under review","funded","passed");
 
 ?>
 <div class="page-header row-fluid" style="border:none;margin-bottom:10px;">

@@ -31,8 +31,8 @@ $this->menu=array(
 	<legend>Personal Info</legend>
 
 	<?php echo $form->textFieldRow($model,'name',array('class'=>'span5','maxlength'=>20)); ?>
-	
-	<?php echo $form->textFieldRow($model,'nickname',array('class'=>'span5','maxlength'=>64)); ?>
+
+	<?php echo $form->textFieldRow($model,'username',array('class'=>'span5','maxlength'=>64)); ?>
   
 	<?php echo $form->fileFieldRow($model, 'avatar'); ?>
 

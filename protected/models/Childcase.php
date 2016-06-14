@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table 'tb_case':
  * @property string $id
+ * @property string $kid
  * @property string $name
  * @property string $nickname
  * @property string $avatar
@@ -68,7 +69,7 @@ class Childcase extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, birthday, gender, home, height, weight, id_card, nation, citivaltype, contact, telephone', 'required','on'=>'child'),
+			array('name, birthday, gender, home, id_card, nation, citivaltype, contact, telephone', 'required','on'=>'child'),
 			array('state_desc, medical_insurance_rate, other_subsidy, have_other_illness, have_pneumonia, operation_hospital, doctor, is_one_time_cure, admission_time, operation_plan_time,surgery_time', 'required','on'=>'medical'),
 			array('economical_source_desc, special_desc', 'required','on'=>'family'),
 			array('name, create_by', 'required'),
@@ -84,10 +85,10 @@ class Childcase extends CActiveRecord
 			array('address', 'length', 'max'=>160),
 			array('medical_insurance_rate, other_subsidy, operation_hospital', 'length', 'max'=>255),
 			array('other_foundation_staff, staff, applicant', 'length', 'max'=>11),
-			array('birthday, state_desc, have_other_illness, have_pneumonia, admission_time, operation_plan_time, create_time, update_time', 'safe'),
+			array('kid, birthday, state_desc, have_other_illness, have_pneumonia, admission_time, operation_plan_time, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, nickname, avatar, birthday, gender, home, height, weight, id_card, address, nation, citivaltype, contact, telephone, state_desc, medical_insurance_rate, other_subsidy, have_other_illness, have_pneumonia, operation_hospital, doctor, is_one_time_cure, admission_time, operation_plan_time, other_foundation_staff, staff, applicant,applicant_relationship, create_by, source, status, create_time, update_time', 'safe', 'on'=>'search'),
+			array('id, kid, name, nickname, avatar, birthday, gender, home, height, weight, id_card, address, nation, citivaltype, contact, telephone, state_desc, medical_insurance_rate, other_subsidy, have_other_illness, have_pneumonia, operation_hospital, doctor, is_one_time_cure, admission_time, operation_plan_time, other_foundation_staff, staff, applicant,applicant_relationship, create_by, source, status, create_time, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -115,11 +116,12 @@ class Childcase extends CActiveRecord
 		$key = $this->status;
 		$status = array(
 			0 => "新建",
-			1 => "等待资助",
-			2 => "确认资助",
-			3 => "已资助",
+			1 => "审核中",
+			2 => "同意资助",
+			3 => "已打款",
 			4 => "不资助",
 			5 => "已结案",
+			6 => "Deceased",
 		);
 		return $status[$key];
 	}
@@ -129,11 +131,12 @@ class Childcase extends CActiveRecord
 		$key = $this->status;
 		$status = array(
 			0 => "<span class='label'>新建</label>",
-			1 => "<span class='label label-info'>等待资助</label>",
-			2 => "<span class='label label-warning'>确认资助</label>",
-			3 => "<span class='label label-success'>已资助</label>",
-			4 => "<span class='label label-important'>不资助</label>",
-			5 => "<span class='label label-inverse'>已结案</label>",
+			1 => "<span class='label label-info'>审核中</span>",
+			2 => "<span class='label label-warning'>同意资助</span>",
+			3 => "<span class='label label-success'>已打款</span>",
+			4 => "<span class='label label-important'>不资助</span>",
+			5 => "<span class='label label-inverse'>已结案</span>",
+			6 => "<span class='label'>Deceased</span>",
 		);
 		return $status[$key];
 	}
@@ -144,6 +147,7 @@ class Childcase extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'kid' => '资助编号',
 			'name' => '姓名',
 			'nickname' => '昵称',
 			'avatar' => '头像',
@@ -220,6 +224,7 @@ class Childcase extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
+		$criteria->compare('kid',$this->id,true);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('nickname',$this->nickname,true);
 		$criteria->compare('avatar',$this->avatar,true);

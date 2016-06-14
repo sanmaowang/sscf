@@ -9,9 +9,6 @@ class CaseFamilyController extends Controller
 	 */
 	public $layout='//layouts/column1';
 
-	/**
-	 * @return array action filters
-	 */
 	public function filters()
 	{
 		return array(
@@ -32,12 +29,8 @@ class CaseFamilyController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','delete'),
 				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -117,17 +110,11 @@ class CaseFamilyController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		if(Yii::app()->request->isPostRequest)
+		$this->loadModel($id)->delete();
+		if(Yii::app()->request->isAjaxRequest)
 		{
-			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
-
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		  echo CJSON::encode(array("id"=>$id));
 		}
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
 
 	/**

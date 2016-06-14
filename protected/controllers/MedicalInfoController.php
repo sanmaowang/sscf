@@ -33,12 +33,8 @@ class MedicalInfoController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','delete'),
 				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -77,8 +73,8 @@ class MedicalInfoController extends Controller
 				$this->redirect(array('childcase/update','id'=>$id,'flag'=>'chris'));
 		}
 
-  	$folder_type = array("under review","under review","under review","funded","passed");
-		$folder = $folder_type[$model->case->status];
+  	$folder_type = array("under review","funded","passed");
+		$folder = $folder_type[$model->case->folder];
 		$files = CaseFile::model()->findAllByAttributes(array('case_id'=>$id,'key'=>$type));
 
 		$arr = array();
@@ -117,9 +113,9 @@ class MedicalInfoController extends Controller
 				$this->redirect(array('childcase/update','id'=>$model->case_id,'flag'=>'chris'));
 		}
 
-		$folder_type = array("under review","under review","under review","funded","passed");
+		$folder_type = array("under review","funded","passed");
 		$case = Childcase::model()->findByPk($model->case_id);
-		$folder = $folder_type[$case->status];
+		$folder = $folder_type[$case->folder];
 
 		$files = CaseFile::model()->findAllByAttributes(array('case_id'=>$model->case_id,'key'=>'mbg_echocardiography'));
 
@@ -137,11 +133,13 @@ class MedicalInfoController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		$this->loadModel($id)->delete();
+		if(Yii::app()->request->isAjaxRequest)
+		{
+		  echo CJSON::encode(array("id"=>$id));
+		}
+		
 	}
 
 	/**

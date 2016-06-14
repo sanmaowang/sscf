@@ -14,6 +14,6 @@ $this->menu=array(
 );
 ?>
 <div class="page-header">
-<h2>更新 医生评价 报告</h2>
+<h2>更新 医学评估 医疗报告</h2>
 </div>
 <?php echo $this->renderPartial('_form', array('model'=>$model,'files'=>$files,'folder'=>$folder)); ?>

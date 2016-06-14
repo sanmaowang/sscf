@@ -32,11 +32,11 @@ class CaseBudgetController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -71,7 +71,7 @@ class CaseBudgetController extends Controller
 		{
 			$model->attributes=$_POST['CaseBudget'];
 			$model->type = $_POST['CaseBudget']['type'];
-			$model->last_date = $_POST['CaseBudget']['last_date'];
+			$model->last_date = isset($_POST['CaseBudget']['last_date'])?$_POST['CaseBudget']['last_date']:null;
 			$model->case_id = $case_id;
 			$model->fee_type = $fee_type;
 			if($model->save()){
@@ -80,7 +80,7 @@ class CaseBudgetController extends Controller
 		}
 
 
-		if($_GET['type']){
+		if(isset($_GET['type'])){
 			$orgs = Org::model()->findAll( 'type < 2 && parent_id = 0');
 			// $case = Childcase::model()->findByPk($case_id);
 			// $orgs[] = $case->operation_hospital;
@@ -110,7 +110,7 @@ class CaseBudgetController extends Controller
 		{
 			$model->attributes=$_POST['CaseBudget'];
 			$model->type = $_POST['CaseBudget']['type'];
-			$model->last_date = $_POST['CaseBudget']['last_date'];
+			$model->last_date = isset($_POST['CaseBudget']['last_date'])?$_POST['CaseBudget']['last_date']:null;
 
 			if($model->save()){
 				$this->redirect(array('/childcase/update','id'=>$model->case_id,'flag'=>'economic'));
@@ -145,8 +145,11 @@ class CaseBudgetController extends Controller
 			$this->loadModel($id)->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			if(Yii::app()->request->isAjaxRequest)
+			{
+			  echo CJSON::encode(array("id"=>$id));
+			}
+			
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');

@@ -53,7 +53,9 @@ class ChildcaseController extends Controller
 		$orgs = Org::model()->findAll();
 		$this->render('view',array(
 			'model'=>$model,
-			'orgs'=>$orgs
+			'orgs'=>$orgs,
+			'hospital'=>$model->operation_hospital?Org::model()->findByPk($model->operation_hospital):null,
+			'doctor'=>$model->doctor?OrgContact::model()->findByPk($model->doctor):null
 		));
 	}
 
@@ -132,9 +134,21 @@ class ChildcaseController extends Controller
 		$model->scenario = $flag;
 
 		$orgs = null;
+		// $next_flag = $flag;
+		// $flags = array('child','family','other','medical','economic','chris');
+		// if(in_array($flag, $flags)){
+		// 	$index = array_search($flag,$flags);
+		// 	if( $index + 1 < 6){
+		// 		$next_flag = $flags[$index+1];
+		// 	}
+		// }
 
+		// if($flag !='case'){
+		// }else{
+		// 	$next_flag = 'child';
+		// }
 		if($flag =="economic"){
-			$orgs = Org::model()->findAll( 'type < 3');
+			$orgs = Org::model()->findAll();
 		}
 
 
@@ -164,9 +178,11 @@ class ChildcaseController extends Controller
 				$model->economical_source_desc = $_POST['Childcase']['economical_source_desc'];
 				$model->special_desc = $_POST['Childcase']['special_desc'];
 			}
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){
+      	Yii::app()->user->setFlash('success', "保存成功");
+				$this->redirect(array('update','id'=>$model->id,'flag'=>$flag));
 			}
+		}
 
 
 		$this->render('update',array(
@@ -257,6 +273,12 @@ class ChildcaseController extends Controller
 		$passed_count = Childcase::model()->countByAttributes(array(
             'status'=> 4
         ));
+		$over_count = Childcase::model()->countByAttributes(array(
+            'status'=> 5
+        ));
+		$deceased_count = Childcase::model()->countByAttributes(array(
+            'status'=> 6
+        ));
 
     $criteria = (isset($_GET['status']))?array('condition'=>'status='.$_GET['status']):array();
  		
@@ -285,6 +307,8 @@ class ChildcaseController extends Controller
 			'confirm_count'=>$confirm_count,
 			'funded_count'=>$funded_count,
 			'passed_count'=>$passed_count,
+			'over_count'=>$over_count,
+			'deceased_count'=>$deceased_count,
 		));
 	}
 

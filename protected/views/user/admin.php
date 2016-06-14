@@ -1,14 +1,14 @@
 <?php
 $this->breadcrumbs=array(
-	'海星团队'=>array('index'),
+	'海星团队'=>array('admin'),
 	'Manage',
 );
 
 $this->menu=array(
 	array('label'=>'Operation'),
   array('label'=>'List User', 'icon'=>'list', 'url'=>array('index')),
-  array('label'=>'Create User', 'icon'=>'plus', 'url'=>array('create')),
   array('label'=>'Manage User', 'icon'=>'pencil', 'url'=>array('admin'),'active'=>true),
+  array('label'=>'Create User', 'icon'=>'plus', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

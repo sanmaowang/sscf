@@ -9208,3 +9208,1557 @@ Stack trace:
 REQUEST_URI=/childcase/update/3?flag=child
 in /Users/sanmao/sscf/protected/controllers/ChildcaseController.php (158)
 in /Users/sanmao/sscf/index.php (16)
+2014/12/14 22:26:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "uploads/avatar/avatar_1418127347.jpg"。' in /Users/sanmao/sscf/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/sanmao/sscf/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/avatar/...')
+#1 /Users/sanmao/sscf/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Users/sanmao/sscf/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/avatar/avatar_1418127347.jpg
+HTTP_REFERER=http://seastar.local/childcase/40
+---
+2014/12/15 15:33:19 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('caseFamily/dele...')
+#9 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseFamily/delete/49
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/46?flag=family
+---
+2014/12/15 15:33:27 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('casefamily/dele...')
+#9 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/casefamily/delete/49
+---
+2014/12/15 15:33:28 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('caseFamily/dele...')
+#9 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseFamily/delete/49
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/46?flag=family
+---
+2014/12/15 15:33:45 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('caseFamily/dele...')
+#9 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseFamily/delete/49
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/46?flag=family
+---
+2014/12/15 15:35:24 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('caseFamily/dele...')
+#9 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseFamily/delete/49
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/46?flag=family
+---
+2014/12/15 15:35:32 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('caseFamily/dele...')
+#9 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseFamily/delete/49
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/46?flag=family
+---
+2014/12/15 15:35:41 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('caseFamily/dele...')
+#9 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseFamily/delete/49
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/46?flag=family
+---
+2014/12/15 15:35:55 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('caseFamily/dele...')
+#9 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseFamily/delete/49
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/46?flag=family
+---
+2014/12/15 15:45:00 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('caseFamily/dele...')
+#9 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseFamily/delete/49
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/46?flag=family
+---
+2014/12/15 15:45:05 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('caseFamily/dele...')
+#9 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseFamily/delete/49
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/46?flag=family
+---
+2014/12/15 15:51:51 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('caseFamily/dele...')
+#9 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseFamily/delete/49
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/46?flag=family
+---
+2014/12/15 19:27:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/12/15 22:34:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/12/15 23:07:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/12/15 23:23:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/12/15 23:23:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/12/15 23:25:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://team.seastarchildren.com/site/login
+---
+2014/12/16 00:16:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/12/16 00:46:08 [warning] [application] Failed to set unsafe attribute "note" of "OrgContact".
+in /home/seastarc/public_html/team/protected/controllers/OrgcontactController.php (94)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/16 00:46:14 [warning] [application] Failed to set unsafe attribute "note" of "OrgContact".
+in /home/seastarc/public_html/team/protected/controllers/OrgcontactController.php (94)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/16 04:57:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/12/16 14:13:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/12/22 17:17:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/12/22 17:17:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/12/29 09:24:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/12/29 09:28:26 [warning] [application] Failed to set unsafe attribute "note" of "OrgContact".
+in /home/seastarc/public_html/team/protected/controllers/OrgcontactController.php (94)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:30:43 [warning] [application] Failed to set unsafe attribute "note" of "OrgContact".
+in /home/seastarc/public_html/team/protected/controllers/OrgcontactController.php (94)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:34:11 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:34:14 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:34:15 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:34:20 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:34:21 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:34:27 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:34:33 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:34:37 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:34:43 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (67)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:34:57 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:34:57 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:35:01 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:35:06 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:35:10 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:35:13 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:35:16 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:35:18 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:35:24 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team/protected/controllers/CasefamilyController.php (67)
+in /home/seastarc/public_html/team/index.php (16)
+2014/12/29 09:38:38 [error] [exception.CException] exception 'CException' with message 'MedicalInfoController 无法找到请求的视图 "create".' in /home/seastarc/public_html/team/framework/web/CController.php:878
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#1 /home/seastarc/public_html/team/protected/controllers/MedicalinfoController.php(98): CController->render('create', Array)
+#2 [internal function]: MedicalInfoController->actionCreate('47', 'mbg_echocardiog...')
+#3 /home/seastarc/public_html/team/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#4 /home/seastarc/public_html/team/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#5 /home/seastarc/public_html/team/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#12 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('create')
+#14 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalInfo/cre...')
+#15 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/medicalInfo/create/47?type=mbg_echocardiography
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/47?flag=chris
+---
+2014/12/29 09:38:44 [error] [exception.CException] exception 'CException' with message 'MedicalInfoController 无法找到请求的视图 "create".' in /home/seastarc/public_html/team/framework/web/CController.php:878
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#1 /home/seastarc/public_html/team/protected/controllers/MedicalinfoController.php(98): CController->render('create', Array)
+#2 [internal function]: MedicalInfoController->actionCreate('47', 'mbg_echocardiog...')
+#3 /home/seastarc/public_html/team/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#4 /home/seastarc/public_html/team/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#5 /home/seastarc/public_html/team/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#12 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('create')
+#14 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalInfo/cre...')
+#15 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/medicalInfo/create/47?type=mbg_echocardiography
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/47?flag=chris
+---
+2014/12/29 09:40:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "casefile/create"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('casefile/create')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/casefile/create
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/47?flag=fbg
+---
+2014/12/29 09:43:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "casefile/create"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('casefile/create')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/casefile/create
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/47?flag=fbg
+---
+2014/12/29 15:13:26 [error] [exception.CException] exception 'CException' with message 'MedicalInfoController 无法找到请求的视图 "create".' in /home/seastarc/public_html/team/framework/web/CController.php:878
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#1 /home/seastarc/public_html/team/protected/controllers/MedicalinfoController.php(98): CController->render('create', Array)
+#2 [internal function]: MedicalInfoController->actionCreate('47', 'mbg_echocardiog...')
+#3 /home/seastarc/public_html/team/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#4 /home/seastarc/public_html/team/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#5 /home/seastarc/public_html/team/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#12 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('create')
+#14 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalInfo/cre...')
+#15 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/medicalInfo/create/47?type=mbg_echocardiography
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/47?flag=chris
+---
+2014/12/29 15:13:38 [error] [exception.CException] exception 'CException' with message 'MedicalInfoController 无法找到请求的视图 "create".' in /home/seastarc/public_html/team/framework/web/CController.php:878
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#1 /home/seastarc/public_html/team/protected/controllers/MedicalinfoController.php(98): CController->render('create', Array)
+#2 [internal function]: MedicalInfoController->actionCreate('47', 'mbg_echocardiog...')
+#3 /home/seastarc/public_html/team/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#4 /home/seastarc/public_html/team/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#5 /home/seastarc/public_html/team/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#12 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('create')
+#14 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalInfo/cre...')
+#15 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/medicalInfo/create/47?type=mbg_echocardiography
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/47?flag=chris
+---
+2014/12/29 15:13:42 [error] [exception.CException] exception 'CException' with message 'MedicalInfoController 无法找到请求的视图 "create".' in /home/seastarc/public_html/team/framework/web/CController.php:878
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#1 /home/seastarc/public_html/team/protected/controllers/MedicalinfoController.php(98): CController->render('create', Array)
+#2 [internal function]: MedicalInfoController->actionCreate('47', 'mbg_echocardiog...')
+#3 /home/seastarc/public_html/team/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#4 /home/seastarc/public_html/team/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#5 /home/seastarc/public_html/team/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#12 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('create')
+#14 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalInfo/cre...')
+#15 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/medicalInfo/create/47?type=mbg_echocardiography
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/47?flag=chris
+---
+2014/12/29 15:13:45 [error] [exception.CException] exception 'CException' with message 'MedicalInfoController 无法找到请求的视图 "create".' in /home/seastarc/public_html/team/framework/web/CController.php:878
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#1 /home/seastarc/public_html/team/protected/controllers/MedicalinfoController.php(98): CController->render('create', Array)
+#2 [internal function]: MedicalInfoController->actionCreate('47', 'mbg_echocardiog...')
+#3 /home/seastarc/public_html/team/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#4 /home/seastarc/public_html/team/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#5 /home/seastarc/public_html/team/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#12 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('create')
+#14 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalinfo/cre...')
+#15 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/medicalinfo/create/47?type=mbg_echocardiography
+---
+2014/12/29 15:13:48 [error] [exception.CException] exception 'CException' with message 'MedicalInfoController 无法找到请求的视图 "create".' in /home/seastarc/public_html/team/framework/web/CController.php:878
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#1 /home/seastarc/public_html/team/protected/controllers/MedicalinfoController.php(98): CController->render('create', Array)
+#2 [internal function]: MedicalInfoController->actionCreate('47', 'mbg_echocardiog...')
+#3 /home/seastarc/public_html/team/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#4 /home/seastarc/public_html/team/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#5 /home/seastarc/public_html/team/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#12 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('create')
+#14 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalinfo/cre...')
+#15 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/medicalinfo/create/47?type=mbg_echocardiography
+---
+2014/12/29 15:13:51 [error] [exception.CException] exception 'CException' with message 'MedicalInfoController 无法找到请求的视图 "create".' in /home/seastarc/public_html/team/framework/web/CController.php:878
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#1 /home/seastarc/public_html/team/protected/controllers/MedicalinfoController.php(98): CController->render('create', Array)
+#2 [internal function]: MedicalInfoController->actionCreate('47', 'mbg_echocardiog...')
+#3 /home/seastarc/public_html/team/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#4 /home/seastarc/public_html/team/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#5 /home/seastarc/public_html/team/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /home/seastarc/public_html/team/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /home/seastarc/public_html/team/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /home/seastarc/public_html/team/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /home/seastarc/public_html/team/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/seastarc/public_html/team/framework/web/CController.php(291): CFilterChain->run()
+#12 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('create')
+#14 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalInfo/cre...')
+#15 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/medicalInfo/create/47?type=mbg_echocardiography
+---
+2014/12/29 15:22:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "casefile/create"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('casefile/create')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/casefile/create
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/47?flag=fbg
+---
+2014/12/29 15:24:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "casefile/create"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('casefile/create')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/casefile/create
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/47?flag=fbg
+---
+2014/12/29 15:26:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "caseFile/updateTag"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('caseFile/update...')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/caseFile/updateTag
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/42?flag=mbg
+---
+2014/12/29 15:26:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "caseFile/updateTag"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('caseFile/update...')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/caseFile/updateTag
+HTTP_REFERER=http://team.seastarchildren.com/childcase/update/42?flag=mbg
+---
+2015/01/08 23:30:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2015/01/14 22:11:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2015/01/18 14:54:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2015/03/06 14:19:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2015/03/08 11:48:42 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Admin-25' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `tb_auth_assignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES (:itemname, :userid, :bizrule, :data).
+in /home/seastarc/public_html/team/protected/modules/srbac/controllers/AuthitemController.php (74)
+in /home/seastarc/public_html/team/protected/modules/srbac/controllers/AuthitemController.php (190)
+in /home/seastarc/public_html/team/index.php (16)
+2015/03/08 11:48:42 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Admin-25' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `tb_auth_assignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES (:itemname, :userid, :bizrule, :data)' in /home/seastarc/public_html/team/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /home/seastarc/public_html/team/framework/db/CDbCommand.php(1247): CDbCommand->execute(Array)
+#1 /home/seastarc/public_html/team/framework/web/auth/CDbAuthManager.php(263): CDbCommand->insert('tb_auth_assignm...', Array)
+#2 /home/seastarc/public_html/team/protected/modules/srbac/controllers/AuthitemController.php(74): CDbAuthManager->assign('Admin', '25', '', '')
+#3 /home/seastarc/public_html/team/protected/modules/srbac/controllers/AuthitemController.php(190): AuthitemController->_assignUser('25', Array, '', '')
+#4 /home/seastarc/public_html/team/framework/web/actions/CInlineAction.php(49): AuthitemController->actionAssign()
+#5 /home/seastarc/public_html/team/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /home/seastarc/public_html/team/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /home/seastarc/public_html/team/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/seastarc/public_html/team/framework/web/CWebApplication.php(282): CController->run('assign')
+#9 /home/seastarc/public_html/team/framework/web/CWebApplication.php(141): CWebApplication->runController('srbac/authitem/...')
+#10 /home/seastarc/public_html/team/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /home/seastarc/public_html/team/index.php(16): CApplication->run()
+#12 {main}
+REQUEST_URI=/srbac/authitem/assign/assignRoles/1
+HTTP_REFERER=http://team.seastarchildren.com/srbac/authitem/assign
+---
+2015/03/12 17:59:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2015/03/12 18:04:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/UserController.php:168
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/UserController.php(123): UserController->loadModel('22')
+#1 [internal function]: UserController->actionDelete('22')
+#2 /home/seastarc/public_html/team.seastarchildren.org/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#3 /home/seastarc/public_html/team.seastarchildren.org/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#4 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(282): CController->run('delete')
+#13 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('user/delete')
+#14 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#16 {main}
+REQUEST_URI=/user/delete/22?ajax=user-grid
+HTTP_REFERER=http://team.seastarchildren.org/user/admin
+---
+2015/03/12 18:05:50 [warning] [application] Failed to set unsafe attribute "note" of "OrgContact".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/OrgcontactController.php (126)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/12 18:07:46 [warning] [application] Failed to set unsafe attribute "note" of "OrgContact".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/OrgcontactController.php (94)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/12 18:19:53 [warning] [application] Failed to set unsafe attribute "note" of "OrgContact".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/OrgcontactController.php (126)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/12 18:22:46 [warning] [application] Failed to set unsafe attribute "note" of "OrgContact".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/OrgcontactController.php (94)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/12 18:23:38 [warning] [application] Failed to set unsafe attribute "note" of "OrgContact".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/OrgcontactController.php (94)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/12 18:24:21 [warning] [application] Failed to set unsafe attribute "note" of "OrgContact".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/OrgcontactController.php (94)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/13 21:01:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2015/03/13 22:44:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2015/03/24 09:46:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2015/03/24 12:03:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "apple-touch-icon-120x120-precomposed.png"。' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-120x120-precomposed.png
+---
+2015/03/24 12:03:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "apple-touch-icon-120x120.png"。' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon-120x120.png
+---
+2015/03/24 12:03:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "apple-touch-icon.png"。' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('apple-touch-ico...')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/apple-touch-icon.png
+---
+2015/03/25 03:08:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2015/03/25 03:11:53 [warning] [application] Failed to set unsafe attribute "notify" of "User".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/UserController.php (103)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:15:13 [warning] [application] Failed to set unsafe attribute "notify" of "User".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/UserController.php (63)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:31:22 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:32:10 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:32:32 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:32:55 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:33:07 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:33:18 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:33:41 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:33:41 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (67)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:33:46 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:33:58 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:34:01 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:34:28 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:34:45 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:34:49 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:34:52 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:34:56 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:36:24 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:36:27 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:36:51 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:36:55 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:36:57 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:37:00 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:37:00 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (67)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:37:30 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:37:36 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:37:37 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:37:40 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:37:55 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:38:00 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:38:05 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:38:07 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:48:19 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:48:19 [warning] [application] Failed to set unsafe attribute "type_read" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:48:19 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:48:33 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:48:33 [warning] [application] Failed to set unsafe attribute "type_read" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:48:33 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:48:33 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:48:33 [warning] [application] Failed to set unsafe attribute "type_read" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:48:33 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:49:03 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:49:03 [warning] [application] Failed to set unsafe attribute "type_read" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:49:03 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:49:07 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:49:07 [warning] [application] Failed to set unsafe attribute "type_read" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:49:07 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:49:07 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:49:07 [warning] [application] Failed to set unsafe attribute "type_read" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:49:07 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:49:44 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:49:44 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:49:46 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:49:46 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:50:01 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:50:01 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:50:29 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:50:29 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:50:36 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:50:36 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:50:37 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:50:37 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:50:37 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:50:37 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:53:04 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:53:04 [warning] [application] Failed to set unsafe attribute "type_read" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:53:04 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:53:06 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:53:06 [warning] [application] Failed to set unsafe attribute "type_read" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:53:06 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:53:06 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:53:06 [warning] [application] Failed to set unsafe attribute "type_read" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:53:06 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:53:16 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('caseBudget/dele...')
+#9 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseBudget/delete/1
+HTTP_REFERER=http://team.seastarchildren.org/childcase/update/3?flag=economic
+---
+2015/03/25 03:53:45 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:53:51 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:54:27 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:54:27 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 03:54:36 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('caseBudget/dele...')
+#9 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseBudget/delete/1
+HTTP_REFERER=http://team.seastarchildren.org/childcase/update/3?flag=economic
+---
+2015/03/25 04:03:08 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('caseBudget/dele...')
+#9 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseBudget/delete/2
+HTTP_REFERER=http://team.seastarchildren.org/childcase/update/3?flag=economic
+---
+2015/03/25 04:08:29 [warning] [application] Failed to set unsafe attribute "note" of "OrgContact".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/OrgcontactController.php (94)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 04:09:05 [warning] [application] Failed to set unsafe attribute "note" of "OrgContact".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/OrgcontactController.php (94)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/03/25 04:09:35 [warning] [application] Failed to set unsafe attribute "note" of "OrgContact".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/OrgcontactController.php (94)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/04/06 16:27:26 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('caseBudget/dele...')
+#9 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseBudget/delete/2
+HTTP_REFERER=http://team.seastarchildren.org/childcase/update/3?flag=economic
+---
+2015/04/06 16:28:36 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('caseBudget/dele...')
+#9 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseBudget/delete/1
+HTTP_REFERER=http://team.seastarchildren.org/childcase/update/3?flag=economic
+---
+2015/04/06 16:36:25 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('caseBudget/dele...')
+#9 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseBudget/delete/2
+HTTP_REFERER=http://team.seastarchildren.org/childcase/update/3?flag=economic
+---
+2015/04/06 16:37:57 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(HUser), '???????????????...')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('caseBudget/dele...')
+#9 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/caseBudget/delete/2
+HTTP_REFERER=http://team.seastarchildren.org/childcase/update/3?flag=economic
+---
+2015/04/06 16:41:43 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/04/06 16:41:45 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/04/06 16:42:16 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/04/06 16:42:17 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (202)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/04/06 16:43:16 [error] [exception.CDbException] exception 'CDbException' with message 'Table "tb_medical_info" 没有名为 "file_id" 的栏位.' in /home/seastarc/public_html/team.seastarchildren.org/framework/db/schema/CDbCommandBuilder.php:591
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/db/ar/CActiveRecord.php(1464): CDbCommandBuilder->createColumnCriteria(Object(CMysqlTableSchema), Array, '', Array, '`t`.')
+#1 /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/MedicalinfoController.php(86): CActiveRecord->findByAttributes(Array)
+#2 [internal function]: MedicalInfoController->actionCreate('3', 'mbg_X_Ray')
+#3 /home/seastarc/public_html/team.seastarchildren.org/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(MedicalInfoController), Array)
+#4 /home/seastarc/public_html/team.seastarchildren.org/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(MedicalInfoController), Object(ReflectionMethod), Array)
+#5 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(291): CFilterChain->run()
+#12 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(282): CController->run('create')
+#14 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('medicalInfo/cre...')
+#15 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/medicalInfo/create/3?type=mbg_X_Ray
+HTTP_REFERER=http://team.seastarchildren.org/childcase/update/3?flag=chris
+---
+2015/04/09 14:08:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/OrgController.php:271
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/OrgController.php(137): OrgController->loadModel('10')
+#1 [internal function]: OrgController->actionDelete('10')
+#2 /home/seastarc/public_html/team.seastarchildren.org/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(OrgController), Array)
+#3 /home/seastarc/public_html/team.seastarchildren.org/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(OrgController), Object(ReflectionMethod), Array)
+#4 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(282): CController->run('delete')
+#13 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('org/delete')
+#14 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#16 {main}
+REQUEST_URI=/org/delete/10
+HTTP_REFERER=http://team.seastarchildren.org/org/index
+---
+2015/04/09 14:08:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/OrgController.php:271
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/OrgController.php(106): OrgController->loadModel('10')
+#1 [internal function]: OrgController->actionUpdate('10')
+#2 /home/seastarc/public_html/team.seastarchildren.org/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(OrgController), Array)
+#3 /home/seastarc/public_html/team.seastarchildren.org/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(OrgController), Object(ReflectionMethod), Array)
+#4 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/seastarc/public_html/team.seastarchildren.org/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('org/update')
+#14 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#16 {main}
+REQUEST_URI=/org/update/10
+HTTP_REFERER=http://team.seastarchildren.org/org/index
+---
+2015/05/09 09:49:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://team.seastarchildren.org/site/login
+---
+2015/05/12 00:15:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://team.seastarchildren.org/childcase/index
+---
+2015/05/13 16:21:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://team.seastarchildren.org/childcase/index
+---
+2015/05/15 17:27:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://team.seastarchildren.org/site/login
+---
+2015/05/18 20:34:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://team.seastarchildren.org/childcase/index
+---
+2015/05/21 09:28:24 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/21 09:28:28 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/21 09:28:39 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/21 09:29:17 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/21 22:45:06 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/21 22:45:18 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/21 22:45:27 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/21 22:45:44 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/21 22:45:45 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (67)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 21:55:42 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:00:47 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:00:51 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:00:55 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:01:01 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:01:02 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:01:09 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:01:21 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:01:22 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:01:25 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:01:26 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (67)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:01:33 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:01:35 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:01:37 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:01:42 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:01:44 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:01:47 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:01:52 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (167)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (60)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:01:53 [warning] [application] Failed to set unsafe attribute "return" of "CaseFamily".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasefamilyController.php (67)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:06 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:06 [warning] [application] Failed to set unsafe attribute "type_read" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:06 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:12 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:12 [warning] [application] Failed to set unsafe attribute "type_read" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:12 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:13 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:13 [warning] [application] Failed to set unsafe attribute "type_read" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:13 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:24 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:24 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:45 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:45 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:48 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:48 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:49 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:08:49 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:09:07 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:09:07 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:09:48 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:09:48 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:09:53 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:09:53 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:09:53 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/22 22:09:53 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (72)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/24 02:09:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://team.seastarchildren.org/site/login
+---
+2015/05/28 11:57:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/seastarc/public_html/team.seastarchildren.org/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/seastarc/public_html/team.seastarchildren.org/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /home/seastarc/public_html/team.seastarchildren.org/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://team.seastarchildren.org/childcase/index
+---
+2015/05/28 12:03:27 [warning] [application] Failed to set unsafe attribute "note" of "OrgContact".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/OrgcontactController.php (94)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/28 12:50:49 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/28 12:50:49 [warning] [application] Failed to set unsafe attribute "last_date" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
+2015/05/28 12:51:35 [warning] [application] Failed to set unsafe attribute "type" of "CaseBudget".
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (205)
+in /home/seastarc/public_html/team.seastarchildren.org/protected/controllers/CasebudgetController.php (68)
+in /home/seastarc/public_html/team.seastarchildren.org/index.php (16)
