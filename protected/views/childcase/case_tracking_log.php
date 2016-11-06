@@ -1,9 +1,10 @@
 <?php
 $this->breadcrumbs=array(
-	'Case'=>array('index'),
-	'Update Case Basic Info',
+	'案例'=>array('index'),
+	$model->name=>array('view','id'=>$model->id),
+	'Case Tracking'=>array('casetracking','id'=>$model->id),
+	'Case Tracking Log',
 );
-
 $this->menu=array(
 	array('label'=>'基本信息'),
 	array('label'=>'患儿基本信息','url'=>array('update','id'=>$model->id,'flag'=>'child'),'active'=>$flag == 'child'),
@@ -25,6 +26,48 @@ $this->menu=array(
 );
 ?>
 <div class="page-header">
-<h1>案例基本信息/更新</h1>
+<h1>Case Tracking - <?php echo $caseTracking->getStep($sid);?></h1>
 </div>
-<?php echo $this->renderPartial('_simple_form', array('model'=>$model,'users'=>$users,'orgs'=>$orgs)); ?>
+<div id="log_list" style="margin-bottom:30px;">
+<h4>每周更新</h4>
+<ul>
+<?php if(isset($trackinglogs)){
+	foreach ($trackinglogs as $key => $log) {?>
+	<li>【<?php echo substr($log->log_time,0,10);?>】 <?php echo $log->log_content;?></li>
+<?php	}}?>
+</ul>
+</div>
+<h4>添加记录</h4>
+<hr>
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+	'id'=>'case-track',
+	'type'=>'horizontal',
+	'enableAjaxValidation'=>false,
+)); ?>
+
+<?php echo $form->errorSummary($log); ?>
+	<?php echo $form->textFieldRow($log,'log_time',array('class'=>'span5 datetime')); ?>
+
+	<?php echo $form->textAreaRow($log,'log_content',array('rows'=>6, 'cols'=>50, 'class'=>'span5')); ?>
+	
+	
+	<div class="form-actions">
+		<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType'=>'submit',
+			'type'=>'primary',
+			'label'=>$model->isNewRecord ? '创建' : '保存',
+		)); ?>	
+	</div>
+<?php $this->endWidget(); ?>
+
+<?php
+    $baseUrl = Yii::app()->baseUrl;
+    $cs = Yii::app()->getClientScript();
+    $cs->registerCssFile($baseUrl."/js/vendor/datepicker/datepicker.css");
+    $cs->registerScriptFile($baseUrl."/js/vendor/datepicker/bootstrap-datepicker.js");
+    $cs->registerScript('datetime', "
+    	$('.datetime').datepicker({
+    		format:'yyyy-mm-dd'
+    	});
+		", CClientScript::POS_END);
+?>

@@ -34,7 +34,7 @@ class ChildcaseController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','updatecase','delete','submit','check'),
+				'actions'=>array('create','update','updatecase','delete','submit','check','casetracking','casetrackinglog'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -197,6 +197,7 @@ class ChildcaseController extends Controller
 
 	public function actionUpdateCase($id)
 	{
+		$this->layout = "//layouts/column2";
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -228,7 +229,73 @@ class ChildcaseController extends Controller
 		$this->render('update_case',array(
 			'model'=>$model,
 			'users'=>User::model()->findAll(),
-			'orgs'=>$orgs
+			'orgs'=>$orgs,
+			'flag'=>'case',
+		));
+	}
+
+
+	public function actionCaseTracking($id)
+	{
+		$this->layout = "//layouts/column2";
+		$model=$this->loadModel($id);
+		$caseTracking = CaseTracking::model()->findByAttributes(array('case_id'=>$id));
+		if(count($caseTracking) == 0){
+			$caseTracking = new CaseTracking;
+			$caseTracking->case_id = $id;
+			$caseTracking->save();
+		}
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+		$model->scenario = 'casetracking';
+
+		if(isset($_POST['CaseTracking']))
+		{
+			$caseTracking->attributes=$_POST['CaseTracking'];
+			if($caseTracking->save())
+				$this->redirect(array('casetracking','id'=>$model->id));
+		}
+
+		$this->render('case_tracking',array(
+			'model'=>$model,
+			'caseTracking'=>$caseTracking,
+			'flag'=>'tracking'
+		));
+	}
+
+	public function actionCaseTrackingLog($mid,$tid,$sid)
+	{
+		$this->layout = "//layouts/column2";
+		$model=$this->loadModel($mid);
+		$caseTracking = CaseTracking::model()->findByPk($tid);
+		
+		$model->scenario = 'casetracking';
+
+		$trackinglogs = CaseTrackingLog::model()->findAll(array(
+				'select' =>array('log_time,id,log_content'),
+	  		'order' => 'id DESC',
+				'condition' => 'tracking_id = :tid AND step = :sid',
+				'params' => array(':tid'=>$tid,':sid'=>$sid),
+		));
+
+		$log = new CaseTrackingLog;
+
+		if(isset($_POST['CaseTrackingLog']))
+		{
+			$log->attributes=$_POST['CaseTrackingLog'];
+			$log->tracking_id = $tid;
+			$log->step = $sid;
+			if($log->save())
+				$this->redirect(array('casetrackingLog','mid'=>$mid,'tid'=>$tid,'sid'=>$sid));
+		}
+
+		$this->render('case_tracking_log',array(
+			'model'=>$model,
+			'caseTracking'=>$caseTracking,
+			'trackinglogs'=>$trackinglogs,
+			'sid'=>$sid,
+			'log'=>$log,
+			'flag'=>'tracking'
 		));
 	}
 

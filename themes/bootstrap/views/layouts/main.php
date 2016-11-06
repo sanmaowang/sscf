@@ -18,6 +18,7 @@
         <ul class="nav">
           <li<?php if ($this->code == 'Childcase') echo ' class="active"'; ?>><a href="<?php echo $this->createUrl('childcase/index'); ?>">案例</a></li>
           <?php if(Yii::app()->user->isAdmin()):?>
+          <li<?php if ($this->code == 'Conference') echo ' class="active"'; ?>><a href="<?php echo $this->createUrl('conference/index'); ?>">会议</a></li>
           <li<?php if ($this->code == 'User') echo ' class="active"'; ?>><a href="<?php echo $this->createUrl('user/admin'); ?>">海星团队</a></li>
           <li<?php if ($this->code == 'Donor') echo ' class="active"'; ?>><a href="<?php echo $this->createUrl('donor/index'); ?>">捐赠者</a></li>
           <li<?php if ($this->code == 'Org') echo ' class="active"'; ?>><a href="<?php echo $this->createUrl('org/index'); ?>">合作机构</a></li>

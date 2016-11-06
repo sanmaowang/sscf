@@ -22,6 +22,7 @@ $this->menu=array(
 	array('label'=>'申请表','url'=>array('update','id'=>$model->id,'flag'=>'appfiles'),'active'=>$flag == 'appfiles'),
 	array('label'=>'Case管理信息'),
 	array('label'=>'案例负责人及状态变更','url'=>array('updatecase','id'=>$model->id,'flag'=>'case'),'active'=>$flag == 'case'),
+	array('label'=>'Case Tracking','url'=>array('casetracking','id'=>$model->id,'flag'=>'tracking'),'active'=>$flag == 'tracking'),
 );
 $template = 'memo/'.$flag;
 $data = array('model'=>$model);
