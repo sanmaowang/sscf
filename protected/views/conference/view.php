@@ -19,7 +19,9 @@ $this->menu=array(
 <div class="control-group">
 	<h4 for="" class="control-label">纪要</h4>
 	<div class="controls">
+		<pre>
 		<?php echo $model->summary;?>
+		</pre>
 	</div>
 </div>
 	<hr>

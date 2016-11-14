@@ -80,7 +80,7 @@ class ConferenceController extends Controller
 							$attendance = new ConferenceAttendance;
 							$attendance->conference_id = $model->id;
 							$attendance->user_id = $u;
-							$attendance->attendance_status = 1;
+							$attendance->attendance_status = 0;
 							$attendance->save();
 					}
 				}

@@ -14,8 +14,9 @@ $this->menu=array(
 );
 ?>
 <div class="page-header">
-<h1>会议纪要</h1>
+	<h1>会议纪要</h1>
 </div>
+
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'conference-form',
 	'enableAjaxValidation'=>false,
@@ -61,7 +62,7 @@ $this->menu=array(
     $baseUrl = Yii::app()->baseUrl;
     $cs = Yii::app()->getClientScript();
     $cs->registerCss('attach',"
-			.label{
+			.controls .label{
 				margin:5px;
 				padding:6px;
 			}

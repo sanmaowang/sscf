@@ -43,6 +43,7 @@ $('.search-form form').submit(function(){
 		<td><?php echo $m->getName();?></td>
 		<td width="30%">
 			<a href="<?php echo $this->createUrl('record',array('id'=>$m->id));?>" class="btn">修改记录</a>	
+			<a href="<?php echo $this->createUrl('view',array('id'=>$m->id));?>" class="btn">查看记录</a>	
 		</td>
 		<td width='20'>
 			<a href="<?php echo $this->createUrl('delete',array('id'=>$m->id));?>" class="text-right"><i class="icon-trash text-right"></i></a>
